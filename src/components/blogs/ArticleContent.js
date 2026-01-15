@@ -42,8 +42,8 @@ export default function ArticleContent({ article }) {
 
       {/* Article Content */}
       <div 
-        className="prose prose-lg max-w-none"
-        dangerouslySetInnerHTML={{ __html: article.content }}
+      className="prose prose-lg prose-headings:font-bold prose-h1:text-4xl prose-h2:text-3xl prose-h2:mt-8 prose-h3:text-2xl prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-blue-600 max-w-none"
+      dangerouslySetInnerHTML={{ __html: article.content }}
       />
 
       {/* Sources */}
