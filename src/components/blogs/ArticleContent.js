@@ -42,8 +42,8 @@ export default function ArticleContent({ article }) {
 
       {/* Article Content */}
       <div 
-      className="prose prose-lg prose-headings:font-bold prose-h1:text-4xl prose-h2:text-3xl prose-h2:mt-8 prose-h3:text-2xl prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-blue-600 max-w-none"
-      dangerouslySetInnerHTML={{ __html: article.content }}
+        className="article-body"
+        dangerouslySetInnerHTML={{ __html: article.content }}
       />
 
       {/* Sources */}
@@ -66,6 +66,50 @@ export default function ArticleContent({ article }) {
           </ul>
         </div>
       )}
+
+      <style jsx>{`
+        .article-body :global(h1) {
+          font-size: 2.5rem;
+          font-weight: 700;
+          margin-top: 2rem;
+          margin-bottom: 1rem;
+          color: #111827;
+        }
+        .article-body :global(h2) {
+          font-size: 2rem;
+          font-weight: 700;
+          margin-top: 2rem;
+          margin-bottom: 1rem;
+          color: #111827;
+        }
+        .article-body :global(h3) {
+          font-size: 1.5rem;
+          font-weight: 600;
+          margin-top: 1.5rem;
+          margin-bottom: 0.75rem;
+          color: #111827;
+        }
+        .article-body :global(p) {
+          font-size: 1.125rem;
+          line-height: 1.75;
+          margin-bottom: 1.25rem;
+          color: #374151;
+        }
+        .article-body :global(a) {
+          color: #2563eb;
+          text-decoration: underline;
+        }
+        .article-body :global(hr) {
+          margin: 2rem 0;
+          border-color: #e5e7eb;
+        }
+        .article-body :global(strong) {
+          font-weight: 700;
+        }
+        .article-body :global(em) {
+          font-style: italic;
+        }
+      `}</style>
     </article>
   );
 }
