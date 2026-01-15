@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Hero() {
   return (
     <section 
@@ -18,12 +20,20 @@ export default function Hero() {
         <p className="text-xl mb-8">
           Data-driven insights for international teachers making career decisions
         </p>
-        <a 
-          href="https://schooltransparency.com/blog/" 
-          className="inline-block px-10 py-5 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-lg text-xl"
-        >
-          Read the Blog
-        </a>
+        <div className="flex gap-4 justify-center">
+          <Link
+            href="/blog"
+            className="inline-block px-10 py-5 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-lg text-xl"
+          >
+            Read the Blog
+          </Link>
+          <Link
+            href="/cities"
+            className="inline-block px-10 py-5 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 hover:scale-105 transition-all duration-300 shadow-lg text-xl"
+          >
+            Explore Cities
+          </Link>
+        </div>
       </div>
     </section>
   );
