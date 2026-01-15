@@ -1,0 +1,74 @@
+{
+  "cities": [
+    {
+      "id": "dubai",
+      "name": "Dubai",
+      "country": "United Arab Emirates",
+      "slug": "dubai",
+      "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800",
+      "stats": {
+        "avgSalary": "$45,000 - $65,000",
+        "costOfLiving": "High",
+        "schoolCount": 247,
+        "sentiment": "Positive"
+      },
+      "featured": true
+    },
+    {
+      "id": "bangkok",
+      "name": "Bangkok",
+      "country": "Thailand",
+      "slug": "bangkok",
+      "image": "https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=800",
+      "stats": {
+        "avgSalary": "$25,000 - $40,000",
+        "costOfLiving": "Low",
+        "schoolCount": 186,
+        "sentiment": "Very Positive"
+      },
+      "comingSoon": true
+    },
+    {
+      "id": "singapore",
+      "name": "Singapore",
+      "country": "Singapore",
+      "slug": "singapore",
+      "image": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800",
+      "stats": {
+        "avgSalary": "$50,000 - $80,000",
+        "costOfLiving": "Very High",
+        "schoolCount": 89,
+        "sentiment": "Positive"
+      },
+      "comingSoon": true
+    },
+    {
+      "id": "istanbul",
+      "name": "Istanbul",
+      "country": "Turkey",
+      "slug": "istanbul",
+      "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800",
+      "stats": {
+        "avgSalary": "$18,000 - $30,000",
+        "costOfLiving": "Medium",
+        "schoolCount": 142,
+        "sentiment": "Mixed"
+      },
+      "comingSoon": true
+    },
+    {
+      "id": "barcelona",
+      "name": "Barcelona",
+      "country": "Spain",
+      "slug": "barcelona",
+      "image": "https://images.unsplash.com/photo-1583422409516-2895a77efded?w=800",
+      "stats": {
+        "avgSalary": "$30,000 - $45,000",
+        "costOfLiving": "Medium-High",
+        "schoolCount": 94,
+        "sentiment": "Very Positive"
+      },
+      "comingSoon": true
+    }
+  ]
+}
