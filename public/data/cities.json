@@ -12,7 +12,7 @@
         "schoolCount": 247,
         "sentiment": "Positive"
       },
-      "featured": true
+      "comingSoon": true
     },
     {
       "id": "bangkok",
@@ -39,6 +39,20 @@
         "costOfLiving": "Very High",
         "schoolCount": 89,
         "sentiment": "Positive"
+      },
+      "comingSoon": true
+    },
+    {
+      "id": "ho-chi-minh-city",
+      "name": "Ho Chi Minh City",
+      "country": "Vietnam",
+      "slug": "ho-chi-minh-city",
+      "image": "https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800",
+      "stats": {
+        "avgSalary": "$20,000 - $35,000",
+        "costOfLiving": "Low",
+        "schoolCount": 124,
+        "sentiment": "Very Positive"
       },
       "comingSoon": true
     },
