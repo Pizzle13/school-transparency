@@ -6,9 +6,7 @@ export default function CityCard({ city }) {
 
   // Handle both old JSON format (city.stats) and new Supabase format (flat)
   const avgSalary = city.stats?.avgSalary || (city.hero_image_url ? 'Loading...' : 'N/A');
-  const costOfLiving = city.stats?.costOfLiving || 'N/A';
   const schoolCount = city.stats?.schoolCount || 'N/A';
-  const sentiment = city.stats?.sentiment || 'N/A';
   const image = city.image || city.hero_image_url || '/images/cities/placeholder.jpg';
 
   return (
@@ -35,23 +33,15 @@ export default function CityCard({ city }) {
           <h3 className="text-2xl font-bold text-white mb-1">{city.name}</h3>
           <p className="text-slate-300 mb-4">{city.country}</p>
 
-          {/* Stats Grid */}
+          {/* Stats Grid - Only showing what we have */}
           <div className="grid grid-cols-2 gap-3">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-blue-400/20">
               <p className="text-slate-300 text-xs mb-1">Avg Salary</p>
               <p className="text-white font-semibold text-sm">{avgSalary}</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-blue-400/20">
-              <p className="text-slate-300 text-xs mb-1">Cost of Living</p>
-              <p className="text-white font-semibold text-sm">{costOfLiving}</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-blue-400/20">
               <p className="text-slate-300 text-xs mb-1">Schools</p>
               <p className="text-white font-semibold text-sm">{schoolCount}</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-blue-400/20">
-              <p className="text-slate-300 text-xs mb-1">Sentiment</p>
-              <p className="text-white font-semibold text-sm">{sentiment}</p>
             </div>
           </div>
         </div>
