@@ -1,27 +1,44 @@
-'use client';
-
-import { useState, useEffect } from 'react';
+import { supabase } from '../../lib/supabase';
 import Link from 'next/link';
-import CityCard from '../../components/cities/CityCard';
+import CitySearch from '../../components/cities/CitySearch';
 
-export default function CitiesPage() {
-  const [cities, setCities] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+async function getCities() {
+  const { data: cities, error } = await supabase
+    .from('cities')
+    .select(`
+      *,
+      salary_data(avg_salary),
+      schools(id)
+    `)
+    .order('name');
 
-  useEffect(() => {
-    fetch('/data/cities.json')
-      .then(res => res.json())
-      .then(data => setCities(data.cities));
-  }, []);
+  if (error) {
+    console.error('Error fetching cities:', error);
+    return [];
+  }
 
-  const filteredCities = cities.filter(city =>
-    city.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    city.country.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Transform to match CityCard expectations
+  const transformedCities = cities.map(city => ({
+    ...city,
+    image: city.hero_image_url,
+    stats: {
+      avgSalary: city.salary_data?.[0]?.avg_salary 
+        ? `$${city.salary_data[0].avg_salary.toLocaleString()}`
+        : 'N/A',
+      costOfLiving: 'N/A',
+      schoolCount: city.schools?.length || 0,
+      sentiment: 'N/A'
+    }
+  }));
+
+    return transformedCities;
+}
+
+export default async function CitiesPage() {
+  const cities = await getCities();
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
       <header className="border-b border-slate-200 bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex justify-between items-center">
@@ -36,36 +53,7 @@ export default function CitiesPage() {
         </div>
       </header>
 
-      {/* Search Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search cities or countries..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full px-6 py-4 bg-white border-2 border-blue-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-          />
-          <svg className="absolute right-4 top-4 w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </div>
-      </div>
-
-      {/* City Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCities.map((city) => (
-            <CityCard key={city.id} city={city} />
-          ))}
-        </div>
-
-        {filteredCities.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-slate-600 text-lg">No cities found matching "{searchTerm}"</p>
-          </div>
-        )}
-      </div>
+      <CitySearch cities={cities} />
     </div>
   );
 }
