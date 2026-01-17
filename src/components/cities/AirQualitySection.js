@@ -16,20 +16,30 @@ export default function AirQualitySection({ data, cityName }) {
   };
 
   return (
-    <section className="py-16 bg-slate-50">
+    <section className="py-24 bg-orange-50">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-slate-800 mb-8">
-          Air Quality in {cityName}
-        </h2>
         
-        <div className="bg-white rounded-2xl p-6 shadow-lg">
+        {/* Section Header - Bold Retroverse Style */}
+        <div className="mb-16">
+          <div className="inline-block mb-4">
+            <span className="px-4 py-2 bg-orange-100 text-orange-600 text-xs uppercase tracking-widest font-medium">
+              Environmental Data
+            </span>
+          </div>
+          <h2 className="text-6xl md:text-7xl font-black mb-6 text-stone-900">
+            Air Quality in {cityName}
+          </h2>
+        </div>
+        
+        {/* Monthly AQI Grid */}
+        <div className="bg-white rounded-2xl p-8 border border-stone-200">
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {sortedData.map((month) => (
-              <div key={month.month} className="text-center p-4 bg-slate-50 rounded-lg">
-                <div className="text-sm font-semibold text-slate-600 mb-2">
+              <div key={month.month} className="text-center p-4 bg-stone-50 rounded-lg border border-stone-200">
+                <div className="text-sm font-semibold text-stone-600 mb-2">
                   {month.month}
                 </div>
-                <div className="text-2xl font-bold text-slate-800 mb-2">
+                <div className="text-2xl font-bold text-stone-900 mb-2">
                   {month.aqi}
                 </div>
                 <div className={`text-xs px-2 py-1 rounded-full text-white ${getStatusColor(month.status)}`}>
@@ -39,22 +49,23 @@ export default function AirQualitySection({ data, cityName }) {
             ))}
           </div>
           
-          <div className="mt-6 text-sm text-slate-600">
-            <p className="font-semibold mb-2">AQI Scale:</p>
-            <div className="flex flex-wrap gap-3">
-              <span className="flex items-center gap-2">
+          {/* AQI Scale Legend */}
+          <div className="mt-8 pt-6 border-t border-stone-200">
+            <p className="text-sm font-bold text-stone-900 mb-3 uppercase tracking-wider">AQI Scale:</p>
+            <div className="flex flex-wrap gap-4">
+              <span className="flex items-center gap-2 text-sm text-stone-600">
                 <div className="w-4 h-4 bg-green-500 rounded"></div>
                 0-50 Good
               </span>
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2 text-sm text-stone-600">
                 <div className="w-4 h-4 bg-yellow-500 rounded"></div>
                 51-100 Moderate
               </span>
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2 text-sm text-stone-600">
                 <div className="w-4 h-4 bg-orange-500 rounded"></div>
                 101-150 Unhealthy for Sensitive
               </span>
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2 text-sm text-stone-600">
                 <div className="w-4 h-4 bg-red-500 rounded"></div>
                 151+ Unhealthy
               </span>
