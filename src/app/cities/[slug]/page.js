@@ -5,6 +5,11 @@ import SchoolSection from '../../../components/cities/SchoolSection';
 import AirQualitySection from '../../../components/cities/AirQualitySection';
 import SalaryAnalysis from '../../../components/cities/SalaryAnalysis';
 import HousingResources from '../../../components/cities/HousingResources';
+import EssentialAppsSection from '../../../components/cities/EssentialAppsSection';
+import HealthcareSection from '../../../components/cities/HealthcareSection';
+import PetImportSection from '../../../components/cities/PetImportSection';
+import RecentNewsSection from '../../../components/cities/RecentNewsSection';
+import LocalIntelSection from '../../../components/cities/LocalIntelSection';
 
 async function getCityData(slug) {
   const { data: city, error } = await supabase
@@ -16,7 +21,12 @@ async function getCityData(slug) {
       housing_areas(*),
       housing_websites(*),
       schools(*),
-      air_quality(*)
+      air_quality(*),
+      city_apps(*),
+      hospitals(*),
+      pet_import(*),
+      city_news(*),
+      local_intel_data(*)
     `)
     .eq('slug', slug)
     .single();
@@ -67,6 +77,11 @@ export default async function CityPage({ params }) {
       <SchoolSection schools={city.schools} cityName={city.name} />
       <AirQualitySection data={city.air_quality} cityName={city.name} />
       <HousingResources areas={city.housing_areas} websites={city.housing_websites} cityName={city.name} />
+      <EssentialAppsSection apps={city.city_apps} />
+      <HealthcareSection hospitals={city.hospitals} emergencyNumbers={city.emergency_numbers} />
+      <PetImportSection petImport={city.pet_import?.[0]} />
+      <RecentNewsSection news={city.city_news} />
+      <LocalIntelSection intelData={city.local_intel_data} cityName={city.name} />
     </div>
   );
 }

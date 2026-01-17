@@ -18,20 +18,23 @@ async function getCities() {
   }
 
   // Transform to match CityCard expectations
-  const transformedCities = cities.map(city => ({
-    ...city,
-    image: city.hero_image_url,
-    stats: {
-      avgSalary: city.salary_data?.[0]?.avg_salary 
-        ? `$${city.salary_data[0].avg_salary.toLocaleString()}`
-        : 'N/A',
-      costOfLiving: 'N/A',
-      schoolCount: city.schools?.length || 0,
-      sentiment: 'N/A'
-    }
-  }));
+  const transformedCities = cities.map(city => {
+    const schoolCount = Array.isArray(city.schools) ? city.schools.length : 0;
+    const avgSalary = city.salary_data?.[0]?.avg_salary;
 
-    return transformedCities;
+    return {
+      ...city,
+      image: city.hero_image_url,
+      stats: {
+        avgSalary: avgSalary ? `$${Math.round(avgSalary).toLocaleString()}` : 'N/A',
+        costOfLiving: 'N/A',
+        schoolCount: schoolCount,
+        sentiment: 'N/A'
+      }
+    };
+  });
+
+  return transformedCities;
 }
 
 export default async function CitiesPage() {
