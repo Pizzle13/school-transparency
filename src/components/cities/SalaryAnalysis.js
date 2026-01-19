@@ -1,14 +1,7 @@
+'use client'
+
 export default function SalaryAnalysis({ data, economic }) {
   if (!data) return null;
-
-  const salaryRanges = [
-    { level: 'Entry', amount: data.entry_level, years: '0-2 years' },
-    { level: 'Mid', amount: data.mid_level, years: '3-7 years' },
-    { level: 'Senior', amount: data.senior_level, years: '8+ years' }
-  ];
-
-  // Calculate percentages for visual bars
-  const maxSalary = Math.max(data.entry_level || 0, data.mid_level || 0, data.senior_level || 0);
 
   return (
     <section className="py-24 bg-stone-50">
@@ -25,40 +18,74 @@ export default function SalaryAnalysis({ data, economic }) {
             What You'll<br/>Actually Make
           </h2>
           <p className="text-xl text-stone-600 max-w-2xl">
-            Real salary ranges for international teachers. Based on {data.sample_size || 'actual'} teacher reports.
+            Financial snapshot for international teachers in this city.
           </p>
         </div>
 
-        {/* Salary Bars - Visual & Bold */}
-        <div className="space-y-8 mb-20">
-          {salaryRanges.map((range, index) => {
-            if (!range.amount) return null;
-            const percentage = (range.amount / maxSalary) * 100;
-            
-            return (
-              <div key={index} className="group">
-                {/* Label Row */}
-                <div className="flex justify-between items-baseline mb-3">
-                  <div>
-                    <span className="text-2xl font-bold text-stone-900">{range.level} Level</span>
-                    <span className="ml-4 text-stone-400 text-sm">{range.years}</span>
-                  </div>
-                  <span className="text-4xl font-black tabular-nums text-stone-900">
-                    ${range.amount.toLocaleString()}
-                  </span>
-                </div>
-                
-                {/* Visual Bar - Orange accent */}
-                <div className="h-3 bg-stone-200 relative overflow-hidden">
-                  <div 
-                    className="h-full bg-orange-500 transition-all duration-1000 ease-out"
-                    style={{ width: `${percentage}%` }}
-                  />
-                </div>
-              </div>
-            );
-          })}
+        {/* Financial Overview Cards */}
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
+          
+          {/* Average Salary */}
+          <div className="bg-white p-8 border-4 border-stone-900">
+            <div className="text-stone-400 text-sm uppercase tracking-widest mb-3">
+              Average Salary
+            </div>
+            <div className="text-6xl font-black tabular-nums text-stone-900 mb-2">
+              ${data.avg_salary?.toLocaleString() || 'N/A'}
+            </div>
+            <p className="text-stone-600 text-sm">per month</p>
+          </div>
+
+          {/* Monthly Living Cost */}
+          <div className="bg-orange-50 p-8 border-4 border-orange-500">
+            <div className="text-orange-600 text-sm uppercase tracking-widest mb-3">
+              Living Costs
+            </div>
+            <div className="text-6xl font-black tabular-nums text-stone-900 mb-2">
+              ${data.monthly_cost?.toLocaleString() || 'N/A'}
+            </div>
+            <p className="text-stone-600 text-sm">per month</p>
+          </div>
+
+          {/* Monthly Savings */}
+          <div className="bg-green-50 p-8 border-4 border-green-600">
+            <div className="text-green-600 text-sm uppercase tracking-widest mb-3">
+              Potential Savings
+            </div>
+            <div className="text-6xl font-black tabular-nums text-stone-900 mb-2">
+              ${data.monthly_savings?.toLocaleString() || 'N/A'}
+            </div>
+            <p className="text-stone-600 text-sm">per month</p>
+          </div>
+
         </div>
+
+        {/* Savings Visual Bar */}
+        {data.avg_salary && data.monthly_cost && (
+          <div className="mb-20">
+            <div className="text-stone-400 text-sm uppercase tracking-widest mb-4">
+              Income Breakdown
+            </div>
+            <div className="h-16 bg-stone-200 flex overflow-hidden">
+              <div 
+                className="bg-orange-500 flex items-center justify-center text-white font-bold"
+                style={{ width: `${(data.monthly_cost / data.avg_salary) * 100}%` }}
+              >
+                Living Costs
+              </div>
+              <div 
+                className="bg-green-600 flex items-center justify-center text-white font-bold"
+                style={{ width: `${(data.monthly_savings / data.avg_salary) * 100}%` }}
+              >
+                Savings
+              </div>
+            </div>
+            <div className="flex justify-between mt-2 text-sm text-stone-600">
+              <span>{((data.monthly_cost / data.avg_salary) * 100).toFixed(0)}% expenses</span>
+              <span>{((data.monthly_savings / data.avg_salary) * 100).toFixed(0)}% savings</span>
+            </div>
+          </div>
+        )}
 
         {/* Economic Context - Side by Side */}
         {economic && (
@@ -71,15 +98,15 @@ export default function SalaryAnalysis({ data, economic }) {
               </div>
               <div className="flex items-baseline gap-4">
                 <span className={`text-6xl font-black tabular-nums ${
-                  economic.gdp_growth > 0 ? 'text-green-600' : 'text-red-600'
+                  economic.gdp_latest > 0 ? 'text-green-600' : 'text-red-600'
                 }`}>
-                  {economic.gdp_growth > 0 ? '+' : ''}{economic.gdp_growth}%
+                  {economic.gdp_latest > 0 ? '+' : ''}{economic.gdp_latest}%
                 </span>
                 <span className="text-stone-600">GDP Growth</span>
               </div>
               <p className="mt-3 text-stone-600 text-sm">
-                {economic.gdp_growth > 3 ? '🟢 Strong growth - schools hiring' : 
-                 economic.gdp_growth > 0 ? '🟡 Moderate growth - stable jobs' : 
+                {economic.gdp_latest > 3 ? '🟢 Strong growth - schools hiring' : 
+                 economic.gdp_latest > 0 ? '🟡 Moderate growth - stable jobs' : 
                  '🔴 Economic contraction - caution'}
               </p>
             </div>
@@ -91,16 +118,16 @@ export default function SalaryAnalysis({ data, economic }) {
               </div>
               <div className="flex items-baseline gap-4">
                 <span className={`text-6xl font-black tabular-nums ${
-                  economic.inflation < 5 ? 'text-green-600' : 
-                  economic.inflation < 10 ? 'text-yellow-600' : 'text-red-600'
+                  economic.inflation_latest < 5 ? 'text-green-600' : 
+                  economic.inflation_latest < 10 ? 'text-yellow-600' : 'text-red-600'
                 }`}>
-                  {economic.inflation}%
+                  {economic.inflation_latest}%
                 </span>
                 <span className="text-stone-600">Inflation</span>
               </div>
               <p className="mt-3 text-stone-600 text-sm">
-                {economic.inflation < 5 ? '🟢 Low inflation - your salary keeps value' : 
-                 economic.inflation < 10 ? '🟡 Moderate - negotiate annual raises' : 
+                {economic.inflation_latest < 5 ? '🟢 Low inflation - your salary keeps value' : 
+                 economic.inflation_latest < 10 ? '🟡 Moderate - negotiate annual raises' : 
                  '🔴 High inflation - purchasing power eroding'}
               </p>
             </div>
