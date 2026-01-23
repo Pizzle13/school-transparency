@@ -11,6 +11,8 @@ import PetImportSection from '../../../components/cities/PetImportSection';
 import RecentNewsSection from '../../../components/cities/RecentNewsSection';
 import LocalIntelSection from '../../../components/cities/LocalIntelSection';
 
+export const revalidate = 0;
+
 async function getCityData(slug) {
   const { data: city, error } = await supabase
     .from('cities')
