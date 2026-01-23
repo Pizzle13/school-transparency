@@ -94,11 +94,11 @@ export default function SchoolSection({ schools, cityName }) {
                 <div className="space-y-3 mb-4">
                   <div className="flex items-center gap-2 text-sm text-stone-700">
                     <span className="text-xl">👥</span>
-                    <span className="font-medium">{school.studentCount} students</span>
+                    <span className="font-medium">{school.student_count} students</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <span className="text-xl">💰</span>
-                    <span className="font-bold text-orange-600 text-base">{school.salaryRange}</span>
+                    <span className="font-bold text-green-600 text-base">{school.salary_range}</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-stone-700">
                     <span className="text-xl">💬</span>
