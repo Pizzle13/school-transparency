@@ -34,57 +34,47 @@ export default function SchoolDetailModal({ school, onClose }) {
             <div className="bg-blue-50 rounded-xl p-4">
               <div className="text-2xl mb-1">👥</div>
               <div className="text-sm text-slate-600">Students</div>
-              <div className="text-xl font-bold text-blue-700">{school.studentCount}</div>
+              <div className="text-xl font-bold text-blue-700">{school.student_count || 'N/A'}</div>
             </div>
             <div className="bg-green-50 rounded-xl p-4">
               <div className="text-2xl mb-1">💰</div>
               <div className="text-sm text-slate-600">Salary Range</div>
-              <div className="text-xl font-bold text-green-700">{school.salaryRange}</div>
+              <div className="text-xl font-bold text-green-700">{school.salary_range || 'N/A'}</div>
             </div>
             <div className="bg-orange-50 rounded-xl p-4">
               <div className="text-2xl mb-1">⭐</div>
               <div className="text-sm text-slate-600">Community Rating</div>
-              <div className="text-xl font-bold text-orange-700">{school.communityRating}/5.0</div>
+              <div className="text-xl font-bold text-orange-700">{school.rating || 'N/A'}</div>
             </div>
           </div>
 
           {/* School Summary */}
           <div>
             <h3 className="text-xl font-bold text-slate-800 mb-3">Overview</h3>
-            <p className="text-slate-700 leading-relaxed">{school.summary}</p>
+            <p className="text-slate-700 leading-relaxed">{school.summary || 'No summary available yet.'}</p>
           </div>
 
           {/* Pros & Cons */}
           <div className="grid md:grid-cols-2 gap-6">
             {/* Pros */}
-            <div className="bg-green-50 rounded-xl p-6">
-              <h4 className="text-lg font-bold text-green-800 mb-4 flex items-center gap-2">
-                <span>✓</span> What Teachers Love
-              </h4>
-              <ul className="space-y-2">
-                {school.pros.map((pro, index) => (
-                  <li key={index} className="flex items-start gap-2 text-slate-700">
-                    <span className="text-green-600 mt-1">•</span>
-                    <span>{pro}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {school.pros && (
+              <div className="bg-green-50 rounded-xl p-6">
+                <h4 className="text-lg font-bold text-green-800 mb-4 flex items-center gap-2">
+                  <span>✓</span> What Teachers Love
+                </h4>
+                <p className="text-slate-700 leading-relaxed">{school.pros}</p>
+              </div>
+            )}
 
             {/* Cons */}
-            <div className="bg-red-50 rounded-xl p-6">
-              <h4 className="text-lg font-bold text-red-800 mb-4 flex items-center gap-2">
-                <span>⚠</span> Common Concerns
-              </h4>
-              <ul className="space-y-2">
-                {school.cons.map((con, index) => (
-                  <li key={index} className="flex items-start gap-2 text-slate-700">
-                    <span className="text-red-600 mt-1">•</span>
-                    <span>{con}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {school.cons && (
+              <div className="bg-red-50 rounded-xl p-6">
+                <h4 className="text-lg font-bold text-red-800 mb-4 flex items-center gap-2">
+                  <span>⚠</span> Common Concerns
+                </h4>
+                <p className="text-slate-700 leading-relaxed">{school.cons}</p>
+              </div>
+            )}
           </div>
 
           {/* Data Source Disclaimer */}
