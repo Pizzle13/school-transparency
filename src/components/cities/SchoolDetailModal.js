@@ -51,7 +51,7 @@ export default function SchoolDetailModal({ school, onClose }) {
           {/* School Summary */}
           <div>
             <h3 className="text-xl font-bold text-slate-800 mb-3">Overview</h3>
-            <p className="text-slate-700 leading-relaxed">{school.summary || 'No summary available yet.'}</p>
+           <p className="text-slate-700 leading-relaxed">{school.summary || 'No summary available yet.'}</p>
           </div>
 
           {/* Pros & Cons */}
