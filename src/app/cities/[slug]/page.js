@@ -55,12 +55,7 @@ export default async function CityPage({ params }) {
     );
   }
 
-  // DEBUG LOGS - Check your terminal (where you ran npm run dev)
-  console.log('=== ECONOMIC DATA DEBUG ===');
-  console.log('Raw economic_data:', city.economic_data);
-  console.log('First item:', city.economic_data?.[0]);
-  console.log('Is array?', Array.isArray(city.economic_data));
-
+  
   return (
     <div className="min-h-screen bg-white">
       <CityHero city={city} />

@@ -121,6 +121,26 @@ export default function SchoolSection({ schools, cityName }) {
           ))}
         </div>
 
+        {/* Progress Indicator */}
+        <div className="flex items-center justify-center gap-4 mt-8">
+          <div className="text-sm text-stone-600 font-medium">
+            {schools.length} schools total
+          </div>
+          <div className="flex gap-2">
+            {schools.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  const scrollContainer = document.getElementById('school-scroll');
+                  scrollContainer.scrollTo({ left: index * 400, behavior: 'smooth' });
+                }}
+                className="w-2 h-2 rounded-full bg-stone-300 hover:bg-stone-900 transition-colors"
+                aria-label={`Go to school ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
         {/* Mobile hint */}
         <div className="text-center mt-6 text-sm text-stone-400 md:hidden">
           ← Swipe to see more schools →
