@@ -10,7 +10,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1523050854058-8df90110c9d1?w=1200&q=80',
+        url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80',
         width: 1200,
         height: 630,
         alt: 'School Transparency - International Education Data Platform',

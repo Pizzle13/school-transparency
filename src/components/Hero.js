@@ -5,9 +5,9 @@ export default function Hero() {
     <>
       {/* Hero Section */}
       <section
-        className="relative min-h-screen flex items-end justify-start"
+        className="relative min-h-screen flex items-end justify-start bg-gradient-to-br from-slate-800 via-blue-900 to-indigo-900"
         style={{
-          backgroundImage: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url("https://images.unsplash.com/photo-1523050854058-8df90110c9d1?w=1920&q=80")',
+          backgroundImage: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80")',
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
