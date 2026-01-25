@@ -99,9 +99,9 @@ export default function LocalIntelSection({ intelData, cityName }) {
               {/* Horizontal Scroll Container */}
               <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide">
                 {tips.map((tip, index) => (
-                  <div 
+                  <div
                     key={tip.id}
-                    className="flex-shrink-0 w-[400px] snap-center"
+                    className="flex-shrink-0 w-[280px] sm:w-[350px] md:w-[400px] snap-center"
                   >
                     <div 
                       className={`${cardColors[index % cardColors.length]} border-4 rounded-2xl p-6 h-full hover:scale-105 hover:shadow-2xl transition-all duration-300`}

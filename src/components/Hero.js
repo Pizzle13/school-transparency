@@ -12,23 +12,23 @@ export default function Hero() {
           backgroundPosition: 'center'
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 pb-32 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-32 text-white">
           <div className="max-w-4xl">
             <div className="inline-block mb-6">
               <span className="px-4 py-2 bg-orange-500 text-orange-50 text-xs uppercase tracking-widest font-medium rounded-full">
                 Data-Driven Education Intelligence
               </span>
             </div>
-            <h1 className="text-6xl md:text-9xl font-black mb-8 leading-none">
+            <h1 className="text-4xl sm:text-6xl md:text-9xl font-black mb-8 leading-none">
               School Transparency
             </h1>
-            <p className="text-2xl md:text-3xl mb-12 text-white/90 max-w-3xl">
+            <p className="text-lg sm:text-2xl md:text-3xl mb-12 text-white/90 max-w-3xl">
               Empowering international teachers with comprehensive data insights for smarter career decisions
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <Link
                 href="/blog"
-                className="inline-flex items-center px-8 py-4 bg-orange-600 text-white font-bold text-lg rounded-xl hover:bg-orange-500 hover:translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 border-4 border-black"
+                className="inline-flex items-center px-6 sm:px-8 py-4 bg-orange-600 text-white font-bold text-base sm:text-lg rounded-xl hover:bg-orange-500 hover:translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 border-4 border-black"
               >
                 <svg className="mr-3 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -37,7 +37,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="/cities"
-                className="inline-flex items-center px-8 py-4 bg-white text-black font-bold text-lg rounded-xl hover:bg-stone-100 hover:translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 border-4 border-black"
+                className="inline-flex items-center px-6 sm:px-8 py-4 bg-white text-black font-bold text-base sm:text-lg rounded-xl hover:bg-stone-100 hover:translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 border-4 border-black"
               >
                 <svg className="mr-3 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
