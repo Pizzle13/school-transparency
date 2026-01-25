@@ -66,9 +66,9 @@ export default function SchoolSection({ schools, cityName }) {
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {schools.map((school, index) => (
-            <div 
+            <div
               key={school.id}
-              className="flex-shrink-0 w-[380px] snap-center"
+              className="flex-shrink-0 w-[280px] sm:w-[340px] md:w-[380px] snap-center"
             >
               <div
                 onClick={() => setSelectedSchool(school)}

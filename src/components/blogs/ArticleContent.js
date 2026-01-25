@@ -146,7 +146,7 @@ export default function ArticleContent({ article }) {
       </section>
 
       {/* Article Content */}
-      <article className="max-w-4xl mx-auto">
+      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Article Body with Enhanced Typography */}
         <div className="prose prose-lg prose-indigo max-w-none">
           <div
@@ -185,7 +185,7 @@ export default function ArticleContent({ article }) {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
                       </a>
-                      <p className="text-gray-500 text-sm mt-1">{source.url}</p>
+                      <p className="text-gray-500 text-sm mt-1 break-all overflow-wrap-anywhere">{source.url}</p>
                     </div>
                   </div>
                 ))}
@@ -247,6 +247,9 @@ export default function ArticleContent({ article }) {
           font-weight: 500;
           border-bottom: 2px solid transparent;
           transition: all 0.2s ease;
+          word-break: break-word;
+          overflow-wrap: break-word;
+          hyphens: auto;
         }
 
         .article-content a:hover {
@@ -305,6 +308,51 @@ export default function ArticleContent({ article }) {
 
         .text-shadow-lg {
           text-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Mobile responsive styles */
+        @media (max-width: 640px) {
+          .article-content h1 {
+            font-size: 1.875rem;
+            margin: 2rem 0 1rem 0;
+          }
+
+          .article-content h2 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem 0;
+          }
+
+          .article-content h3 {
+            font-size: 1.25rem;
+            margin: 1.25rem 0 0.75rem 0;
+          }
+
+          .article-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+          }
+
+          .article-content li {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+          }
+
+          .article-content ul, .article-content ol {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+          }
+
+          .article-content blockquote {
+            margin: 1.5rem 0;
+            padding: 1rem 1.25rem;
+          }
+
+          .article-content blockquote::before {
+            font-size: 2.5rem;
+            left: 0.75rem;
+          }
         }
       `}</style>
     </>
