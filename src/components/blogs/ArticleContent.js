@@ -1,5 +1,7 @@
 'use client';
 
+import articlesData from '../../../public/data/articles.json';
+
 // Explicit category styling to ensure Tailwind includes all classes
 const getCategoryStyles = (category) => {
   const styles = {
@@ -154,6 +156,51 @@ export default function ArticleContent({ article }) {
             dangerouslySetInnerHTML={{ __html: cleanContent }}
           />
         </div>
+
+        {/* Related Articles Section */}
+        {article.relatedArticles && article.relatedArticles.length > 0 && (
+          <div className="mt-16 pt-8 border-t border-gray-200">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              Related Articles
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {article.relatedArticles.map((slug) => {
+                const relatedArticle = articlesData.articles.find(a => a.slug === slug);
+                if (!relatedArticle) return null;
+                return (
+                  <a
+                    key={slug}
+                    href={`/blog/${slug}`}
+                    className="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+                  >
+                    <div className="aspect-video relative overflow-hidden">
+                      {relatedArticle.featuredImage ? (
+                        <img
+                          src={relatedArticle.featuredImage}
+                          alt={relatedArticle.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-emerald-400 to-teal-500" />
+                      )}
+                    </div>
+                    <div className="p-4">
+                      <span className="text-xs font-medium text-emerald-600 uppercase tracking-wide">
+                        {relatedArticle.category}
+                      </span>
+                      <h3 className="mt-2 text-lg font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors line-clamp-2">
+                        {relatedArticle.title}
+                      </h3>
+                      <p className="mt-2 text-sm text-gray-600 line-clamp-2">
+                        {relatedArticle.excerpt}
+                      </p>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         {/* Sources Section */}
         {article.sources && article.sources.length > 0 && (
