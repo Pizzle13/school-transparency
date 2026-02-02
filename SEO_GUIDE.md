@@ -26,6 +26,12 @@ A beginner-friendly guide to getting your site found on Google.
 
 ---
 
+## Known Issues / TODO
+
+- [ ] **Google indexing issues** - Google is having trouble indexing all pages. Need to investigate and fix. (Added: Jan 31, 2026)
+
+---
+
 ## Immediate Action Items
 
 ### 1. Request Indexing for Top Pages
