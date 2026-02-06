@@ -3,8 +3,11 @@ import Link from 'next/link';
 import ArticleContent from '../../../components/blogs/ArticleContent';
 import articlesData from '../../../../public/data/articles.json';
 
+export const revalidate = 3600;
+
 export async function generateMetadata({ params }) {
-  const article = articlesData.articles.find(a => a.slug === params.slug);
+  const resolvedParams = await params;
+  const article = articlesData.articles.find(a => a.slug === resolvedParams.slug);
 
   if (!article) {
     return {
@@ -12,19 +15,27 @@ export async function generateMetadata({ params }) {
     };
   }
 
+  const canonicalUrl = `https://schooltransparency.com/blog/${resolvedParams.slug}`;
+
   return {
     title: `${article.title} | School Transparency`,
     description: article.excerpt,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: article.title,
       description: article.excerpt,
+      url: canonicalUrl,
+      type: 'article',
       images: article.featuredImage ? [article.featuredImage] : [],
     },
   };
 }
 
-export default function ArticlePage({ params }) {
-  const article = articlesData.articles.find(a => a.slug === params.slug);
+export default async function ArticlePage({ params }) {
+  const resolvedParams = await params;
+  const article = articlesData.articles.find(a => a.slug === resolvedParams.slug);
 
   if (!article) {
     notFound();
