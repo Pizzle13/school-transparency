@@ -4,9 +4,13 @@ export const metadata = {
   title: 'School Transparency | Data-Driven Insights for International Teachers',
   description: 'Empowering international teachers with comprehensive data insights for smarter career decisions. Explore city guides, expert articles, and educational resources.',
   keywords: 'international teaching, teacher salaries, expat education, school data, teacher careers, international schools, educational insights',
+  alternates: {
+    canonical: 'https://schooltransparency.com',
+  },
   openGraph: {
     title: 'School Transparency - Data-Driven Education Intelligence',
     description: 'Comprehensive platform for international teachers with city guides, expert articles, and data insights.',
+    url: 'https://schooltransparency.com',
     type: 'website',
     images: [
       {

@@ -1,40 +1,25 @@
-import { supabase } from '../../lib/supabase';
 import Link from 'next/link';
+import { getCitiesListing } from '../../lib/data/city-queries';
 import CitySearch from '../../components/cities/CitySearch';
 
+export const revalidate = 300;
+
+export const metadata = {
+  title: 'City Guides for International Teachers | School Transparency',
+  description: 'Explore comprehensive city guides for international teachers. Find salary data, international schools, housing, healthcare, and living costs in cities worldwide.',
+  alternates: {
+    canonical: 'https://schooltransparency.com/cities',
+  },
+  openGraph: {
+    title: 'City Guides for International Teachers',
+    description: 'Data-driven city guides with salary insights, school information, and expat resources for international educators.',
+    url: 'https://schooltransparency.com/cities',
+    type: 'website',
+  },
+};
+
 async function getCities() {
-  const { data: cities, error } = await supabase
-    .from('cities')
-    .select(`
-      *,
-      salary_data(avg_salary),
-      schools(id)
-    `)
-    .order('name');
-
-  if (error) {
-    console.error('Error fetching cities:', error);
-    return [];
-  }
-
-  // Transform to match CityCard expectations
-  const transformedCities = cities.map(city => {
-    const schoolCount = Array.isArray(city.schools) ? city.schools.length : 0;
-    const avgSalary = city.salary_data?.[0]?.avg_salary;
-
-    return {
-      ...city,
-      image: city.hero_image_url,
-      stats: {
-        avgSalary: avgSalary ? `$${Math.round(avgSalary).toLocaleString()}` : 'N/A',
-        costOfLiving: 'N/A',
-        schoolCount: schoolCount,
-        sentiment: 'N/A'
-      }
-    };
-  });
-
-  return transformedCities;
+  return await getCitiesListing();
 }
 
 export default async function CitiesPage() {
