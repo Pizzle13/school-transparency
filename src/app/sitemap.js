@@ -1,5 +1,5 @@
 import { supabase } from '../lib/supabase';
-import articlesData from '../../public/data/articles.json';
+import articlesIndex from '../../public/data/articles-index.json';
 
 export default async function sitemap() {
   const baseUrl = 'https://schooltransparency.com';
@@ -27,7 +27,7 @@ export default async function sitemap() {
   ];
 
   // Blog article pages
-  const blogPages = articlesData.articles.map((article) => ({
+  const blogPages = articlesIndex.map((article) => ({
     url: `${baseUrl}/blog/${article.slug}`,
     lastModified: article.publishedDate ? new Date(article.publishedDate) : new Date(),
     changeFrequency: 'monthly',
