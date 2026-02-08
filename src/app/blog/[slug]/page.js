@@ -1,45 +1,68 @@
 import { notFound } from 'next/navigation';
+import fs from 'fs';
+import path from 'path';
 import Link from 'next/link';
 import ArticleContent from '../../../components/blogs/ArticleContent';
-import articlesData from '../../../../public/data/articles.json';
+import articlesIndex from '../../../../public/data/articles-index.json';
 
 export const revalidate = 3600;
 
+function getArticleBySlug(slug) {
+  // Try individual file first (new structure)
+  const filePath = path.join(process.cwd(), 'public', 'data', 'articles', `${slug}.json`);
+  try {
+    const content = fs.readFileSync(filePath, 'utf-8');
+    return JSON.parse(content);
+  } catch {
+    // Fallback to legacy articles.json
+    try {
+      const legacyPath = path.join(process.cwd(), 'public', 'data', 'articles.json');
+      const legacyContent = fs.readFileSync(legacyPath, 'utf-8');
+      const legacyData = JSON.parse(legacyContent);
+      return legacyData.articles.find(a => a.slug === slug) || null;
+    } catch {
+      return null;
+    }
+  }
+}
+
 export async function generateMetadata({ params }) {
   const resolvedParams = await params;
-  const article = articlesData.articles.find(a => a.slug === resolvedParams.slug);
+  // Use index for metadata (lightweight)
+  const indexEntry = articlesIndex.find(a => a.slug === resolvedParams.slug);
 
-  if (!article) {
-    return {
-      title: 'Article Not Found',
-    };
+  if (!indexEntry) {
+    return { title: 'Article Not Found' };
   }
 
   const canonicalUrl = `https://schooltransparency.com/blog/${resolvedParams.slug}`;
 
   return {
-    title: `${article.title} | School Transparency`,
-    description: article.excerpt,
-    alternates: {
-      canonical: canonicalUrl,
-    },
+    title: `${indexEntry.title} | School Transparency`,
+    description: indexEntry.excerpt,
+    alternates: { canonical: canonicalUrl },
     openGraph: {
-      title: article.title,
-      description: article.excerpt,
+      title: indexEntry.title,
+      description: indexEntry.excerpt,
       url: canonicalUrl,
       type: 'article',
-      images: article.featuredImage ? [article.featuredImage] : [],
+      images: indexEntry.featuredImage ? [indexEntry.featuredImage] : [],
     },
   };
 }
 
 export default async function ArticlePage({ params }) {
   const resolvedParams = await params;
-  const article = articlesData.articles.find(a => a.slug === resolvedParams.slug);
+  const article = getArticleBySlug(resolvedParams.slug);
 
   if (!article) {
     notFound();
   }
+
+  // Resolve related articles from index (metadata only, for cards)
+  const relatedArticlesData = (article.relatedArticles || [])
+    .map(slug => articlesIndex.find(a => a.slug === slug))
+    .filter(Boolean);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
@@ -60,14 +83,14 @@ export default async function ArticlePage({ params }) {
 
       {/* Article Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <ArticleContent article={article} />
+        <ArticleContent article={article} relatedArticles={relatedArticlesData} />
       </div>
     </div>
   );
 }
 
 export async function generateStaticParams() {
-  return articlesData.articles.map((article) => ({
+  return articlesIndex.map((article) => ({
     slug: article.slug,
   }));
 }
