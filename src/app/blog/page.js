@@ -5,11 +5,11 @@ import Link from 'next/link';
 import ArticleCard from '../../components/blogs/ArticleCard';
 import HeroCard from '../../components/blogs/HeroCard';
 import CategorySection from '../../components/blogs/CategorySection';
-import articlesData from '../../../public/data/articles.json';
+import articlesIndex from '../../../public/data/articles-index.json';
 
 export default function BlogPage() {
   const [activeFilter, setActiveFilter] = useState('All');
-  const articles = articlesData.articles;
+  const articles = articlesIndex;
 
   // Sort by date (newest first)
   const sortedArticles = [...articles].sort((a, b) =>
@@ -149,7 +149,7 @@ export default function BlogPage() {
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                       {otherArticles.map((article) => (
-                        <ArticleCard key={article.id} article={article} />
+                        <ArticleCard key={article.id || article.slug} article={article} />
                       ))}
                     </div>
                   </div>
