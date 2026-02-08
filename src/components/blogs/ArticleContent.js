@@ -1,7 +1,5 @@
 'use client';
 
-import articlesData from '../../../public/data/articles.json';
-
 // Explicit category styling to ensure Tailwind includes all classes
 const getCategoryStyles = (category) => {
   const styles = {
@@ -22,7 +20,7 @@ const getCategoryStyles = (category) => {
   return styles[category] || styles['Uncategorized'];
 };
 
-export default function ArticleContent({ article }) {
+export default function ArticleContent({ article, relatedArticles = [] }) {
   const styles = getCategoryStyles(article.category);
 
   // Remove the old references/sources section from the HTML content
@@ -55,7 +53,7 @@ export default function ArticleContent({ article }) {
                   </span>
                   {article.subcategory && (
                     <>
-                      <span className="text-white/70">→</span>
+                      <span className="text-white/70">&rarr;</span>
                       <span className="bg-white/20 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
                         {article.subcategory}
                       </span>
@@ -112,7 +110,7 @@ export default function ArticleContent({ article }) {
                   </span>
                   {article.subcategory && (
                     <>
-                      <span className="text-white/70">→</span>
+                      <span className="text-white/70">&rarr;</span>
                       <span className="bg-white/10 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
                         {article.subcategory}
                       </span>
@@ -158,19 +156,18 @@ export default function ArticleContent({ article }) {
         </div>
 
         {/* Related Articles Section */}
-        {article.relatedArticles && article.relatedArticles.length > 0 && (
+        {relatedArticles && relatedArticles.length > 0 && (
           <div className="mt-16 pt-8 border-t border-gray-200">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Related Articles
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {article.relatedArticles.map((slug) => {
-                const relatedArticle = articlesData.articles.find(a => a.slug === slug);
+              {relatedArticles.map((relatedArticle) => {
                 if (!relatedArticle) return null;
                 return (
                   <a
-                    key={slug}
-                    href={`/blog/${slug}`}
+                    key={relatedArticle.slug}
+                    href={`/blog/${relatedArticle.slug}`}
                     className="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
                   >
                     <div className="aspect-video relative overflow-hidden">
@@ -353,50 +350,6 @@ export default function ArticleContent({ article }) {
           opacity: 0.3;
         }
 
-
-        .article-content table {
-          width: 100%;
-          border-collapse: collapse;
-          margin: 2rem 0;
-          font-size: 1.05rem;
-          font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
-          border-radius: 8px;
-          overflow: hidden;
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .article-content thead {
-          background: linear-gradient(135deg, #1e293b, #334155);
-        }
-
-        .article-content th {
-          padding: 0.875rem 1.25rem;
-          text-align: left;
-          font-weight: 600;
-          color: #ffffff;
-          font-size: 0.95rem;
-          text-transform: uppercase;
-          letter-spacing: 0.025em;
-        }
-
-        .article-content td {
-          padding: 0.75rem 1.25rem;
-          color: #374151;
-          border-bottom: 1px solid #e5e7eb;
-        }
-
-        .article-content tbody tr:nth-child(even) {
-          background-color: #f8fafc;
-        }
-
-        .article-content tbody tr:hover {
-          background-color: #eef2ff;
-        }
-
-        .article-content tbody tr:last-child td {
-          border-bottom: none;
-        }
-
         .text-shadow-lg {
           text-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
@@ -444,20 +397,6 @@ export default function ArticleContent({ article }) {
             font-size: 2.5rem;
             left: 0.75rem;
           }
-
-          .article-content table {
-            font-size: 0.9rem;
-            display: block;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-          }
-
-          .article-content th, .article-content td {
-            padding: 0.625rem 0.875rem;
-            white-space: nowrap;
-          }
-
-
         }
       `}</style>
     </>
