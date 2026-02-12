@@ -12,6 +12,7 @@ export async function getCriticalCityData(slug) {
       hero_image_url,
       tagline,
       emergency_numbers,
+      created_at,
       salary_data(*),
       economic_data(*),
       schools(*)
