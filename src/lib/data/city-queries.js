@@ -3,6 +3,7 @@ import { supabase } from '../supabase';
 // Fallback Unsplash hero images when the DB has no hero_image_url
 const FALLBACK_IMAGES = {
   'ho-chi-minh-city': 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1600&q=80',
+  'hanoi': 'https://images.unsplash.com/photo-1753939582094-3091a6e0891e?w=1600&q=80',
   'dubai': 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1600&q=80',
   'bangkok': 'https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=1600&q=80',
   'singapore': 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1600&q=80',
