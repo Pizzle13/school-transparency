@@ -93,7 +93,7 @@ export default async function CityPage({ params }) {
       <SchoolSection schools={city.schools} cityName={city.name} />
 
       {/* Secondary sections with fetched data */}
-      <AirQualitySection data={secondaryData.air_quality} cityName={city.name} />
+      <AirQualitySection data={secondaryData.air_quality} cityName={city.name} dataYear={city.created_at ? new Date(city.created_at).getFullYear() : null} />
       <HousingResources
         areas={secondaryData.housing_areas}
         websites={secondaryData.housing_websites}

@@ -1,4 +1,4 @@
-export default function AirQualitySection({ data, cityName }) {
+export default function AirQualitySection({ data, cityName, dataYear }) {
   if (!data || data.length === 0) return null;
 
   // Sort by month order
@@ -29,6 +29,11 @@ export default function AirQualitySection({ data, cityName }) {
           <h2 className="text-6xl md:text-7xl font-black mb-6 text-stone-900">
             Air Quality in {cityName}
           </h2>
+          {dataYear && (
+            <p className="text-lg text-stone-500">
+              Monthly estimates based on {dataYear} IQAir data
+            </p>
+          )}
         </div>
         
         {/* Monthly AQI Grid */}
