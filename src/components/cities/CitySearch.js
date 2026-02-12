@@ -1,21 +1,15 @@
 'use client';
 
-import { useState, useMemo, useDeferredValue } from 'react';
+import { useState } from 'react';
 import CityCard from './CityCard';
 
 export default function CitySearch({ cities }) {
   const [searchTerm, setSearchTerm] = useState('');
-  const deferredSearchTerm = useDeferredValue(searchTerm);
 
-  // Memoize expensive filtering operation
-  const filteredCities = useMemo(() => {
-    if (!deferredSearchTerm) return cities;
-    const term = deferredSearchTerm.toLowerCase();
-    return cities.filter(city =>
-      city.name.toLowerCase().includes(term) ||
-      city.country.toLowerCase().includes(term)
-    );
-  }, [cities, deferredSearchTerm]);
+  const filteredCities = cities.filter(city =>
+    city.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    city.country.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <>
