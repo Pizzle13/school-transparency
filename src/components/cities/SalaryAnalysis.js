@@ -3,10 +3,19 @@
 export default function SalaryAnalysis({ data, economic }) {
   if (!data) return null;
 
+  // Derive monthly salary from the monthly figures (monthly_cost + monthly_savings)
+  // avg_salary in the DB is annual; monthly_cost and monthly_savings are monthly
+  const monthlySalary = (data.monthly_cost && data.monthly_savings)
+    ? data.monthly_cost + data.monthly_savings
+    : (data.avg_salary ? Math.round(data.avg_salary / 12) : null);
+
+  const costPct = monthlySalary ? ((data.monthly_cost / monthlySalary) * 100) : 0;
+  const savingsPct = monthlySalary ? ((data.monthly_savings / monthlySalary) * 100) : 0;
+
   return (
     <section className="py-24 bg-stone-50">
       <div className="max-w-7xl mx-auto px-6">
-        
+
         {/* Section Header - Bold & Asymmetric */}
         <div className="mb-16">
           <div className="inline-block mb-4">
@@ -24,16 +33,18 @@ export default function SalaryAnalysis({ data, economic }) {
 
         {/* Financial Overview Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-20">
-          
-          {/* Average Salary */}
+
+          {/* Monthly Salary */}
           <div className="bg-white p-8 border-4 border-stone-900">
             <div className="text-stone-400 text-sm uppercase tracking-widest mb-3">
-              Average Salary
+              Monthly Salary
             </div>
             <div className="text-6xl font-black tabular-nums text-stone-900 mb-2">
-              ${data.avg_salary?.toLocaleString() || 'N/A'}
+              ${monthlySalary?.toLocaleString() || 'N/A'}
             </div>
-            <p className="text-stone-600 text-sm">per month</p>
+            <p className="text-stone-600 text-sm">
+              per month{data.avg_salary ? ` ($${Math.round(data.avg_salary).toLocaleString()}/yr)` : ''}
+            </p>
           </div>
 
           {/* Monthly Living Cost */}
@@ -61,28 +72,28 @@ export default function SalaryAnalysis({ data, economic }) {
         </div>
 
         {/* Savings Visual Bar */}
-        {data.avg_salary && data.monthly_cost && (
+        {monthlySalary && data.monthly_cost && (
           <div className="mb-20">
             <div className="text-stone-400 text-sm uppercase tracking-widest mb-4">
               Income Breakdown
             </div>
             <div className="h-16 bg-stone-200 flex overflow-hidden">
-              <div 
+              <div
                 className="bg-orange-500 flex items-center justify-center text-white font-bold"
-                style={{ width: `${(data.monthly_cost / data.avg_salary) * 100}%` }}
+                style={{ width: `${costPct}%` }}
               >
                 Living Costs
               </div>
-              <div 
+              <div
                 className="bg-green-600 flex items-center justify-center text-white font-bold"
-                style={{ width: `${(data.monthly_savings / data.avg_salary) * 100}%` }}
+                style={{ width: `${savingsPct}%` }}
               >
                 Savings
               </div>
             </div>
             <div className="flex justify-between mt-2 text-sm text-stone-600">
-              <span>{((data.monthly_cost / data.avg_salary) * 100).toFixed(0)}% expenses</span>
-              <span>{((data.monthly_savings / data.avg_salary) * 100).toFixed(0)}% savings</span>
+              <span>{costPct.toFixed(0)}% expenses</span>
+              <span>{savingsPct.toFixed(0)}% savings</span>
             </div>
           </div>
         )}

@@ -37,8 +37,9 @@ export default function LocalIntelSection({ intelData, cityName }) {
 
   // Get most recent update date
   const latestUpdate = intelData.reduce((latest, item) => {
+    if (!item.last_updated) return latest;
     const itemDate = new Date(item.last_updated);
-    return itemDate > latest ? itemDate : latest;
+    return !isNaN(itemDate) && itemDate > latest ? itemDate : latest;
   }, new Date(0));
 
   const formatDate = (date) => {

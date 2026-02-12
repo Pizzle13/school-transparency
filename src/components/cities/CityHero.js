@@ -1,15 +1,20 @@
 export default function CityHero({ city }) {
   const salary = city.salary_data?.[0];
   const economic = city.economic_data?.[0];
+  const hasImage = city.hero_image_url && city.hero_image_url !== 'null';
 
   return (
     <section className="relative h-[85vh] min-h-[600px] overflow-hidden">
       {/* Background Image - Full Bleed */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${city.hero_image_url})` }}
-      />
-      
+      {hasImage ? (
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${city.hero_image_url})` }}
+        />
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+      )}
+
       {/* Strong Dark Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30" />
 
