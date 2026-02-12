@@ -43,18 +43,31 @@
       "comingSoon": true
     },
     {
-        "id": "ho-chi-minh-city",
-        "name": "Ho Chi Minh City",
-        "country": "Vietnam",
-        "slug": "ho-chi-minh-city",
-        "image": "https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800",
-        "stats": {
-            "avgSalary": "$20,000 - $35,000",
-            "costOfLiving": "Low",
-            "schoolCount": 124,
-            "sentiment": "Very Positive"
-  }
-},
+      "id": "ho-chi-minh-city",
+      "name": "Ho Chi Minh City",
+      "country": "Vietnam",
+      "slug": "ho-chi-minh-city",
+      "image": "https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800",
+      "stats": {
+        "avgSalary": "$20,000 - $35,000",
+        "costOfLiving": "Low",
+        "schoolCount": 124,
+        "sentiment": "Very Positive"
+      }
+    },
+    {
+      "id": "hanoi",
+      "name": "Hanoi",
+      "country": "Vietnam",
+      "slug": "hanoi",
+      "image": "https://images.unsplash.com/photo-1753939582094-3091a6e0891e?w=800",
+      "stats": {
+        "avgSalary": "$18,000 - $30,000",
+        "costOfLiving": "Low",
+        "schoolCount": 80,
+        "sentiment": "Positive"
+      }
+    },
     {
       "id": "istanbul",
       "name": "Istanbul",

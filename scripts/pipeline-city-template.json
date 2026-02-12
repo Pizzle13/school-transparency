@@ -1,0 +1,133 @@
+{
+  "_docs": "Data template for the Pipeline project. Send this payload to POST /api/cities/bulk-import with Bearer PIPELINE_API_KEY. Every field marked REQUIRED must be present. Optional sections can be omitted — the page gracefully hides empty sections.",
+  "cities": [
+    {
+      "cityData": {
+        "name": "Hanoi",
+        "country": "Vietnam",
+        "slug": "hanoi",
+        "hero_image_url": "https://images.unsplash.com/photo-1753939582094-3091a6e0891e?w=1600&q=80"
+      },
+
+      "salary_data": {
+        "avg_salary": 0,
+        "monthly_cost": 0,
+        "monthly_savings": 0,
+        "currency": "USD",
+        "year": 2025,
+        "_notes": "avg_salary = ANNUAL figure. monthly_cost and monthly_savings are MONTHLY. monthly_cost + monthly_savings should equal avg_salary / 12."
+      },
+
+      "economic_data": {
+        "gdp_latest": 0,
+        "gdp_growth": 0,
+        "inflation_latest": 0,
+        "inflation": 0,
+        "unemployment_rate": 0,
+        "cost_of_living_index": 0
+      },
+
+      "schools": [
+        {
+          "name": "School Name",
+          "type": "IB | British | American | Other",
+          "rating": 4.5,
+          "student_count": 1200,
+          "salary_range": "$2,000 - $3,500",
+          "reviews": 45,
+          "summary": "Brief 1-2 sentence school description.",
+          "grade_levels": "K-12",
+          "website_url": "https://...",
+          "contact_email": "admissions@...",
+          "phone_number": "+84..."
+        }
+      ],
+
+      "housing_areas": [
+        {
+          "district": "District Name",
+          "type": "Expat-Friendly | Local | Mixed",
+          "rent_min": 400,
+          "rent_max": 800,
+          "teacher_rating": 4.2,
+          "pros": "Short text on why teachers like it",
+          "cons": "Short text on drawbacks"
+        }
+      ],
+
+      "housing_websites": [
+        {
+          "name": "Website Name",
+          "url": "https://...",
+          "type": "Rental | Buy | Both",
+          "description": "Brief description of the platform."
+        }
+      ],
+
+      "air_quality": [
+        { "month": "January", "aqi": 90, "status": "Moderate" },
+        { "month": "February", "aqi": 85, "status": "Moderate" },
+        { "month": "March", "aqi": 95, "status": "Moderate" },
+        { "month": "April", "aqi": 100, "status": "Moderate" },
+        { "month": "May", "aqi": 80, "status": "Moderate" },
+        { "month": "June", "aqi": 75, "status": "Moderate" },
+        { "month": "July", "aqi": 70, "status": "Moderate" },
+        { "month": "August", "aqi": 72, "status": "Moderate" },
+        { "month": "September", "aqi": 78, "status": "Moderate" },
+        { "month": "October", "aqi": 88, "status": "Moderate" },
+        { "month": "November", "aqi": 95, "status": "Moderate" },
+        { "month": "December", "aqi": 92, "status": "Moderate" }
+      ],
+
+      "city_apps": [
+        {
+          "name": "App Name",
+          "type": "Transportation | Messaging | Food Delivery | Payments | Other",
+          "description": "What teachers use it for.",
+          "url": "https://..."
+        }
+      ],
+
+      "hospitals": [
+        {
+          "name": "Hospital Name",
+          "address": "Full address",
+          "phone": "+84...",
+          "services": "Key services offered",
+          "website": "https://...",
+          "notes": "Any teacher-relevant notes (English-speaking, insurance accepted, etc.)"
+        }
+      ],
+
+      "pet_import": {
+        "quarantine_required": false,
+        "documents": "List of required documents",
+        "cost_estimate": "$200-500",
+        "processing_time": "2-4 weeks"
+      },
+
+      "city_news": [
+        {
+          "headline": "News headline",
+          "category": "Employment | Transportation | Legal/Visa | Health/Environment",
+          "date": "2025-01-15",
+          "summary": "2-3 sentence summary.",
+          "relevance_to_teachers": "Why this matters for teachers.",
+          "source_url": "https://..."
+        }
+      ],
+
+      "local_intel_data": [
+        {
+          "category": "Transportation | Banking | Shopping | Dining | Housing | Cultural Tips | Practical | Healthcare | Safety | Weather | Nightlife",
+          "tip_text": "Honest, specific tip from a teacher's perspective. No fluff.",
+          "contributor_count": 100,
+          "source": "Teacher Community",
+          "last_updated": "2025-01-15"
+        }
+      ]
+    }
+  ],
+  "validate_only": false,
+  "skip_duplicates": true
+}
