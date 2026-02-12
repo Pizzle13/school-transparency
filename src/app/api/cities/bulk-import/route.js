@@ -6,7 +6,7 @@ export async function POST(request) {
   try {
     // Authentication
     const authHeader = request.headers.get('authorization');
-    if (authHeader !== `Bearer ${process.env.N8N_API_KEY}`) {
+    if (authHeader !== `Bearer ${process.env.PIPELINE_API_KEY}`) {
       return Response.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
