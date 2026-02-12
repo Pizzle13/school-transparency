@@ -60,15 +60,17 @@ export const AirQualitySchema = z.object({
 });
 
 // Full city import schema for bulk operations
+// Uses passthrough() to allow extra fields (city_apps, city_news, pet_import, etc.)
+// that the route handler dynamically inserts into Supabase
 export const FullCityImportSchema = z.object({
   cityData: CitySchema,
   salary_data: SalaryDataSchema.optional(),
   economic_data: EconomicDataSchema.optional(),
-  schools: z.array(SchoolSchema).optional(),
-  housing_areas: z.array(HousingAreaSchema).optional(),
-  hospitals: z.array(HospitalSchema).optional(),
-  air_quality: AirQualitySchema.optional(),
-});
+  schools: z.array(SchoolSchema.passthrough()).optional(),
+  housing_areas: z.array(HousingAreaSchema.passthrough()).optional(),
+  hospitals: z.array(HospitalSchema.passthrough()).optional(),
+  air_quality: z.union([AirQualitySchema, z.array(z.any())]).optional(),
+}).passthrough();
 
 // Bulk import schema for multiple cities
 export const BulkCityImportSchema = z.object({
@@ -105,7 +107,8 @@ export function validateBulkImport(data) {
 
 // Transform errors to user-friendly format
 export function formatZodErrors(error) {
-  return error.errors.map(err => ({
+  const items = error.issues || error.errors || [];
+  return items.map(err => ({
     field: err.path.join('.'),
     message: err.message,
   }));
