@@ -1,0 +1,47 @@
+import { supabaseAdmin } from '../../../lib/supabase/admin';
+
+export async function GET() {
+  try {
+    const { data: cities, error } = await supabaseAdmin
+      .from('cities')
+      .select('id, name, country, slug')
+      .order('name');
+
+    if (error) {
+      console.error('Database error:', error);
+      return Response.json({ error: 'Failed to fetch cities' }, { status: 500 });
+    }
+
+    return Response.json(cities);
+  } catch (error) {
+    console.error('API error:', error);
+    return Response.json({ error: 'Internal server error' }, { status: 500 });
+  }
+}
+
+export async function POST(request) {
+  try {
+    // Authentication check
+    const authHeader = request.headers.get('authorization');
+    if (authHeader !== `Bearer ${process.env.N8N_API_KEY}`) {
+      return Response.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const cityData = await request.json();
+
+    const { data, error } = await supabaseAdmin
+      .from('cities')
+      .insert(cityData)
+      .select();
+
+    if (error) {
+      console.error('Database error:', error);
+      return Response.json({ error: error.message }, { status: 400 });
+    }
+
+    return Response.json(data[0]);
+  } catch (error) {
+    console.error('API error:', error);
+    return Response.json({ error: 'Internal server error' }, { status: 500 });
+  }
+}
