@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function CityCard({ city }) {
   const CardWrapper = city.comingSoon ? 'div' : Link;
@@ -14,13 +13,9 @@ export default function CityCard({ city }) {
     <CardWrapper {...wrapperProps}>
       <div className="relative h-[400px] rounded-2xl overflow-hidden group cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl">
         {/* Background Image */}
-        <Image
-          src={image}
-          alt={`${city.name}, ${city.country}`}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          loading="lazy"
+        <div 
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+          style={{ backgroundImage: `url(${image})` }}
         />
         
         {/* Gradient Overlay */}

@@ -1,20 +1,3 @@
-import Image from 'next/image';
-
-function getEconomicSummary(gdpGrowth, inflation) {
-  if (gdpGrowth < 0) {
-    return 'Economy is contracting — fewer new positions and potential school closures. Proceed with caution.';
-  }
-  if (gdpGrowth > 3) {
-    if (inflation < 5) return 'Strong economy with stable prices — schools are expanding and your salary holds its value.';
-    if (inflation < 10) return 'Fast-growing economy, but rising costs mean you should negotiate annual raises into your contract.';
-    return 'Economy is booming but prices are rising fast — negotiate housing allowances and annual salary reviews.';
-  }
-  // GDP 0–3%
-  if (inflation < 5) return 'Steady economy with predictable costs — a reliable choice for contract stability.';
-  if (inflation < 10) return 'Moderate growth with rising costs — factor inflation into your savings goals.';
-  return 'Sluggish growth with high inflation — your purchasing power will shrink over a 2-year contract.';
-}
-
 export default function CityHero({ city }) {
   const salary = city.salary_data?.[0];
   const economic = city.economic_data?.[0];
@@ -22,13 +5,9 @@ export default function CityHero({ city }) {
   return (
     <section className="relative h-[85vh] min-h-[600px] overflow-hidden">
       {/* Background Image - Full Bleed */}
-      <Image
-        src={city.hero_image_url}
-        alt={`${city.name}, ${city.country} cityscape`}
-        fill
-        className="object-cover"
-        sizes="100vw"
-        priority
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${city.hero_image_url})` }}
       />
       
       {/* Strong Dark Gradient Overlay */}
@@ -104,13 +83,6 @@ export default function CityHero({ city }) {
           )}
 
         </div>
-
-        {/* Teacher-focused economic summary */}
-        {economic?.gdp_growth != null && economic?.inflation != null && (
-          <p className="mt-4 text-white/70 text-sm max-w-2xl">
-            {getEconomicSummary(economic.gdp_growth, economic.inflation)}
-          </p>
-        )}
       </div>
 
       {/* Scroll Indicator */}
