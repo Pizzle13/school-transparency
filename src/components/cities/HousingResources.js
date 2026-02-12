@@ -31,7 +31,7 @@ export default function HousingResources({ areas, websites, cityName }) {
                     <span className="text-lg text-stone-600">Popular districts</span>
                   </div>
                   <div className="flex items-baseline gap-3">
-                    <span className="text-4xl font-black text-orange-600">${Math.min(...areas.map(a => a.rent_min))}</span>
+                    <span className="text-4xl font-black text-orange-600">${Math.min(...areas.filter(a => a.rent_min != null).map(a => a.rent_min)) || 'N/A'}</span>
                     <span className="text-lg text-stone-600">Starting rent/month</span>
                   </div>
                 </div>

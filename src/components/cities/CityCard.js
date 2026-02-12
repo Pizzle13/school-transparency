@@ -5,18 +5,22 @@ export default function CityCard({ city }) {
   const wrapperProps = city.comingSoon ? {} : { href: `/cities/${city.slug}` };
 
   // Handle both old JSON format (city.stats) and new Supabase format (flat)
-  const avgSalary = city.stats?.avgSalary || (city.hero_image_url ? 'Loading...' : 'N/A');
+  const avgSalary = city.stats?.avgSalary || 'N/A';
   const schoolCount = city.stats?.schoolCount || 'N/A';
-  const image = city.image || city.hero_image_url || '/images/cities/placeholder.jpg';
+  const image = city.image || city.hero_image_url;
 
   return (
     <CardWrapper {...wrapperProps}>
       <div className="relative h-[400px] rounded-2xl overflow-hidden group cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl">
         {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-          style={{ backgroundImage: `url(${image})` }}
-        />
+        {image ? (
+          <div
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+            style={{ backgroundImage: `url(${image})` }}
+          />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+        )}
         
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
