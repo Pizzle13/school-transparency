@@ -48,10 +48,19 @@ export default function SchoolDetailModal({ school, onClose }) {
             </div>
           </div>
 
+          {/* Low-data disclaimer */}
+          {school.reviews < 3 && (
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+              <p className="text-sm text-amber-800">
+                <strong>Limited data:</strong> This school has {school.reviews === 1 ? 'only 1 teacher review' : `only ${school.reviews} teacher reviews`}. Summary and pros/cons require more reviews to generate reliable patterns. Check back as more teachers share their experiences.
+              </p>
+            </div>
+          )}
+
           {/* School Summary */}
           <div>
             <h3 className="text-xl font-bold text-slate-800 mb-3">Overview</h3>
-           <p className="text-slate-700 leading-relaxed">{school.summary || 'No summary available yet.'}</p>
+            <p className="text-slate-700 leading-relaxed">{school.summary || 'No summary available yet.'}</p>
           </div>
 
           {/* Pros & Cons */}

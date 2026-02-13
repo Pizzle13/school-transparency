@@ -60,12 +60,12 @@ export default function SchoolSection({ schools, cityName }) {
         </div>
 
         {/* Horizontal Scrolling Cards */}
-        <div 
+        <div
           id="school-scroll"
           className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {schools.map((school, index) => (
+          {[...schools].sort((a, b) => (b.reviews || 0) - (a.reviews || 0)).map((school, index) => (
             <div
               key={school.id}
               className="flex-shrink-0 w-[280px] sm:w-[340px] md:w-[380px] snap-center"
@@ -107,9 +107,15 @@ export default function SchoolSection({ schools, cityName }) {
                 </div>
 
                 {/* Summary Preview */}
-                <p className="text-sm text-stone-700 line-clamp-3 mb-4">
-                  {school.summary}
-                </p>
+                {school.reviews < 3 ? (
+                  <p className="text-sm text-stone-500 italic mb-4">
+                    Limited data — based on {school.reviews === 1 ? '1 teacher review' : `${school.reviews} teacher reviews`}
+                  </p>
+                ) : (
+                  <p className="text-sm text-stone-700 line-clamp-3 mb-4">
+                    {school.summary}
+                  </p>
+                )}
 
                 {/* Click hint */}
                 <div className="text-sm text-stone-900 font-bold flex items-center gap-2">
