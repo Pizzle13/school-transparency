@@ -1,6 +1,6 @@
 import { supabaseAdmin } from '../../../../lib/supabase/admin';
 import { BulkCityImportSchema, formatZodErrors } from '../../../../lib/validation/schemas';
-import { revalidateTag } from 'next/cache';
+import { revalidatePath } from 'next/cache';
 
 export async function POST(request) {
   try {
@@ -70,8 +70,8 @@ export async function POST(request) {
           relations_created: cityResult.relations_created || []
         });
 
-        // Revalidate cache for this city
-        await revalidateTag(`city-${cityImportData.cityData.slug}`);
+        // Revalidate cached city page so new data appears immediately
+        revalidatePath(`/cities/${cityImportData.cityData.slug}`);
 
       } catch (error) {
         console.error(`Error importing city ${cityImportData.cityData.name}:`, error);
@@ -86,8 +86,8 @@ export async function POST(request) {
       }
     }
 
-    // Revalidate cities listing cache
-    await revalidateTag('cities-listing');
+    // Revalidate the cities listing page so new cities appear immediately
+    revalidatePath('/cities');
 
     return Response.json({
       ...results,
