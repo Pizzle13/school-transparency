@@ -1,8 +1,10 @@
 import { supabaseAdmin } from '../../../lib/supabase/admin';
+import { supabase } from '../../../lib/supabase';
 
 export async function GET() {
   try {
-    const { data: cities, error } = await supabaseAdmin
+    // Use public client — no admin needed for reads
+    const { data: cities, error } = await supabase
       .from('cities')
       .select('id, name, country, slug')
       .order('name');
