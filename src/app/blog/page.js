@@ -25,12 +25,10 @@ export default function BlogPage() {
     'School Intelligence',
     'Country Guides',
     'Economic Data',
-    'School Reviews',
     'Teacher Career',
     'Contracts & Salaries',
     'Job Search & Hiring',
-    'Professional Development',
-    'Uncategorized'
+    'Professional Development'
   ];
 
   // Create filter tabs (showing only categories with articles + "All")
