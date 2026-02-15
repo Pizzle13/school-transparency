@@ -1,0 +1,293 @@
+{
+  "cities": [
+    {
+      "cityData": {
+        "name": "Ho Chi Minh City",
+        "country": "Vietnam",
+        "slug": "ho-chi-minh-city"
+      },
+      "local_intel_data": [
+        {
+          "category": "Transportation",
+          "tip_text": "Download Grab for safe motorbike taxi rides. Never pay more than 50,000 VND ($2) for rides within District 1. Avoid rush hours (7-9am, 5-7pm) when traffic is unbearable.",
+          "contributor_count": 127,
+          "source": "Teacher Community",
+          "last_updated": "2024-01-15"
+        },
+        {
+          "category": "Transportation",
+          "tip_text": "Rent a motorbike for $60-80/month from expat-friendly shops in District 1. You'll need your passport, a deposit, and basic Vietnamese traffic knowledge. Helmets are mandatory.",
+          "contributor_count": 89,
+          "source": "Expat Teachers",
+          "last_updated": "2024-01-10"
+        },
+        {
+          "category": "Banking",
+          "tip_text": "Vietcombank and HSBC are most foreigner-friendly for opening accounts. Bring your work permit, passport, and school letter. Monthly fees are around 50,000 VND ($2).",
+          "contributor_count": 156,
+          "source": "International Teacher Network",
+          "last_updated": "2024-01-20"
+        },
+        {
+          "category": "Banking",
+          "tip_text": "ATMs charge 22,000 VND ($1) per withdrawal. Sacombank ATMs often have the best exchange rates. Always withdraw large amounts to minimize fees.",
+          "contributor_count": 201,
+          "source": "HCMC Expats",
+          "last_updated": "2024-01-08"
+        },
+        {
+          "category": "Shopping",
+          "tip_text": "Annam Gourmet has Western groceries but expect 3x prices. Go to Ben Thanh Market early morning for fresh produce at local prices. Saigon Square is great for cheap knockoffs.",
+          "contributor_count": 143,
+          "source": "Teacher Reviews",
+          "last_updated": "2024-01-12"
+        },
+        {
+          "category": "Shopping",
+          "tip_text": "Landmark 81's Vinmart has quality imported goods. Diamond Plaza and Saigon Centre have international brands. Avoid tourist traps in District 1's main streets.",
+          "contributor_count": 78,
+          "source": "Expat Community",
+          "last_updated": "2024-01-18"
+        },
+        {
+          "category": "Dining",
+          "tip_text": "Pho 2000 is touristy but good. For authentic local food, try street stalls in District 3. Always point at what you want and have Google Translate ready.",
+          "contributor_count": 234,
+          "source": "Foodie Teachers",
+          "last_updated": "2024-01-14"
+        },
+        {
+          "category": "Dining",
+          "tip_text": "Grab Food delivers everywhere for 15,000-25,000 VND ($0.65-1). Foody is cheaper but Vietnamese-only interface. Western food costs $8-15, local food $2-5.",
+          "contributor_count": 167,
+          "source": "Digital Nomads",
+          "last_updated": "2024-01-16"
+        },
+        {
+          "category": "Housing",
+          "tip_text": "District 2 (Thu Duc) is expensive but expat-heavy. District 7 has good international schools. District 1 is central but noisy. Budget $400-800/month for decent places.",
+          "contributor_count": 189,
+          "source": "Housing Group",
+          "last_updated": "2024-01-22"
+        },
+        {
+          "category": "Housing",
+          "tip_text": "Always negotiate rent down by 10-20%. Check for water damage during rainy season. Get a local friend to help with contracts to avoid foreigner pricing scams.",
+          "contributor_count": 134,
+          "source": "Apartment Hunters",
+          "last_updated": "2024-01-11"
+        },
+        {
+          "category": "Cultural Tips",
+          "tip_text": "Learn basic Vietnamese numbers and 'cam on' (thank you). Dress modestly when visiting temples. Never point with one finger - use open hand or point with lips.",
+          "contributor_count": 276,
+          "source": "Cultural Exchange",
+          "last_updated": "2024-01-09"
+        },
+        {
+          "category": "Cultural Tips",
+          "tip_text": "Gift-giving is important in Vietnamese culture. Avoid gifts in sets of four (unlucky number). Business cards are exchanged with both hands and a slight bow.",
+          "contributor_count": 98,
+          "source": "Business Etiquette",
+          "last_updated": "2024-01-17"
+        },
+        {
+          "category": "Practical",
+          "tip_text": "Get a Viettel SIM card - best coverage and data packages. 4G data plans cost 70,000-200,000 VND ($3-8.50)/month. Buy at official stores with passport.",
+          "contributor_count": 245,
+          "source": "Tech Savvy Expats",
+          "last_updated": "2024-01-13"
+        },
+        {
+          "category": "Practical",
+          "tip_text": "Download these essential apps: Grab (transport), Zalo (local WhatsApp), Grab Food (delivery), Google Translate with Vietnamese offline pack, and XE Currency.",
+          "contributor_count": 312,
+          "source": "App Recommendations",
+          "last_updated": "2024-01-19"
+        },
+        {
+          "category": "Healthcare",
+          "tip_text": "FV Hospital in District 7 is expensive but has English-speaking doctors. Cho Ray Hospital is local and cheap but language barriers exist. Get health insurance first.",
+          "contributor_count": 156,
+          "source": "Healthcare Experiences",
+          "last_updated": "2024-01-21"
+        },
+        {
+          "category": "Safety",
+          "tip_text": "HCMC is generally safe but watch for bag snatchers on motorbikes. Keep valuables in front pockets. Avoid flashing expensive phones/jewelry in crowded areas.",
+          "contributor_count": 187,
+          "source": "Safety Network",
+          "last_updated": "2024-01-07"
+        },
+        {
+          "category": "Weather",
+          "tip_text": "Rainy season (May-Oct) floods streets daily around 4-6pm. Always carry rain gear. Dry season (Nov-Apr) can hit 38°C - invest in good AC and stay hydrated.",
+          "contributor_count": 203,
+          "source": "Weather Watchers",
+          "last_updated": "2024-01-06"
+        },
+        {
+          "category": "Nightlife",
+          "tip_text": "Bui Vien Walking Street is backpacker central but fun. Sky bars in District 1 offer great views but expensive drinks ($8-12). Local bia hoi costs $0.50-1 per beer.",
+          "contributor_count": 145,
+          "source": "Social Scene",
+          "last_updated": "2024-01-05"
+        }
+      ],
+      "city_apps": [
+        {
+          "name": "Grab",
+          "type": "Transportation & Food Delivery",
+          "description": "Essential for safe motorbike taxis, car rides, and food delivery. Works in English and accepts international cards.",
+          "url": "https://www.grab.com/vn/en/"
+        },
+        {
+          "name": "Zalo",
+          "type": "Messaging",
+          "description": "Vietnam's WhatsApp. Essential for communicating with locals, landlords, and joining expat groups.",
+          "url": "https://zalo.me"
+        },
+        {
+          "name": "Foody",
+          "type": "Food Delivery",
+          "description": "Cheaper alternative to Grab Food with more local restaurant options. Interface in Vietnamese only.",
+          "url": "https://www.foody.vn"
+        },
+        {
+          "name": "Be Group",
+          "type": "Transportation",
+          "description": "Local alternative to Grab with competitive pricing. Good for motorbike and car rides.",
+          "url": "https://be.com.vn"
+        },
+        {
+          "name": "Viettel Money",
+          "type": "Mobile Payments",
+          "description": "Mobile wallet for paying bills, topping up phone credit, and cashless payments at many venues.",
+          "url": "https://viettelmoney.vn"
+        }
+      ],
+      "housing_websites": [
+        {
+          "name": "Batdongsan.com.vn",
+          "url": "https://batdongsan.com.vn",
+          "type": "Rental",
+          "description": "Vietnam's largest property portal. Mix of Vietnamese and some English listings. Good for finding apartments."
+        },
+        {
+          "name": "Saigon Expat Housing",
+          "url": "https://www.facebook.com/groups/saigonexpathomes",
+          "type": "Rental",
+          "description": "Facebook group specifically for expats. English-speaking landlords and fair pricing for foreigners."
+        },
+        {
+          "name": "HCMC Apartments for Rent",
+          "url": "https://www.facebook.com/groups/hcmcapartments",
+          "type": "Rental",
+          "description": "Active Facebook group with daily postings. Good for short-term and furnished rentals."
+        },
+        {
+          "name": "District 2 Housing",
+          "url": "https://www.facebook.com/groups/district2housing",
+          "type": "Rental",
+          "description": "Focused on expat-heavy District 2 (Thu Duc). Higher prices but Western amenities and English support."
+        }
+      ],
+      "air_quality": [
+        {
+          "month": "January",
+          "aqi": 89,
+          "status": "Moderate"
+        },
+        {
+          "month": "February",
+          "aqi": 92,
+          "status": "Moderate"
+        },
+        {
+          "month": "March",
+          "aqi": 105,
+          "status": "Unhealthy for Sensitive"
+        },
+        {
+          "month": "April",
+          "aqi": 110,
+          "status": "Unhealthy for Sensitive"
+        },
+        {
+          "month": "May",
+          "aqi": 95,
+          "status": "Moderate"
+        },
+        {
+          "month": "June",
+          "aqi": 88,
+          "status": "Moderate"
+        },
+        {
+          "month": "July",
+          "aqi": 82,
+          "status": "Moderate"
+        },
+        {
+          "month": "August",
+          "aqi": 85,
+          "status": "Moderate"
+        },
+        {
+          "month": "September",
+          "aqi": 91,
+          "status": "Moderate"
+        },
+        {
+          "month": "October",
+          "aqi": 98,
+          "status": "Moderate"
+        },
+        {
+          "month": "November",
+          "aqi": 103,
+          "status": "Unhealthy for Sensitive"
+        },
+        {
+          "month": "December",
+          "aqi": 94,
+          "status": "Moderate"
+        }
+      ],
+      "city_news": [
+        {
+          "headline": "New Metro Line 1 Opens, Reducing Traffic Congestion for Teachers",
+          "category": "Transportation",
+          "date": "2024-01-15",
+          "summary": "The long-awaited Ben Thanh - Suoi Tien Metro Line finally opens, offering teachers a reliable alternative to motorbike taxis during peak hours.",
+          "relevance_to_teachers": "High - provides safe, affordable transport to schools in Districts 1, 2, and 9",
+          "source_url": "https://vnexpress.net/metro-line-1-opens"
+        },
+        {
+          "headline": "International Schools Report Teacher Shortage, Salary Increases Expected",
+          "category": "Employment",
+          "date": "2024-01-12",
+          "summary": "Several international schools in HCMC are raising salaries 10-15% to attract qualified foreign teachers amid growing enrollment.",
+          "relevance_to_teachers": "Very High - direct impact on salary negotiations and job opportunities",
+          "source_url": "https://saigonneer.com/teacher-shortage-2024"
+        },
+        {
+          "headline": "New Visa Regulations Streamline Work Permit Process for Foreign Teachers",
+          "category": "Legal/Visa",
+          "date": "2024-01-08",
+          "summary": "Vietnam's Ministry of Education announces simplified work permit applications, reducing processing time from 6 weeks to 3 weeks.",
+          "relevance_to_teachers": "High - affects all foreign teachers seeking work permits",
+          "source_url": "https://vietnamnews.vn/work-permit-changes"
+        },
+        {
+          "headline": "Air Quality Monitoring System Expanded Across HCMC Districts",
+          "category": "Health/Environment",
+          "date": "2024-01-10",
+          "summary": "City installs 50 new air quality monitors, with data available via mobile apps to help residents plan outdoor activities.",
+          "relevance_to_teachers": "Medium - helps plan school activities and daily commutes",
+          "source_url": "https://tuoitrenews.vn/air-quality-monitors"
+        }
+      ]
+    }
+  ]
+}

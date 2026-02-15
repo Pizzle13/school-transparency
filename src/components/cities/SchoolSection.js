@@ -3,9 +3,12 @@
 import { useState } from 'react';
 import SchoolCard from './SchoolCard';
 import SchoolDetailModal from './SchoolDetailModal';
+import SchoolReviewModal from '../submissions/SchoolReviewModal';
 
-export default function SchoolSection({ schools, cityName }) {
+export default function SchoolSection({ schools, cityId, cityName }) {
   const [selectedSchool, setSelectedSchool] = useState(null);
+  const [reviewModalOpen, setReviewModalOpen] = useState(false);
+  const [selectedSchoolForReview, setSelectedSchoolForReview] = useState(null);
 
   // Assign rotating colors to cards
   const cardColors = [
@@ -31,7 +34,7 @@ export default function SchoolSection({ schools, cityName }) {
           <h2 className="text-6xl md:text-7xl font-black mb-6 text-stone-900">
             International Schools in {cityName}
           </h2>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mb-6">
             <div>
               <p className="text-xl text-stone-600 mb-2">
                 {schools.length} international schools • Reviews from community sources
@@ -40,22 +43,51 @@ export default function SchoolSection({ schools, cityName }) {
                 Data aggregated from teacher communities, public reviews, and school websites
               </p>
             </div>
-            
+
             {/* Scroll Navigation */}
             <div className="hidden md:flex gap-3">
-              <button 
+              <button
                 onClick={() => document.getElementById('school-scroll').scrollBy({ left: -400, behavior: 'smooth' })}
                 className="w-12 h-12 rounded-full border-2 border-stone-900 flex items-center justify-center hover:bg-stone-900 hover:text-white transition-all"
               >
                 ←
               </button>
-              <button 
+              <button
                 onClick={() => document.getElementById('school-scroll').scrollBy({ left: 400, behavior: 'smooth' })}
                 className="w-12 h-12 rounded-full border-2 border-stone-900 flex items-center justify-center hover:bg-stone-900 hover:text-white transition-all"
               >
                 →
               </button>
             </div>
+          </div>
+
+          {/* Write a Review Button */}
+          <div className="mt-4 flex gap-2 items-center">
+            <select
+              value={selectedSchoolForReview?.id || ''}
+              onChange={(e) => {
+                const school = schools.find(s => s.id === e.target.value);
+                setSelectedSchoolForReview(school);
+              }}
+              className="px-4 py-3 border-2 border-stone-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600"
+            >
+              <option value="">Select a school to review...</option>
+              {schools.map(school => (
+                <option key={school.id} value={school.id}>{school.name}</option>
+              ))}
+            </select>
+            <button
+              onClick={() => {
+                if (selectedSchoolForReview) {
+                  setReviewModalOpen(true);
+                } else {
+                  alert('Please select a school first');
+                }
+              }}
+              className="px-6 py-3 bg-orange-600 text-white rounded-lg font-bold hover:bg-orange-700 transition-colors border-2 border-stone-900"
+            >
+              ✍ Write Review
+            </button>
           </div>
         </div>
 
@@ -159,7 +191,19 @@ export default function SchoolSection({ schools, cityName }) {
           onClose={() => setSelectedSchool(null)}
         />
       )}
-      
+
+      {reviewModalOpen && selectedSchoolForReview && (
+        <SchoolReviewModal
+          school={selectedSchoolForReview}
+          cityId={cityId}
+          cityName={cityName}
+          onClose={() => {
+            setReviewModalOpen(false);
+            setSelectedSchoolForReview(null);
+          }}
+        />
+      )}
+
       <style jsx>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
