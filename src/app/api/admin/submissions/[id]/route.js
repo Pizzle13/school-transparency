@@ -30,6 +30,7 @@ export async function PATCH(request, { params }) {
         *,
         cities(name, slug),
         school_reviews(id, school_id, schools(name)),
+        school_suggestions(id, school_name, school_type, school_website, school_district, city_id),
         local_intel_submissions(id, category, tip_text),
         housing_submissions(id, area_name),
         salary_submissions(id, position)
@@ -55,6 +56,43 @@ export async function PATCH(request, { params }) {
       if (updateError) {
         console.error('Update error:', updateError);
         return Response.json({ error: 'Failed to approve submission' }, { status: 500 });
+      }
+
+      // Handle school suggestion approval: create school + link review
+      if (submission.submission_type === 'school_suggestion' && submission.school_suggestions?.[0]) {
+        const suggestion = submission.school_suggestions[0];
+        try {
+          // Insert the new school into the schools table
+          const { data: newSchool, error: schoolInsertError } = await supabaseAdmin
+            .from('schools')
+            .insert({
+              city_id: suggestion.city_id,
+              name: suggestion.school_name,
+              type: suggestion.school_type,
+              website: suggestion.school_website,
+              district: suggestion.school_district,
+              rating: 0,
+              reviews: 0,
+              student_count: 0,
+              salary_range: 'Not yet reported',
+              summary: 'Recently added — awaiting more data.',
+              source: 'user_suggestion',
+            })
+            .select()
+            .single();
+
+          if (schoolInsertError) {
+            console.error('School insert error:', schoolInsertError);
+          } else if (newSchool && submission.school_reviews?.[0]) {
+            // Link the pending review to the newly created school
+            await supabaseAdmin
+              .from('school_reviews')
+              .update({ school_id: newSchool.id })
+              .eq('id', submission.school_reviews[0].id);
+          }
+        } catch (schoolError) {
+          console.warn('Failed to create school from suggestion:', schoolError);
+        }
       }
 
       // Copy local intel data to production table if applicable

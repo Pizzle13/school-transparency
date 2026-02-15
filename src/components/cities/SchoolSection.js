@@ -9,6 +9,7 @@ export default function SchoolSection({ schools, cityId, cityName }) {
   const [selectedSchool, setSelectedSchool] = useState(null);
   const [reviewModalOpen, setReviewModalOpen] = useState(false);
   const [selectedSchoolForReview, setSelectedSchoolForReview] = useState(null);
+  const [isNewSchool, setIsNewSchool] = useState(false);
 
   // Assign rotating colors to cards
   const cardColors = [
@@ -62,12 +63,18 @@ export default function SchoolSection({ schools, cityId, cityName }) {
           </div>
 
           {/* Write a Review Button */}
-          <div className="mt-4 flex gap-2 items-center">
+          <div className="mt-4 flex gap-2 items-center flex-wrap">
             <select
-              value={selectedSchoolForReview?.id || ''}
+              value={isNewSchool ? '__new__' : (selectedSchoolForReview?.id || '')}
               onChange={(e) => {
-                const school = schools.find(s => s.id === e.target.value);
-                setSelectedSchoolForReview(school);
+                if (e.target.value === '__new__') {
+                  setIsNewSchool(true);
+                  setSelectedSchoolForReview(null);
+                } else {
+                  setIsNewSchool(false);
+                  const school = schools.find(s => s.id === e.target.value);
+                  setSelectedSchoolForReview(school);
+                }
               }}
               className="px-4 py-3 border-2 border-stone-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600"
             >
@@ -75,10 +82,11 @@ export default function SchoolSection({ schools, cityId, cityName }) {
               {schools.map(school => (
                 <option key={school.id} value={school.id}>{school.name}</option>
               ))}
+              <option value="__new__">+ My school isn't listed</option>
             </select>
             <button
               onClick={() => {
-                if (selectedSchoolForReview) {
+                if (isNewSchool || selectedSchoolForReview) {
                   setReviewModalOpen(true);
                 } else {
                   alert('Please select a school first');
@@ -192,14 +200,16 @@ export default function SchoolSection({ schools, cityId, cityName }) {
         />
       )}
 
-      {reviewModalOpen && selectedSchoolForReview && (
+      {reviewModalOpen && (isNewSchool || selectedSchoolForReview) && (
         <SchoolReviewModal
-          school={selectedSchoolForReview}
+          school={isNewSchool ? null : selectedSchoolForReview}
+          isNewSchool={isNewSchool}
           cityId={cityId}
           cityName={cityName}
           onClose={() => {
             setReviewModalOpen(false);
             setSelectedSchoolForReview(null);
+            setIsNewSchool(false);
           }}
         />
       )}

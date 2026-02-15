@@ -205,10 +205,48 @@ export default function AdminDashboard() {
                         School: {submission.school_reviews[0].schools?.name}
                       </p>
                       <p>Rating: {submission.school_reviews[0].overall_rating}/5</p>
-                      {submission.school_reviews[0].schools?.name && (
+                      {submission.school_reviews[0].pros && (
                         <p className="mt-2">
-                          <strong>Pros:</strong> {submission.school_reviews[0].pros?.substring(0, 100)}...
+                          <strong>Pros:</strong> {submission.school_reviews[0].pros.substring(0, 200)}{submission.school_reviews[0].pros.length > 200 ? '...' : ''}
                         </p>
+                      )}
+                      {submission.school_reviews[0].cons && (
+                        <p className="mt-1">
+                          <strong>Cons:</strong> {submission.school_reviews[0].cons.substring(0, 200)}{submission.school_reviews[0].cons.length > 200 ? '...' : ''}
+                        </p>
+                      )}
+                    </div>
+                  )}
+
+                  {submission.submission_type === 'school_suggestion' && submission.school_suggestions?.[0] && (
+                    <div>
+                      <div className="bg-blue-50 border border-blue-300 rounded-lg p-3 mb-3">
+                        <p className="font-bold text-blue-900">
+                          NEW SCHOOL: {submission.school_suggestions[0].school_name}
+                        </p>
+                        <p className="text-blue-800">Type: {submission.school_suggestions[0].school_type}</p>
+                        {submission.school_suggestions[0].school_district && (
+                          <p className="text-blue-800">District: {submission.school_suggestions[0].school_district}</p>
+                        )}
+                        {submission.school_suggestions[0].school_website && (
+                          <p className="text-blue-800">
+                            Website: <a href={submission.school_suggestions[0].school_website} target="_blank" rel="noopener noreferrer" className="underline">{submission.school_suggestions[0].school_website}</a>
+                          </p>
+                        )}
+                        <p className="text-xs text-blue-600 mt-2 font-bold">
+                          Approving will add this school to the directory and publish the attached review.
+                        </p>
+                      </div>
+                      {submission.school_reviews?.[0] && (
+                        <div>
+                          <p>Review Rating: {submission.school_reviews[0].overall_rating}/5</p>
+                          {submission.school_reviews[0].pros && (
+                            <p className="mt-1"><strong>Pros:</strong> {submission.school_reviews[0].pros.substring(0, 200)}{submission.school_reviews[0].pros.length > 200 ? '...' : ''}</p>
+                          )}
+                          {submission.school_reviews[0].cons && (
+                            <p className="mt-1"><strong>Cons:</strong> {submission.school_reviews[0].cons.substring(0, 200)}{submission.school_reviews[0].cons.length > 200 ? '...' : ''}</p>
+                          )}
+                        </div>
                       )}
                     </div>
                   )}
