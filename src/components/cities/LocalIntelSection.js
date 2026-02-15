@@ -1,6 +1,10 @@
 'use client'
 
-export default function LocalIntelSection({ intelData, cityName }) {
+import { useState } from 'react';
+import LocalIntelModal from '../submissions/LocalIntelModal';
+
+export default function LocalIntelSection({ intelData, cityId, cityName }) {
+  const [modalOpen, setModalOpen] = useState(false);
   if (!intelData || intelData.length === 0) {
     return null;
   }
@@ -150,12 +154,23 @@ export default function LocalIntelSection({ intelData, cityName }) {
           <p className="text-stone-600 mb-8 text-lg max-w-xl mx-auto">
             Share your on-the-ground experience and help other teachers make smarter decisions.
           </p>
-          <button className="bg-orange-600 text-white px-10 py-5 rounded-xl font-black hover:bg-orange-500 transition-colors text-lg border-4 border-stone-900 hover:translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
-            Submit Your Tip (Coming Soon)
+          <button
+            onClick={() => setModalOpen(true)}
+            className="bg-orange-600 text-white px-10 py-5 rounded-xl font-black hover:bg-orange-500 transition-colors text-lg border-4 border-stone-900 hover:translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all"
+          >
+            Submit Your Tip
           </button>
         </div>
       </div>
       
+      {modalOpen && (
+        <LocalIntelModal
+          cityId={cityId}
+          cityName={cityName}
+          onClose={() => setModalOpen(false)}
+        />
+      )}
+
       <style jsx>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;

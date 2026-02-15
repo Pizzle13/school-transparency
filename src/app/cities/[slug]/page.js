@@ -90,7 +90,7 @@ export default async function CityPage({ params }) {
 
       {/* Critical above-the-fold content */}
       <SalaryAnalysis data={city.salary_data?.[0]} economic={city.economic_data?.[0]} />
-      <SchoolSection schools={city.schools} cityName={city.name} />
+      <SchoolSection schools={city.schools} cityId={city.id} cityName={city.name} />
 
       {/* Secondary sections with fetched data */}
       <AirQualitySection data={secondaryData.air_quality} cityName={city.name} dataYear={city.created_at ? new Date(city.created_at).getFullYear() : null} />
@@ -103,7 +103,7 @@ export default async function CityPage({ params }) {
       <HealthcareSection hospitals={secondaryData.hospitals} />
       <PetImportSection petImport={secondaryData.pet_import?.[0]} />
       <RecentNewsSection news={secondaryData.city_news} />
-      <LocalIntelSection intelData={secondaryData.local_intel_data} cityName={city.name} />
+      <LocalIntelSection intelData={secondaryData.local_intel_data} cityId={city.id} cityName={city.name} />
     </div>
   );
 }

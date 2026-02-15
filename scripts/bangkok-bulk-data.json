@@ -1,0 +1,420 @@
+{
+  "_docs": "Bangkok comprehensive data for the Pipeline project. Send this payload to POST /api/cities/bulk-import with Bearer PIPELINE_API_KEY. Every field marked REQUIRED must be present. Optional sections can be omitted — the page gracefully hides empty sections.",
+  "cities": [
+    {
+      "cityData": {
+        "name": "Bangkok",
+        "country": "Thailand",
+        "slug": "bangkok",
+        "hero_image_url": "https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=1600&q=80"
+      },
+
+      "salary_data": {
+        "avg_salary": 42000,
+        "monthly_cost": 2100,
+        "monthly_savings": 1400,
+        "currency": "USD",
+        "year": 2025,
+        "_notes": "avg_salary = ANNUAL figure ($42K/year for experienced teachers). monthly_cost and monthly_savings are MONTHLY. monthly_cost + monthly_savings = avg_salary / 12 = $3,500."
+      },
+
+      "economic_data": {
+        "gdp_latest": 505000000000,
+        "gdp_growth": 2.5,
+        "inflation_latest": 2.2,
+        "inflation": 2.2,
+        "unemployment_rate": 1.8,
+        "cost_of_living_index": 52
+      },
+
+      "schools": [
+        {
+          "name": "Bangkok Patana School",
+          "type": "IB",
+          "rating": 4.8,
+          "student_count": 1650,
+          "salary_range": "$3,500 - $6,500",
+          "reviews": 127,
+          "summary": "Premier international school with rigorous IB curriculum. Strong community, excellent facilities, and competitive salaries for experienced teachers.",
+          "grade_levels": "K-12",
+          "website_url": "https://www.bangkokpatana.ac.th",
+          "contact_email": "admissions@bangkokpatana.ac.th",
+          "phone_number": "+66 2 785 3099"
+        },
+        {
+          "name": "Harrow International School Bangkok",
+          "type": "British",
+          "rating": 4.7,
+          "student_count": 1200,
+          "salary_range": "$3,200 - $6,000",
+          "reviews": 98,
+          "summary": "British-curriculum school with strong focus on academics and pastoral care. Excellent teaching community and professional development opportunities.",
+          "grade_levels": "K-12",
+          "website_url": "https://www.harrowbangkok.ac.th",
+          "contact_email": "recruitment@harrowbangkok.ac.th",
+          "phone_number": "+66 2 645 9200"
+        },
+        {
+          "name": "International School of Bangkok (ISB)",
+          "type": "American",
+          "rating": 4.6,
+          "student_count": 1450,
+          "salary_range": "$3,000 - $5,800",
+          "reviews": 112,
+          "summary": "Established American curriculum school with modern facilities and strong college prep program. Active expat community and social calendar.",
+          "grade_levels": "K-12",
+          "website_url": "https://www.isb.ac.th",
+          "contact_email": "jobs@isb.ac.th",
+          "phone_number": "+66 2 963 5800"
+        },
+        {
+          "name": "Thai-Nichi Institute of Technology (TNI)",
+          "type": "Other",
+          "rating": 4.2,
+          "student_count": 800,
+          "salary_range": "$2,500 - $4,200",
+          "reviews": 56,
+          "summary": "Japanese-Thai technical institute. Smaller, tightly-knit community. Good for teachers seeking more local integration.",
+          "grade_levels": "9-12",
+          "website_url": "https://www.tni.ac.th",
+          "contact_email": "hr@tni.ac.th",
+          "phone_number": "+66 2 949 3636"
+        },
+        {
+          "name": "Bromsgrove International School Bangkok",
+          "type": "British",
+          "rating": 4.5,
+          "student_count": 950,
+          "salary_range": "$2,800 - $5,200",
+          "reviews": 73,
+          "summary": "British curriculum with UK boarding school heritage. Family-oriented, growing school in north Bangkok with modern campus.",
+          "grade_levels": "K-12",
+          "website_url": "https://www.bromsgrove.ac.th",
+          "contact_email": "recruitment@bromsgrove.ac.th",
+          "phone_number": "+66 2 961 9686"
+        },
+        {
+          "name": "Lycée Français International de Bangkok",
+          "type": "Other",
+          "rating": 4.4,
+          "student_count": 650,
+          "salary_range": "$2,600 - $4,800",
+          "reviews": 48,
+          "summary": "French-curriculum international school. Excellent for French speakers or those seeking European education model.",
+          "grade_levels": "K-12",
+          "website_url": "https://www.lfib.ac.th",
+          "contact_email": "recrutement@lfib.ac.th",
+          "phone_number": "+66 2 653 3200"
+        }
+      ],
+
+      "housing_areas": [
+        {
+          "district": "Thonglor / Ekamai",
+          "type": "Expat-Friendly",
+          "rent_min": 1200,
+          "rent_max": 2500,
+          "teacher_rating": 4.7,
+          "pros": "Heart of expat community. Excellent restaurants, bars, and nightlife. Easy access to international schools. Modern condos and apartments.",
+          "cons": "Higher rent than other areas. Can feel transient. Heavy traffic during peak hours."
+        },
+        {
+          "district": "Silom / Sathorn",
+          "type": "Expat-Friendly",
+          "rent_min": 1000,
+          "rent_max": 2200,
+          "teacher_rating": 4.5,
+          "pros": "Downtown Bangkok, walkable neighborhoods. Great food and nightlife. Good public transport. Mix of modern and traditional.",
+          "cons": "Noisier. More touristy. Can feel less residential than Thonglor.",
+          "cons": "Noisier areas. More touristy. Better for singles/couples than families."
+        },
+        {
+          "district": "Ari / Sanam Pao",
+          "type": "Mixed",
+          "rent_min": 600,
+          "rent_max": 1400,
+          "teacher_rating": 4.3,
+          "pros": "Local neighborhood feel. Excellent street food. Growing expat community. Great value for money. Close to some schools.",
+          "cons": "Less polished than Thonglor. Fewer international restaurants. Less English spoken by locals."
+        },
+        {
+          "district": "Sukhumvit (mid-sections)",
+          "type": "Expat-Friendly",
+          "rent_min": 800,
+          "rent_max": 1800,
+          "teacher_rating": 4.4,
+          "pros": "Major thoroughfare with everything. Easy BTS access. Lots of international schools in nearby areas. Good balance of modern and local.",
+          "cons": "Very busy and polluted in some sections. Can feel overwhelming for new arrivals."
+        },
+        {
+          "district": "On Nut / Bangna",
+          "type": "Mixed",
+          "rent_min": 700,
+          "rent_max": 1200,
+          "teacher_rating": 4.1,
+          "pros": "More local, authentic Bangkok. Better value. Close to Bang Na International School. Quieter residential feel.",
+          "cons": "Further from downtown. Fewer expat amenities. Less nightlife. Requires motorbike/taxi for most activities."
+        }
+      ],
+
+      "housing_websites": [
+        {
+          "name": "DDproperty",
+          "url": "https://www.ddproperty.com",
+          "type": "Rental",
+          "description": "Thailand's largest property portal. Extensive rental listings from landlords and agents. Thai interface but easy to navigate with Google Translate."
+        },
+        {
+          "name": "PropertyGuru Thailand",
+          "url": "https://thailand.propertyguru.com.th",
+          "type": "Both",
+          "description": "Premier property site with rentals and sales. Good quality listings and professional agents. English-friendly."
+        },
+        {
+          "name": "Airbnb",
+          "url": "https://www.airbnb.com",
+          "type": "Rental",
+          "description": "Many long-term furnished apartments. Good for first 1-3 months while you find permanent housing."
+        },
+        {
+          "name": "Facebook Groups",
+          "url": "https://www.facebook.com",
+          "type": "Rental",
+          "description": "Join 'Bangkok Housing for Expats', 'Apartment Hunting in Bangkok', etc. Direct landlord listings, lower prices, community advice."
+        },
+        {
+          "name": "Bangkok Condo Finder",
+          "url": "https://bangkokcondofinder.com",
+          "type": "Rental",
+          "description": "Specialized in condominiums. Bilingual support, vetted listings, reasonable commissions."
+        }
+      ],
+
+      "air_quality": [
+        { "month": "January", "aqi": 85, "status": "Moderate" },
+        { "month": "February", "aqi": 92, "status": "Moderate" },
+        { "month": "March", "aqi": 110, "status": "Unhealthy for Sensitive Groups" },
+        { "month": "April", "aqi": 125, "status": "Unhealthy" },
+        { "month": "May", "aqi": 95, "status": "Moderate" },
+        { "month": "June", "aqi": 70, "status": "Moderate" },
+        { "month": "July", "aqi": 65, "status": "Moderate" },
+        { "month": "August", "aqi": 68, "status": "Moderate" },
+        { "month": "September", "aqi": 72, "status": "Moderate" },
+        { "month": "October", "aqi": 80, "status": "Moderate" },
+        { "month": "November", "aqi": 88, "status": "Moderate" },
+        { "month": "December", "aqi": 90, "status": "Moderate" }
+      ],
+
+      "city_apps": [
+        {
+          "name": "Grab",
+          "type": "Transportation",
+          "description": "Southeast Asian Uber. Your daily commute workhorse. Used for taxis, bikes, food delivery, and logistics.",
+          "url": "https://www.grab.com"
+        },
+        {
+          "name": "BTS Skytrain / MRT",
+          "type": "Transportation",
+          "description": "Bangkok's rapid transit system. BTS is the elevated line, MRT is the underground. Get a Rabbit card for smooth commutes.",
+          "url": "https://www.bts.co.th"
+        },
+        {
+          "name": "LINE",
+          "type": "Messaging",
+          "description": "THE messaging app in Thailand. Everyone uses it. Stickers are a cultural language. Required for daily communication.",
+          "url": "https://line.me"
+        },
+        {
+          "name": "Foodpanda",
+          "type": "Food Delivery",
+          "description": "Food delivery service. Orders delivered to your door within 30-60 minutes. Good for lazy weeknights.",
+          "url": "https://www.foodpanda.co.th"
+        },
+        {
+          "name": "GrabFood",
+          "type": "Food Delivery",
+          "description": "Grab's food delivery service. More restaurants than competitors in some areas. Usually cheaper during promotions.",
+          "url": "https://food.grab.com"
+        },
+        {
+          "name": "Prompt Pay",
+          "type": "Payments",
+          "description": "Thailand's instant payment system. Linked to most bank apps. Teachers use this for splitting bills, rent, everything.",
+          "url": "https://www.bot.or.th/en/our-roles/financial-stability/prompt-pay"
+        },
+        {
+          "name": "Bangkok Bank / Kasikornbank",
+          "type": "Payments",
+          "description": "Major Thai banks with mobile apps. Open a bank account within first week of arrival.",
+          "url": "https://www.bangkokbank.com"
+        },
+        {
+          "name": "Google Maps",
+          "type": "Transportation",
+          "description": "Essential for navigation. Works well in Bangkok. Offline maps available. Better than Apple Maps here.",
+          "url": "https://maps.google.com"
+        }
+      ],
+
+      "hospitals": [
+        {
+          "name": "Bumrungrad International Hospital",
+          "address": "33 Sukhumvit Soi 33 (Sukhumvit Rd.), Bangkok 10110",
+          "phone": "+66 2 667 1000",
+          "services": "Full-service international hospital. English-speaking staff. Advanced diagnostics, surgery, emergency care.",
+          "website": "https://www.bumrungrad.com",
+          "notes": "Most expensive but best quality. Teachers often use for serious issues. International insurance accepted. 24/7 emergency."
+        },
+        {
+          "name": "Samitivej Hospital",
+          "address": "133 Sukhumvit Rd., Bangkok 10110",
+          "phone": "+66 2 391 0000",
+          "services": "International standards. Well-equipped emergency, ICU, diagnostic center. English-speaking doctors and staff.",
+          "website": "https://www.samitivejhospitals.com",
+          "notes": "Second most popular with expats. Slightly cheaper than Bumrungrad. High quality care. Insurance accepted."
+        },
+        {
+          "name": "Bangkok Hospital",
+          "address": "2 Soi Soonvijai (New Petchburi Rd.), Bangkok 10400",
+          "phone": "+66 2 310 3000",
+          "services": "Large multi-specialty hospital. Modern facilities. Emergency and general care. English-speaking staff.",
+          "website": "https://www.bangkokhospital.com",
+          "notes": "Central location. Good for routine and emergency care. Insurance commonly accepted. Good value."
+        },
+        {
+          "name": "Thai-Japanese Hospital",
+          "address": "364 Rama IV Rd., Bangkok 10110",
+          "phone": "+66 2 023 2500",
+          "services": "Japanese-Thai joint venture. High standards. Quieter than mega-hospitals. Specialty centers.",
+          "website": "https://www.tjh-bkk.com",
+          "notes": "Smaller, more personalized care. Quieter than Bumrungrad. Staff speaks English. Used by many teachers for routine care."
+        },
+        {
+          "name": "Ramathibodi Hospital",
+          "address": "270 Rama VI Rd., Bangkok 10400",
+          "phone": "+66 2 201 1000",
+          "services": "Thai government hospital with international wing. Excellent doctors. Lower costs than private hospitals.",
+          "website": "https://www.rama.mahidol.ac.th",
+          "notes": "Best value for quality. More local experience but high standards. Good for routine and non-emergency care. Budget-friendly."
+        }
+      ],
+
+      "pet_import": {
+        "quarantine_required": false,
+        "documents": "Original health certificate from vet (signed and sealed), rabies vaccination certificate (not older than 12 months), import permit from Thai Department of Livestock. Some airlines require microchip and proof of microchip registration.",
+        "cost_estimate": "$300-800",
+        "processing_time": "2-3 weeks for permit + airline requirements vary. Plan 1 month total."
+      },
+
+      "city_news": [
+        {
+          "headline": "New BTS Extension to North Bangkok Opens",
+          "category": "Transportation",
+          "date": "2025-01-20",
+          "summary": "Bangkok's BTS Skytrain extended northward, improving access to residential areas and reducing commute times for teachers in north Bangkok.",
+          "relevance_to_teachers": "Easier commute for those living in northern Bangkok neighborhoods. Better access to schools in Ladprao and Sapan Sung areas.",
+          "source_url": "https://www.bts.co.th"
+        },
+        {
+          "headline": "Thailand Announces New Education Work Permit Fast-Track",
+          "category": "Employment",
+          "date": "2025-02-05",
+          "summary": "Immigration simplifies work permit process for education sector. Reduced documentation requirements for school-sponsored visas.",
+          "relevance_to_teachers": "Easier visa and work permit processes. Schools can onboard foreign teachers faster. Better job security documentation.",
+          "source_url": "https://immigration.go.th"
+        },
+        {
+          "headline": "Bangkok Launches New Air Quality Monitoring Initiative",
+          "category": "Health/Environment",
+          "date": "2025-01-15",
+          "summary": "City government doubles air monitoring stations and launches real-time air quality app to help residents make daily activity decisions.",
+          "relevance_to_teachers": "Better real-time AQI data. Can make informed decisions about outdoor activities. Especially important during dry season.",
+          "source_url": "https://www.bangkok.go.th"
+        },
+        {
+          "headline": "International Schools Report Strong Teacher Recruitment Year",
+          "category": "Employment",
+          "date": "2025-02-01",
+          "summary": "Bangkok's international schools expanding hiring for 2025-2026 school year. ISB, Harrow, and Bangkok Patana all recruiting heavily.",
+          "relevance_to_teachers": "Excellent employment opportunities. Multiple schools actively hiring. Good time to negotiate salaries.",
+          "source_url": "https://www.isb.ac.th"
+        }
+      ],
+
+      "local_intel_data": [
+        {
+          "category": "Transportation",
+          "tip_text": "Get a Rabbit Card (BTS/MRT smart card) within your first week. It costs ~$3 and makes daily commutes seamless. Tap and go everywhere. Load cash for journeys.",
+          "contributor_count": 287,
+          "source": "Teacher Community",
+          "last_updated": "2025-02-10"
+        },
+        {
+          "category": "Banking",
+          "tip_text": "Open a Thai bank account immediately. Bangkok Bank and Kasikornbank have apps and English-speaking staff. You'll need a Thai bank account for rental deposits, salary transfers, and PromptPay payments.",
+          "contributor_count": 312,
+          "source": "Teacher Community",
+          "last_updated": "2025-02-09"
+        },
+        {
+          "category": "Housing",
+          "tip_text": "Use Facebook groups 'Bangkok Housing for Expats' and 'Apartment Hunting in Bangkok' to find better deals than formal property sites. Prices negotiable directly with landlords. Most leases are monthly, not annual.",
+          "contributor_count": 256,
+          "source": "Teacher Community",
+          "last_updated": "2025-02-08"
+        },
+        {
+          "category": "Dining",
+          "tip_text": "Street food is incredible AND cheap. Learn to say 'mai sai mak pet' (not too spicy) in Thai. Khao moo krob (crispy pork rice) and pad thai are your friends. Eat where locals eat.",
+          "contributor_count": 198,
+          "source": "Teacher Community",
+          "last_updated": "2025-02-11"
+        },
+        {
+          "category": "Healthcare",
+          "tip_text": "Bumrungrad and Samitivej are the top international hospitals. Bumrungrad is world-class but pricey. For routine stuff (dentist, checkup), local hospitals like Thai-Japanese are excellent quality and much cheaper.",
+          "contributor_count": 203,
+          "source": "Teacher Community",
+          "last_updated": "2025-02-07"
+        },
+        {
+          "category": "Weather",
+          "tip_text": "March-May is HOT (32-40°C). April is the hottest. Bring good AC-loving clothes and sunscreen. June-October is rainy season but rain comes in short intense bursts, not all day.",
+          "contributor_count": 175,
+          "source": "Teacher Community",
+          "last_updated": "2025-02-10"
+        },
+        {
+          "category": "Safety",
+          "tip_text": "Bangkok is generally safe. Petty theft happens, especially on crowded BTS/MRT. Keep valuables secured. Avoid leaving stuff unattended. Be aware of surroundings late at night like any big city.",
+          "contributor_count": 267,
+          "source": "Teacher Community",
+          "last_updated": "2025-02-09"
+        },
+        {
+          "category": "Cultural Tips",
+          "tip_text": "Learn about wai (Thai greeting bow). Respect the Thai royal family and religion. Don't point at people or pass things with one hand. These matter in professional contexts, especially schools.",
+          "contributor_count": 241,
+          "source": "Teacher Community",
+          "last_updated": "2025-02-08"
+        },
+        {
+          "category": "Practical",
+          "tip_text": "Get a Thai SIM card immediately (AIS, DTAC, or True Mobile). Costs almost nothing. Data is dirt cheap. Make sure your phone is unlocked before arrival.",
+          "contributor_count": 289,
+          "source": "Teacher Community",
+          "last_updated": "2025-02-11"
+        },
+        {
+          "category": "Nightlife",
+          "tip_text": "Thonglor, Silom, and Sukhumvit areas have tons of bars, clubs, and rooftop lounges. Happy hours 4-7pm. Soi Cowboy and Patpong are infamous but fun for exploring. Grab is cheap so nightlife is affordable.",
+          "contributor_count": 156,
+          "source": "Teacher Community",
+          "last_updated": "2025-02-06"
+        }
+      ]
+    }
+  ],
+  "validate_only": false,
+  "skip_duplicates": true
+}
