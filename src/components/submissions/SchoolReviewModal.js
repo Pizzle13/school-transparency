@@ -2,9 +2,23 @@
 
 import { useState } from 'react';
 
-export default function SchoolReviewModal({ school, cityId, cityName, onClose }) {
+const SCHOOL_TYPES = [
+  'International',
+  'Bilingual',
+  'Language Center',
+  'Private National',
+  'Other',
+];
+
+export default function SchoolReviewModal({ school, isNewSchool, cityId, cityName, onClose }) {
   const [formData, setFormData] = useState({
     submitter_email: '',
+    // New school fields
+    school_name: '',
+    school_type: 'International',
+    school_website: '',
+    school_district: '',
+    // Review fields
     overall_rating: 3,
     years_taught: '',
     position: '',
@@ -26,7 +40,6 @@ export default function SchoolReviewModal({ school, cityId, cityName, onClose })
 
   const handleChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
-    // Clear error for this field
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: null }));
     }
@@ -37,35 +50,55 @@ export default function SchoolReviewModal({ school, cityId, cityName, onClose })
     setIsSubmitting(true);
     setErrors({});
 
+    // Client-side validation for new school
+    if (isNewSchool && !formData.school_name.trim()) {
+      setErrors({ school_name: 'School name is required' });
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      const response = await fetch('/api/submissions/school-review', {
+      const endpoint = isNewSchool
+        ? '/api/submissions/school-suggestion'
+        : '/api/submissions/school-review';
+
+      const payload = {
+        city_id: cityId,
+        submitter_email: formData.submitter_email,
+        overall_rating: parseInt(formData.overall_rating),
+        years_taught: formData.years_taught ? parseInt(formData.years_taught) : undefined,
+        position: formData.position || undefined,
+        contract_type: formData.contract_type || undefined,
+        admin_responsiveness: parseInt(formData.admin_responsiveness),
+        teacher_community: parseInt(formData.teacher_community),
+        professional_development_opportunities: parseInt(formData.professional_development_opportunities),
+        work_life_balance: parseInt(formData.work_life_balance),
+        pros: formData.pros || undefined,
+        cons: formData.cons || undefined,
+        advice_for_teachers: formData.advice_for_teachers || undefined,
+        reported_salary_min: formData.reported_salary_min ? parseInt(formData.reported_salary_min) : undefined,
+        reported_salary_max: formData.reported_salary_max ? parseInt(formData.reported_salary_max) : undefined,
+      };
+
+      if (isNewSchool) {
+        payload.school_name = formData.school_name.trim();
+        payload.school_type = formData.school_type;
+        payload.school_website = formData.school_website.trim() || undefined;
+        payload.school_district = formData.school_district.trim() || undefined;
+      } else {
+        payload.school_id = school.id;
+      }
+
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          city_id: cityId,
-          school_id: school.id,
-          submitter_email: formData.submitter_email,
-          overall_rating: parseInt(formData.overall_rating),
-          years_taught: formData.years_taught ? parseInt(formData.years_taught) : undefined,
-          position: formData.position || undefined,
-          contract_type: formData.contract_type || undefined,
-          admin_responsiveness: parseInt(formData.admin_responsiveness),
-          teacher_community: parseInt(formData.teacher_community),
-          professional_development_opportunities: parseInt(formData.professional_development_opportunities),
-          work_life_balance: parseInt(formData.work_life_balance),
-          pros: formData.pros || undefined,
-          cons: formData.cons || undefined,
-          advice_for_teachers: formData.advice_for_teachers || undefined,
-          reported_salary_min: formData.reported_salary_min ? parseInt(formData.reported_salary_min) : undefined,
-          reported_salary_max: formData.reported_salary_max ? parseInt(formData.reported_salary_max) : undefined,
-        }),
+        body: JSON.stringify(payload),
       });
 
       const result = await response.json();
 
       if (!response.ok) {
         if (result.details) {
-          // Map validation errors to fields
           const fieldErrors = {};
           result.details.forEach(err => {
             fieldErrors[err.field] = err.message;
@@ -98,6 +131,11 @@ export default function SchoolReviewModal({ school, cityId, cityName, onClose })
               We sent a verification link to <strong>{formData.submitter_email}</strong>.
               Click the link to verify your submission.
             </p>
+            {isNewSchool && (
+              <p className="text-sm text-stone-500 mb-4">
+                Your school suggestion and review will both be reviewed by our team before appearing on the site.
+              </p>
+            )}
             <button
               onClick={onClose}
               className="bg-orange-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-orange-700 transition-colors border-2 border-stone-900"
@@ -110,13 +148,17 @@ export default function SchoolReviewModal({ school, cityId, cityName, onClose })
     );
   }
 
+  const headerTitle = isNewSchool
+    ? 'Suggest a School & Write Review'
+    : `Review ${school.name}`;
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 overflow-y-auto">
       <div className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
         {/* Sticky Header */}
         <div className="sticky top-0 bg-white border-b-4 border-stone-900 p-6 flex items-start justify-between z-10">
           <div>
-            <h2 className="text-3xl font-black text-stone-900">Review {school.name}</h2>
+            <h2 className="text-3xl font-black text-stone-900">{headerTitle}</h2>
             <p className="text-stone-600 mt-1">{cityName}</p>
           </div>
           <button
@@ -132,6 +174,78 @@ export default function SchoolReviewModal({ school, cityId, cityName, onClose })
           {errors.general && (
             <div className="bg-red-50 border-2 border-red-600 rounded-lg p-4 text-red-800">
               {errors.general}
+            </div>
+          )}
+
+          {/* New School Details — only shown when suggesting a new school */}
+          {isNewSchool && (
+            <div className="bg-blue-50 border-2 border-blue-600 rounded-xl p-5 space-y-4">
+              <h3 className="text-lg font-bold text-stone-900">School Details</h3>
+              <p className="text-sm text-stone-600">Tell us about this school. Our team will review it before adding it to the directory.</p>
+
+              <div>
+                <label className="block text-sm font-bold text-stone-900 mb-2">
+                  School Name <span className="text-red-600">*</span>
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.school_name}
+                  onChange={(e) => handleChange('school_name', e.target.value)}
+                  className="w-full px-4 py-3 border-2 border-stone-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  placeholder="e.g., ABC International School"
+                />
+                {errors.school_name && (
+                  <p className="text-red-600 text-sm mt-1">{errors.school_name}</p>
+                )}
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-bold text-stone-900 mb-2">
+                    School Type <span className="text-red-600">*</span>
+                  </label>
+                  <select
+                    value={formData.school_type}
+                    onChange={(e) => handleChange('school_type', e.target.value)}
+                    className="w-full px-4 py-3 border-2 border-stone-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  >
+                    {SCHOOL_TYPES.map(type => (
+                      <option key={type} value={type}>{type}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-bold text-stone-900 mb-2">
+                    District / Area
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.school_district}
+                    onChange={(e) => handleChange('school_district', e.target.value)}
+                    className="w-full px-4 py-3 border-2 border-stone-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    placeholder="e.g., District 2, Thao Dien"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-bold text-stone-900 mb-2">
+                  School Website
+                </label>
+                <input
+                  type="url"
+                  value={formData.school_website}
+                  onChange={(e) => handleChange('school_website', e.target.value)}
+                  className="w-full px-4 py-3 border-2 border-stone-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  placeholder="https://www.schoolname.edu.vn"
+                />
+                {errors.school_website && (
+                  <p className="text-red-600 text-sm mt-1">{errors.school_website}</p>
+                )}
+                <p className="text-xs text-stone-500 mt-1">Helps us verify the school exists</p>
+              </div>
             </div>
           )}
 
@@ -323,7 +437,7 @@ export default function SchoolReviewModal({ school, cityId, cityName, onClose })
               disabled={isSubmitting}
               className="w-full bg-orange-600 text-white py-4 rounded-lg font-black text-lg hover:bg-orange-700 transition-colors border-2 border-stone-900 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? 'Submitting...' : 'Submit Review'}
+              {isSubmitting ? 'Submitting...' : (isNewSchool ? 'Submit School & Review' : 'Submit Review')}
             </button>
             <p className="text-xs text-stone-500 text-center mt-3">
               By submitting, you agree to our community guidelines and verify that this is an honest review based on your experience.

@@ -35,7 +35,8 @@ export async function GET(request) {
         email_verified,
         city_id,
         cities(name, slug),
-        school_reviews(id, school_id, overall_rating, schools(name)),
+        school_reviews(id, school_id, overall_rating, pros, cons, schools(name)),
+        school_suggestions(id, school_name, school_type, school_website, school_district),
         local_intel_submissions(id, category, tip_text),
         housing_submissions(id, area_name, rent_1br),
         salary_submissions(id, position, salary_amount)
