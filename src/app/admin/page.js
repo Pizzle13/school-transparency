@@ -114,15 +114,23 @@ export default function AdminDashboard() {
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-5xl font-black text-stone-900">Submission Moderation</h1>
-          <button
-            onClick={() => {
-              setIsAuthenticated(false);
-              setPassword('');
-            }}
-            className="px-4 py-2 bg-stone-600 text-white rounded-lg font-bold hover:bg-stone-700"
-          >
-            Logout
-          </button>
+          <div className="flex gap-3">
+            <a
+              href="/admin/editor"
+              className="px-4 py-2 bg-white text-stone-900 rounded-lg font-bold hover:bg-stone-200 border-2 border-stone-900"
+            >
+              Review Editor
+            </a>
+            <button
+              onClick={() => {
+                setIsAuthenticated(false);
+                setPassword('');
+              }}
+              className="px-4 py-2 bg-stone-600 text-white rounded-lg font-bold hover:bg-stone-700"
+            >
+              Logout
+            </button>
+          </div>
         </div>
 
         {/* Status Tabs */}
