@@ -73,6 +73,7 @@ export async function POST(request) {
         years_taught: data.years_taught,
         position: data.position,
         contract_type: data.contract_type,
+        role_level: data.role_level,
         admin_responsiveness: data.admin_responsiveness,
         teacher_community: data.teacher_community,
         professional_development_opportunities: data.professional_development_opportunities,
@@ -80,9 +81,15 @@ export async function POST(request) {
         pros: data.pros,
         cons: data.cons,
         advice_for_teachers: data.advice_for_teachers,
-        reported_salary_min: data.reported_salary_min,
-        reported_salary_max: data.reported_salary_max,
-        salary_currency: data.salary_currency,
+        reported_monthly_salary: data.reported_monthly_salary,
+        housing_type: data.housing_type,
+        housing_stipend_amount: data.housing_stipend_amount,
+        insurance_type: data.insurance_type,
+        tuition_covered: data.tuition_covered,
+        tuition_percentage: data.tuition_percentage,
+        tuition_kids_covered: data.tuition_kids_covered,
+        flight_type: data.flight_type,
+        flight_amount: data.flight_amount,
       });
 
     if (reviewError) {

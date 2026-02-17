@@ -3,6 +3,14 @@ export default function CityHero({ city }) {
   const economic = city.economic_data?.[0];
   const hasImage = city.hero_image_url && city.hero_image_url !== 'null';
 
+  // Compute salary range from school data using 10th/90th percentile to filter outliers
+  const schools = city.schools || [];
+  const allMins = schools.map(s => s.salary_min).filter(Boolean).sort((a, b) => a - b);
+  const allMaxes = schools.map(s => s.salary_max).filter(Boolean).sort((a, b) => a - b);
+  const percentile = (arr, p) => arr[Math.max(0, Math.ceil(arr.length * p) - 1)];
+  const salaryLow = allMins.length >= 3 ? percentile(allMins, 0.1) : (allMins[0] || null);
+  const salaryHigh = allMaxes.length >= 3 ? percentile(allMaxes, 0.9) : (allMaxes[allMaxes.length - 1] || null);
+
   return (
     <section className="relative h-[85vh] min-h-[600px] overflow-hidden">
       {/* Background Image - Full Bleed */}
@@ -36,8 +44,17 @@ export default function CityHero({ city }) {
         {/* Minimal Stats Bar - Clean Horizontal Layout */}
         <div className="flex flex-wrap gap-8 text-white">
           
-          {/* Avg Salary */}
-          {salary?.avg_salary && (
+          {/* Salary Range */}
+          {salaryLow && salaryHigh ? (
+            <div className="flex items-baseline gap-3">
+              <span className="text-5xl font-bold">
+                ${Math.round(salaryLow / 1000)}K&ndash;${Math.round(salaryHigh / 1000)}K
+              </span>
+              <span className="text-white/60 text-sm uppercase tracking-wider">
+                Typical Salary Range
+              </span>
+            </div>
+          ) : salary?.avg_salary ? (
             <div className="flex items-baseline gap-3">
               <span className="text-5xl font-bold">
                 ${Math.round(salary.avg_salary / 1000)}K
@@ -46,10 +63,10 @@ export default function CityHero({ city }) {
                 Avg Salary
               </span>
             </div>
-          )}
+          ) : null}
 
           {/* Divider */}
-          {salary?.avg_salary && economic?.gdp_growth && (
+          {(salaryLow || salary?.avg_salary) && economic?.gdp_growth && (
             <div className="w-px h-12 bg-white/20" />
           )}
 
