@@ -121,7 +121,7 @@ export default function SchoolSection({ schools, cityId, cityName }) {
                   </span>
                   <div className="flex items-center gap-1">
                     <span className="text-orange-500 text-xl">★</span>
-                    <span className="text-lg font-black text-stone-900">{school.rating}</span>
+                    <span className="text-lg font-black text-stone-900">{school.rating}/10</span>
                   </div>
                 </div>
 
@@ -144,6 +144,11 @@ export default function SchoolSection({ schools, cityId, cityName }) {
                     <span className="text-xl">💬</span>
                     <span className="font-medium">{school.reviews} community reviews</span>
                   </div>
+                  {school.updated_at && (
+                    <div className="text-xs text-stone-400">
+                      Updated {new Date(school.updated_at).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                    </div>
+                  )}
                 </div>
 
                 {/* Summary Preview */}

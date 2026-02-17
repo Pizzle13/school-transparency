@@ -72,6 +72,7 @@ export async function POST(request) {
         city_id: data.city_id,
         school_id: data.school_id || null,
         position: data.position,
+        role_level: data.role_level,
         years_experience: data.years_experience,
         salary_amount: data.salary_amount,
         currency: data.currency,

@@ -89,7 +89,7 @@ export default async function CityPage({ params }) {
       </div>
 
       {/* Critical above-the-fold content */}
-      <SalaryAnalysis data={city.salary_data?.[0]} economic={city.economic_data?.[0]} />
+      <SalaryAnalysis data={city.salary_data?.[0]} economic={city.economic_data?.[0]} schools={city.schools} />
       <SchoolSection schools={city.schools} cityId={city.id} cityName={city.name} />
 
       {/* Secondary sections with fetched data */}

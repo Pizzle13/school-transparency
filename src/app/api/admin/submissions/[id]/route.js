@@ -3,6 +3,78 @@ import { resendClient } from '../../../../../lib/email/resend-client';
 import { getApprovalEmail, getRejectionEmail } from '../../../../../lib/email/templates';
 import { revalidatePath } from 'next/cache';
 
+/**
+ * Recalculate a school's blended rating from ISR baseline + approved user reviews.
+ * Formula: (isr_total + sum_of_user_ratings) / (isr_count + user_count)
+ */
+async function recalculateSchoolRating(schoolId) {
+  try {
+    // Get the school's ISR baseline
+    const { data: school, error: schoolError } = await supabaseAdmin
+      .from('schools')
+      .select('isr_rating, isr_review_count')
+      .eq('id', schoolId)
+      .single();
+
+    if (schoolError || !school) {
+      console.warn('Could not fetch school for rating recalculation:', schoolError);
+      return;
+    }
+
+    // Get all approved user reviews with ratings for this school
+    const { data: userReviews, error: reviewsError } = await supabaseAdmin
+      .from('school_reviews')
+      .select('overall_rating, submission_id')
+      .eq('school_id', schoolId)
+      .not('overall_rating', 'is', null);
+
+    if (reviewsError) {
+      console.warn('Could not fetch reviews for rating recalculation:', reviewsError);
+      return;
+    }
+
+    // Filter to only approved submissions
+    const approvedReviews = [];
+    for (const review of userReviews || []) {
+      const { data: sub } = await supabaseAdmin
+        .from('user_submissions')
+        .select('status')
+        .eq('id', review.submission_id)
+        .single();
+      if (sub?.status === 'approved') {
+        approvedReviews.push(review);
+      }
+    }
+
+    // Calculate blended rating
+    const isrRating = school.isr_rating || 0;
+    const isrCount = school.isr_review_count || 0;
+    const isrTotal = isrRating * isrCount;
+
+    const userTotal = approvedReviews.reduce((sum, r) => sum + r.overall_rating, 0);
+    const userCount = approvedReviews.length;
+
+    const totalCount = isrCount + userCount;
+    const blendedRating = totalCount > 0
+      ? Math.round((isrTotal + userTotal) / totalCount * 10) / 10
+      : 0;
+
+    // Update the school's display rating
+    await supabaseAdmin
+      .from('schools')
+      .update({
+        rating: blendedRating,
+        reviews: totalCount,
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', schoolId);
+
+    console.log(`Recalculated rating for school ${schoolId}: ${blendedRating}/10 (${totalCount} reviews: ${isrCount} ISR + ${userCount} user)`);
+  } catch (err) {
+    console.error('Rating recalculation failed:', err);
+  }
+}
+
 function checkAdminAuth(request) {
   const authHeader = request.headers.get('authorization');
   const password = process.env.ADMIN_PASSWORD;
@@ -89,10 +161,18 @@ export async function PATCH(request, { params }) {
               .from('school_reviews')
               .update({ school_id: newSchool.id })
               .eq('id', submission.school_reviews[0].id);
+
+            // Recalculate rating for the new school (ISR baseline = 0, so it's purely user data)
+            await recalculateSchoolRating(newSchool.id);
           }
         } catch (schoolError) {
           console.warn('Failed to create school from suggestion:', schoolError);
         }
+      }
+
+      // Recalculate school rating after approving a review
+      if (submission.submission_type === 'school_review' && submission.school_reviews?.[0]?.school_id) {
+        await recalculateSchoolRating(submission.school_reviews[0].school_id);
       }
 
       // Copy local intel data to production table if applicable

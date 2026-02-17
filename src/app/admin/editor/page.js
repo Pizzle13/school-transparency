@@ -535,7 +535,7 @@ function ReviewCard({ review, index }) {
         <span className="font-bold text-stone-900">Review #{index + 1} — {review.position || 'Teacher'}</span>
         <div className="flex items-center gap-3 text-sm text-stone-600">
           {review.years_taught && <span>{review.years_taught} yrs</span>}
-          <span className="px-2 py-1 bg-orange-100 text-orange-800 rounded font-bold">{review.overall_rating}/5</span>
+          <span className="px-2 py-1 bg-orange-100 text-orange-800 rounded font-bold">{review.overall_rating}/10</span>
         </div>
       </div>
 
@@ -587,7 +587,7 @@ function RatingRow({ label, value }) {
   return (
     <div className="flex justify-between">
       <span className="text-stone-600">{label}</span>
-      <span className="font-bold">{value}/5</span>
+      <span className="font-bold">{value}/10</span>
     </div>
   );
 }

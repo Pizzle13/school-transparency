@@ -10,6 +10,12 @@ const SCHOOL_TYPES = [
   'Other',
 ];
 
+const ROLE_LEVELS = [
+  { value: 'classroom_teacher', label: 'Classroom Teacher' },
+  { value: 'teacher_leader', label: 'Teacher Leader / Middle Management' },
+  { value: 'senior_leadership', label: 'Senior Leadership (SLT)' },
+];
+
 export default function SchoolReviewModal({ school, isNewSchool, cityId, cityName, onClose }) {
   const [formData, setFormData] = useState({
     submitter_email: '',
@@ -19,19 +25,28 @@ export default function SchoolReviewModal({ school, isNewSchool, cityId, cityNam
     school_website: '',
     school_district: '',
     // Review fields
-    overall_rating: 3,
+    overall_rating: 0,
     years_taught: '',
     position: '',
     contract_type: 'foreign',
-    admin_responsiveness: 3,
-    teacher_community: 3,
-    professional_development_opportunities: 3,
-    work_life_balance: 3,
+    role_level: '',
+    admin_responsiveness: 0,
+    teacher_community: 0,
+    professional_development_opportunities: 0,
+    work_life_balance: 0,
     pros: '',
     cons: '',
     advice_for_teachers: '',
-    reported_salary_min: '',
-    reported_salary_max: '',
+    reported_monthly_salary: '',
+    // Benefits
+    housing_type: '',
+    housing_stipend_amount: '',
+    insurance_type: '',
+    tuition_covered: false,
+    tuition_percentage: '',
+    tuition_kids_covered: '',
+    flight_type: '',
+    flight_amount: '',
   });
 
   const [errors, setErrors] = useState({});
@@ -57,6 +72,12 @@ export default function SchoolReviewModal({ school, isNewSchool, cityId, cityNam
       return;
     }
 
+    if (!formData.role_level) {
+      setErrors({ role_level: 'Please select your role level' });
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       const endpoint = isNewSchool
         ? '/api/submissions/school-suggestion'
@@ -65,19 +86,28 @@ export default function SchoolReviewModal({ school, isNewSchool, cityId, cityNam
       const payload = {
         city_id: cityId,
         submitter_email: formData.submitter_email,
-        overall_rating: parseInt(formData.overall_rating),
+        overall_rating: formData.overall_rating ? parseInt(formData.overall_rating) : undefined,
         years_taught: formData.years_taught ? parseInt(formData.years_taught) : undefined,
         position: formData.position || undefined,
         contract_type: formData.contract_type || undefined,
-        admin_responsiveness: parseInt(formData.admin_responsiveness),
-        teacher_community: parseInt(formData.teacher_community),
-        professional_development_opportunities: parseInt(formData.professional_development_opportunities),
-        work_life_balance: parseInt(formData.work_life_balance),
+        role_level: formData.role_level,
+        admin_responsiveness: formData.admin_responsiveness ? parseInt(formData.admin_responsiveness) : undefined,
+        teacher_community: formData.teacher_community ? parseInt(formData.teacher_community) : undefined,
+        professional_development_opportunities: formData.professional_development_opportunities ? parseInt(formData.professional_development_opportunities) : undefined,
+        work_life_balance: formData.work_life_balance ? parseInt(formData.work_life_balance) : undefined,
         pros: formData.pros || undefined,
         cons: formData.cons || undefined,
         advice_for_teachers: formData.advice_for_teachers || undefined,
-        reported_salary_min: formData.reported_salary_min ? parseInt(formData.reported_salary_min) : undefined,
-        reported_salary_max: formData.reported_salary_max ? parseInt(formData.reported_salary_max) : undefined,
+        reported_monthly_salary: formData.reported_monthly_salary ? parseInt(formData.reported_monthly_salary) : undefined,
+        // Benefits
+        housing_type: formData.housing_type || undefined,
+        housing_stipend_amount: formData.housing_stipend_amount ? parseInt(formData.housing_stipend_amount) : undefined,
+        insurance_type: formData.insurance_type || undefined,
+        tuition_covered: formData.tuition_covered || undefined,
+        tuition_percentage: formData.tuition_percentage ? parseInt(formData.tuition_percentage) : undefined,
+        tuition_kids_covered: formData.tuition_kids_covered ? parseInt(formData.tuition_kids_covered) : undefined,
+        flight_type: formData.flight_type || undefined,
+        flight_amount: formData.flight_amount ? parseInt(formData.flight_amount) : undefined,
       };
 
       if (isNewSchool) {
@@ -271,15 +301,15 @@ export default function SchoolReviewModal({ school, isNewSchool, cityId, cityNam
           {/* Overall Rating */}
           <div>
             <label className="block text-sm font-bold text-stone-900 mb-2">
-              Overall Rating <span className="text-red-600">*</span>
+              Overall Rating
             </label>
-            <div className="flex gap-2">
-              {[1, 2, 3, 4, 5].map(rating => (
+            <div className="flex gap-1.5 flex-wrap">
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(rating => (
                 <button
                   key={rating}
                   type="button"
-                  onClick={() => handleChange('overall_rating', rating)}
-                  className={`w-12 h-12 rounded-full border-2 border-stone-900 font-bold text-lg transition-all ${
+                  onClick={() => handleChange('overall_rating', formData.overall_rating === rating ? 0 : rating)}
+                  className={`w-10 h-10 rounded-full border-2 border-stone-900 font-bold text-sm transition-all ${
                     formData.overall_rating >= rating
                       ? 'bg-orange-600 text-white'
                       : 'bg-white text-stone-900 hover:bg-stone-100'
@@ -289,6 +319,7 @@ export default function SchoolReviewModal({ school, isNewSchool, cityId, cityNam
                 </button>
               ))}
             </div>
+            <p className="text-xs text-stone-500 mt-1">Optional — click a selected rating again to clear it</p>
           </div>
 
           {/* Years Taught & Contract Type */}
@@ -339,9 +370,39 @@ export default function SchoolReviewModal({ school, isNewSchool, cityId, cityNam
             />
           </div>
 
+          {/* Role Level (Required) */}
+          <div>
+            <label className="block text-sm font-bold text-stone-900 mb-2">
+              Your Role Level <span className="text-red-600">*</span>
+            </label>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {ROLE_LEVELS.map(({ value, label }) => (
+                <button
+                  key={value}
+                  type="button"
+                  onClick={() => handleChange('role_level', value)}
+                  className={`px-4 py-3 rounded-lg border-2 border-stone-900 font-bold text-sm transition-all ${
+                    formData.role_level === value
+                      ? 'bg-orange-600 text-white'
+                      : 'bg-white text-stone-900 hover:bg-stone-100'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+            {errors.role_level && (
+              <p className="text-red-600 text-sm mt-1">{errors.role_level}</p>
+            )}
+            <p className="text-xs text-stone-500 mt-1">
+              This helps us show salary ranges by role
+            </p>
+          </div>
+
           {/* Detailed Ratings */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-stone-900">Detailed Ratings</h3>
+            <p className="text-xs text-stone-500">All optional — click a selected rating again to clear it</p>
 
             {[
               { field: 'admin_responsiveness', label: 'Admin Responsiveness' },
@@ -351,13 +412,13 @@ export default function SchoolReviewModal({ school, isNewSchool, cityId, cityNam
             ].map(({ field, label }) => (
               <div key={field}>
                 <label className="block text-sm font-bold text-stone-900 mb-2">{label}</label>
-                <div className="flex gap-2">
-                  {[1, 2, 3, 4, 5].map(rating => (
+                <div className="flex gap-1.5 flex-wrap">
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(rating => (
                     <button
                       key={rating}
                       type="button"
-                      onClick={() => handleChange(field, rating)}
-                      className={`w-10 h-10 rounded-full border-2 border-stone-900 font-bold transition-all ${
+                      onClick={() => handleChange(field, formData[field] === rating ? 0 : rating)}
+                      className={`w-10 h-10 rounded-full border-2 border-stone-900 font-bold text-sm transition-all ${
                         formData[field] >= rating
                           ? 'bg-blue-600 text-white'
                           : 'bg-white text-stone-900 hover:bg-stone-100'
@@ -405,28 +466,192 @@ export default function SchoolReviewModal({ school, isNewSchool, cityId, cityNam
             {errors.cons && <p className="text-red-600 text-sm mt-1">{errors.cons}</p>}
           </div>
 
-          {/* Salary (Optional) */}
-          <div>
-            <label className="block text-sm font-bold text-stone-900 mb-2">
-              Salary Range (USD, Optional)
-            </label>
-            <div className="grid grid-cols-2 gap-4">
-              <input
-                type="number"
-                min="0"
-                value={formData.reported_salary_min}
-                onChange={(e) => handleChange('reported_salary_min', e.target.value)}
-                className="w-full px-4 py-3 border-2 border-stone-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600"
-                placeholder="Min (e.g., 25000)"
-              />
-              <input
-                type="number"
-                min="0"
-                value={formData.reported_salary_max}
-                onChange={(e) => handleChange('reported_salary_max', e.target.value)}
-                className="w-full px-4 py-3 border-2 border-stone-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600"
-                placeholder="Max (e.g., 35000)"
-              />
+          {/* Compensation & Benefits */}
+          <div className="space-y-5">
+            <h3 className="text-xl font-bold text-stone-900">Compensation & Benefits</h3>
+            <p className="text-sm text-stone-500">All fields optional. This data helps other teachers compare packages across schools.</p>
+
+            {/* Monthly Salary */}
+            <div>
+              <label className="block text-sm font-bold text-stone-900 mb-2">
+                Your Monthly Salary (USD, before tax)
+              </label>
+              <div className="relative">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 font-bold">$</span>
+                <input
+                  type="number"
+                  min="0"
+                  value={formData.reported_monthly_salary}
+                  onChange={(e) => handleChange('reported_monthly_salary', e.target.value)}
+                  className="w-full pl-8 pr-4 py-3 border-2 border-stone-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600"
+                  placeholder="e.g., 3500"
+                />
+              </div>
+              <p className="text-xs text-stone-500 mt-1">
+                What you actually receive each month in USD. We use this to build salary ranges — your individual salary is never shown publicly.
+              </p>
+            </div>
+
+            {/* Housing */}
+            <div>
+              <label className="block text-sm font-bold text-stone-900 mb-2">Housing</label>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {[
+                  { value: 'apartment', label: 'Apartment provided' },
+                  { value: 'stipend', label: 'Stipend' },
+                  { value: 'none', label: 'Not included' },
+                  { value: 'unknown', label: 'Not sure' },
+                ].map(opt => (
+                  <button
+                    key={opt.value}
+                    type="button"
+                    onClick={() => handleChange('housing_type', opt.value)}
+                    className={`px-3 py-2 rounded-lg border-2 border-stone-900 text-sm font-bold transition-all ${
+                      formData.housing_type === opt.value
+                        ? 'bg-orange-600 text-white'
+                        : 'bg-white text-stone-900 hover:bg-stone-100'
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+              {formData.housing_type === 'stipend' && (
+                <div className="mt-3">
+                  <label className="block text-xs font-bold text-stone-700 mb-1">Monthly housing stipend (USD)</label>
+                  <div className="relative w-48">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 font-bold">$</span>
+                    <input
+                      type="number"
+                      min="0"
+                      value={formData.housing_stipend_amount}
+                      onChange={(e) => handleChange('housing_stipend_amount', e.target.value)}
+                      className="w-full pl-7 pr-3 py-2 border-2 border-stone-900 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-600"
+                      placeholder="e.g., 500"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Insurance */}
+            <div>
+              <label className="block text-sm font-bold text-stone-900 mb-2">Health Insurance</label>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {[
+                  { value: 'international', label: 'International' },
+                  { value: 'local', label: 'Local only' },
+                  { value: 'none', label: 'Not included' },
+                  { value: 'unknown', label: 'Not sure' },
+                ].map(opt => (
+                  <button
+                    key={opt.value}
+                    type="button"
+                    onClick={() => handleChange('insurance_type', opt.value)}
+                    className={`px-3 py-2 rounded-lg border-2 border-stone-900 text-sm font-bold transition-all ${
+                      formData.insurance_type === opt.value
+                        ? 'bg-orange-600 text-white'
+                        : 'bg-white text-stone-900 hover:bg-stone-100'
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Tuition */}
+            <div>
+              <label className="block text-sm font-bold text-stone-900 mb-2">Tuition Discount for Your Kids</label>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {[
+                  { value: true, label: 'Yes, included' },
+                  { value: false, label: 'Not included' },
+                ].map(opt => (
+                  <button
+                    key={String(opt.value)}
+                    type="button"
+                    onClick={() => handleChange('tuition_covered', opt.value)}
+                    className={`px-3 py-2 rounded-lg border-2 border-stone-900 text-sm font-bold transition-all ${
+                      formData.tuition_covered === opt.value
+                        ? 'bg-orange-600 text-white'
+                        : 'bg-white text-stone-900 hover:bg-stone-100'
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+              {formData.tuition_covered === true && (
+                <div className="mt-3 grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-bold text-stone-700 mb-1">Discount %</label>
+                    <input
+                      type="number"
+                      min="0"
+                      max="100"
+                      value={formData.tuition_percentage}
+                      onChange={(e) => handleChange('tuition_percentage', e.target.value)}
+                      className="w-full px-3 py-2 border-2 border-stone-900 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-600"
+                      placeholder="e.g., 50"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-stone-700 mb-1">Kids covered</label>
+                    <input
+                      type="number"
+                      min="0"
+                      max="10"
+                      value={formData.tuition_kids_covered}
+                      onChange={(e) => handleChange('tuition_kids_covered', e.target.value)}
+                      className="w-full px-3 py-2 border-2 border-stone-900 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-600"
+                      placeholder="e.g., 2"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Flights */}
+            <div>
+              <label className="block text-sm font-bold text-stone-900 mb-2">Flight Allowance</label>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {[
+                  { value: 'home', label: 'Home country only' },
+                  { value: 'anywhere', label: 'Anywhere' },
+                  { value: 'fixed', label: 'Fixed amount' },
+                  { value: 'none', label: 'Not included' },
+                ].map(opt => (
+                  <button
+                    key={opt.value}
+                    type="button"
+                    onClick={() => handleChange('flight_type', opt.value)}
+                    className={`px-3 py-2 rounded-lg border-2 border-stone-900 text-sm font-bold transition-all ${
+                      formData.flight_type === opt.value
+                        ? 'bg-orange-600 text-white'
+                        : 'bg-white text-stone-900 hover:bg-stone-100'
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+              {formData.flight_type === 'fixed' && (
+                <div className="mt-3">
+                  <label className="block text-xs font-bold text-stone-700 mb-1">Flight allowance amount (USD per year)</label>
+                  <div className="relative w-48">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 font-bold">$</span>
+                    <input
+                      type="number"
+                      min="0"
+                      value={formData.flight_amount}
+                      onChange={(e) => handleChange('flight_amount', e.target.value)}
+                      className="w-full pl-7 pr-3 py-2 border-2 border-stone-900 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-600"
+                      placeholder="e.g., 1500"
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 

@@ -13,7 +13,7 @@ export default function SchoolDetailModal({ school, onClose }) {
               </span>
               <div className="flex items-center gap-1">
                 <span className="text-yellow-500 text-xl">★</span>
-                <span className="text-lg font-bold text-slate-700">{school.rating}</span>
+                <span className="text-lg font-bold text-slate-700">{school.rating}/10</span>
                 <span className="text-sm text-slate-500">({school.reviews} reviews)</span>
               </div>
             </div>
@@ -44,7 +44,7 @@ export default function SchoolDetailModal({ school, onClose }) {
             <div className="bg-orange-50 rounded-xl p-4">
               <div className="text-2xl mb-1">⭐</div>
               <div className="text-sm text-slate-600">Community Rating</div>
-              <div className="text-xl font-bold text-orange-700">{school.rating || 'N/A'}</div>
+              <div className="text-xl font-bold text-orange-700">{school.rating ? `${school.rating}/10` : 'N/A'}</div>
             </div>
           </div>
 
@@ -87,7 +87,12 @@ export default function SchoolDetailModal({ school, onClose }) {
           </div>
 
           {/* Data Source Disclaimer */}
-          <div className="bg-slate-100 rounded-xl p-4">
+          <div className="bg-slate-100 rounded-xl p-4 space-y-2">
+            {school.updated_at && (
+              <p className="text-sm text-slate-700">
+                <strong>Last updated:</strong> {new Date(school.updated_at).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+              </p>
+            )}
             <p className="text-sm text-slate-600">
               <strong>Data Sources:</strong> Information aggregated from teacher community forums, public review platforms, and school websites. Salaries and ratings represent community-reported averages and may vary based on experience, qualifications, and contract terms.
             </p>

@@ -8,35 +8,35 @@ export const SchoolReviewSubmissionSchema = z.object({
   school_id: z.string().uuid('Invalid school ID'),
   submitter_email: z.string().email('Invalid email address'),
 
-  overall_rating: z.number().int().min(1, 'Rating must be at least 1').max(5, 'Rating must be at most 5'),
+  overall_rating: z.number().int().min(1, 'Rating must be at least 1').max(10, 'Rating must be at most 10').optional(),
   years_taught: z.number().int().min(1, 'Must be at least 1 year').max(50, 'Invalid years').optional(),
   position: z.string().min(2, 'Position too short').max(100, 'Position too long').optional(),
   contract_type: z.enum(['local', 'foreign', 'management', 'other']).optional(),
+  role_level: z.enum(['classroom_teacher', 'teacher_leader', 'senior_leadership'], {
+    errorMap: () => ({ message: 'Please select your role level' }),
+  }),
 
-  admin_responsiveness: z.number().int().min(1).max(5).optional(),
-  teacher_community: z.number().int().min(1).max(5).optional(),
-  professional_development_opportunities: z.number().int().min(1).max(5).optional(),
-  work_life_balance: z.number().int().min(1).max(5).optional(),
+  admin_responsiveness: z.number().int().min(1).max(10).optional(),
+  teacher_community: z.number().int().min(1).max(10).optional(),
+  professional_development_opportunities: z.number().int().min(1).max(10).optional(),
+  work_life_balance: z.number().int().min(1).max(10).optional(),
 
   pros: z.string().min(20, 'Please provide at least 20 characters').max(2000, 'Maximum 2000 characters').optional(),
   cons: z.string().min(20, 'Please provide at least 20 characters').max(2000, 'Maximum 2000 characters').optional(),
   advice_for_teachers: z.string().max(2000, 'Maximum 2000 characters').optional(),
 
-  reported_salary_min: z.number().int().positive('Salary must be positive').optional(),
-  reported_salary_max: z.number().int().positive('Salary must be positive').optional(),
-  salary_currency: z.string().length(3, 'Use 3-letter currency code').default('USD').optional(),
-}).refine(
-  (data) => {
-    if (data.reported_salary_min && data.reported_salary_max) {
-      return data.reported_salary_min <= data.reported_salary_max;
-    }
-    return true;
-  },
-  {
-    message: 'Minimum salary cannot be greater than maximum salary',
-    path: ['reported_salary_max'],
-  }
-);
+  reported_monthly_salary: z.number().int().min(100, 'Monthly salary seems too low').max(30000, 'Monthly salary seems too high for teaching').optional(),
+
+  // Benefits
+  housing_type: z.enum(['apartment', 'stipend', 'none', 'unknown']).optional(),
+  housing_stipend_amount: z.number().int().positive().max(10000).optional(),
+  insurance_type: z.enum(['international', 'local', 'none', 'unknown']).optional(),
+  tuition_covered: z.boolean().optional(),
+  tuition_percentage: z.number().int().min(0).max(100).optional(),
+  tuition_kids_covered: z.number().int().min(0).max(10).optional(),
+  flight_type: z.enum(['home', 'anywhere', 'fixed', 'none']).optional(),
+  flight_amount: z.number().int().positive().max(20000).optional(),
+});
 
 // ============================================
 // LOCAL INTEL SUBMISSION SCHEMA
@@ -90,6 +90,9 @@ export const SalarySubmissionSchema = z.object({
   school_id: z.string().uuid('Invalid school ID').optional(),
 
   position: z.string().min(2, 'Position too short').max(200, 'Position too long'),
+  role_level: z.enum(['classroom_teacher', 'teacher_leader', 'senior_leadership'], {
+    errorMap: () => ({ message: 'Please select your role level' }),
+  }),
   years_experience: z.number().int().min(0, 'Years must be non-negative').max(50, 'Invalid years'),
   salary_amount: z.number().int().positive('Salary must be positive'),
   currency: z.string().length(3, 'Use 3-letter currency code').default('USD').optional(),
@@ -118,35 +121,35 @@ export const SchoolSuggestionSchema = z.object({
   school_district: z.string().max(200, 'District name too long').optional(),
 
   // Review fields (same as SchoolReviewSubmissionSchema minus school_id)
-  overall_rating: z.number().int().min(1, 'Rating must be at least 1').max(5, 'Rating must be at most 5'),
+  overall_rating: z.number().int().min(1, 'Rating must be at least 1').max(10, 'Rating must be at most 10').optional(),
   years_taught: z.number().int().min(1, 'Must be at least 1 year').max(50, 'Invalid years').optional(),
   position: z.string().min(2, 'Position too short').max(100, 'Position too long').optional(),
   contract_type: z.enum(['local', 'foreign', 'management', 'other']).optional(),
+  role_level: z.enum(['classroom_teacher', 'teacher_leader', 'senior_leadership'], {
+    errorMap: () => ({ message: 'Please select your role level' }),
+  }),
 
-  admin_responsiveness: z.number().int().min(1).max(5).optional(),
-  teacher_community: z.number().int().min(1).max(5).optional(),
-  professional_development_opportunities: z.number().int().min(1).max(5).optional(),
-  work_life_balance: z.number().int().min(1).max(5).optional(),
+  admin_responsiveness: z.number().int().min(1).max(10).optional(),
+  teacher_community: z.number().int().min(1).max(10).optional(),
+  professional_development_opportunities: z.number().int().min(1).max(10).optional(),
+  work_life_balance: z.number().int().min(1).max(10).optional(),
 
   pros: z.string().min(20, 'Please provide at least 20 characters').max(2000, 'Maximum 2000 characters').optional(),
   cons: z.string().min(20, 'Please provide at least 20 characters').max(2000, 'Maximum 2000 characters').optional(),
   advice_for_teachers: z.string().max(2000, 'Maximum 2000 characters').optional(),
 
-  reported_salary_min: z.number().int().positive('Salary must be positive').optional(),
-  reported_salary_max: z.number().int().positive('Salary must be positive').optional(),
-  salary_currency: z.string().length(3, 'Use 3-letter currency code').default('USD').optional(),
-}).refine(
-  (data) => {
-    if (data.reported_salary_min && data.reported_salary_max) {
-      return data.reported_salary_min <= data.reported_salary_max;
-    }
-    return true;
-  },
-  {
-    message: 'Minimum salary cannot be greater than maximum salary',
-    path: ['reported_salary_max'],
-  }
-);
+  reported_monthly_salary: z.number().int().min(100, 'Monthly salary seems too low').max(30000, 'Monthly salary seems too high for teaching').optional(),
+
+  // Benefits
+  housing_type: z.enum(['apartment', 'stipend', 'none', 'unknown']).optional(),
+  housing_stipend_amount: z.number().int().positive().max(10000).optional(),
+  insurance_type: z.enum(['international', 'local', 'none', 'unknown']).optional(),
+  tuition_covered: z.boolean().optional(),
+  tuition_percentage: z.number().int().min(0).max(100).optional(),
+  tuition_kids_covered: z.number().int().min(0).max(10).optional(),
+  flight_type: z.enum(['home', 'anywhere', 'fixed', 'none']).optional(),
+  flight_amount: z.number().int().positive().max(20000).optional(),
+});
 
 // ============================================
 // ERROR FORMATTING HELPER

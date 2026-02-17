@@ -42,7 +42,7 @@ SCHOOL-LEVEL INFO (ID: school):
       return `Review #${i + 1} (ID: ${r.id}):
   Position: ${r.position || 'Not specified'}
   Years taught: ${r.years_taught || 'Not specified'}
-  Overall rating: ${r.overall_rating}/5
+  Overall rating: ${r.overall_rating}/10
   Pros: ${r.pros || '(empty)'}
   Cons: ${r.cons || '(empty)'}
   Advice: ${r.advice_for_teachers || '(empty)'}

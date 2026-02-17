@@ -6,6 +6,7 @@ const FALLBACK_IMAGES = {
   'hanoi': 'https://images.unsplash.com/photo-1753939582094-3091a6e0891e?w=1600&q=80',
   'dubai': 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1600&q=80',
   'bangkok': 'https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=1600&q=80',
+  'chiang-mai': 'https://images.unsplash.com/photo-1513296314573-7065061dd88d?w=1600&q=80',
   'singapore': 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1600&q=80',
   'istanbul': 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1600&q=80',
   'barcelona': 'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=1600&q=80',

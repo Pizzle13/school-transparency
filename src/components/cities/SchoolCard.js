@@ -11,7 +11,7 @@ export default function SchoolCard({ school, onClick }) {
         </span>
         <div className="flex items-center gap-1">
           <span className="text-orange-500">★</span>
-          <span className="text-sm font-semibold text-stone-900">{school.rating}</span>
+          <span className="text-sm font-semibold text-stone-900">{school.rating}/10</span>
         </div>
       </div>
 

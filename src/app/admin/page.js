@@ -212,7 +212,7 @@ export default function AdminDashboard() {
                       <p className="font-bold">
                         School: {submission.school_reviews[0].schools?.name}
                       </p>
-                      <p>Rating: {submission.school_reviews[0].overall_rating}/5</p>
+                      <p>Rating: {submission.school_reviews[0].overall_rating}/10</p>
                       {submission.school_reviews[0].pros && (
                         <p className="mt-2">
                           <strong>Pros:</strong> {submission.school_reviews[0].pros.substring(0, 200)}{submission.school_reviews[0].pros.length > 200 ? '...' : ''}
@@ -247,7 +247,7 @@ export default function AdminDashboard() {
                       </div>
                       {submission.school_reviews?.[0] && (
                         <div>
-                          <p>Review Rating: {submission.school_reviews[0].overall_rating}/5</p>
+                          <p>Review Rating: {submission.school_reviews[0].overall_rating}/10</p>
                           {submission.school_reviews[0].pros && (
                             <p className="mt-1"><strong>Pros:</strong> {submission.school_reviews[0].pros.substring(0, 200)}{submission.school_reviews[0].pros.length > 200 ? '...' : ''}</p>
                           )}

@@ -1,5 +1,7 @@
 import { supabaseAdmin } from '../../../../lib/supabase/admin';
 
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://schooltransparency.com';
+
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
@@ -22,7 +24,7 @@ export async function GET(request) {
 
     // Check if already verified
     if (submission.email_verified) {
-      return Response.redirect(`${process.env.NEXT_PUBLIC_SITE_URL}/submission-verified?already=true`);
+      return Response.redirect(`${BASE_URL}/submission-verified?already=true`);
     }
 
     // Check if expired
@@ -46,7 +48,7 @@ export async function GET(request) {
     }
 
     // Redirect to success page
-    return Response.redirect(`${process.env.NEXT_PUBLIC_SITE_URL}/submission-verified`);
+    return Response.redirect(`${BASE_URL}/submission-verified`);
 
   } catch (error) {
     console.error('Verification API error:', error);

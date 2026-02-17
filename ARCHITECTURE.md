@@ -279,7 +279,7 @@ ALTER TABLE salary_data
   ADD CONSTRAINT cost_non_negative CHECK (monthly_cost >= 0);
 
 ALTER TABLE schools
-  ADD CONSTRAINT rating_range CHECK (rating >= 0 AND rating <= 5),
+  ADD CONSTRAINT rating_range CHECK (rating >= 0 AND rating <= 10),
   ADD CONSTRAINT student_count_positive CHECK (student_count > 0);
 
 ALTER TABLE air_quality
