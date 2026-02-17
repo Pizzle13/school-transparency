@@ -10,7 +10,7 @@ const FALLBACK_IMAGES = {
   'singapore': 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1600&q=80',
   'istanbul': 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1600&q=80',
   'barcelona': 'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=1600&q=80',
-  'phnom-penh': 'https://images.unsplash.com/photo-1534820944320-5f2fe998a9f2?w=1600&q=80',
+  'phnom-penh': 'https://images.unsplash.com/photo-1639805855077-c7978ecd2214?w=1600&q=80',
 };
 
 // Critical data needed for initial page render (above the fold)
