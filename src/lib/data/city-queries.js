@@ -10,6 +10,7 @@ const FALLBACK_IMAGES = {
   'singapore': 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1600&q=80',
   'istanbul': 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1600&q=80',
   'barcelona': 'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=1600&q=80',
+  'phnom-penh': 'https://images.unsplash.com/photo-1534820944320-5f2fe998a9f2?w=1600&q=80',
 };
 
 // Critical data needed for initial page render (above the fold)
@@ -37,8 +38,8 @@ export async function getCriticalCityData(slug) {
     return null;
   }
 
-  // Use fallback image if DB has none
-  if (!city.hero_image_url) {
+  // Use fallback image if DB has none or has invalid value
+  if (!city.hero_image_url || city.hero_image_url === 'null' || !city.hero_image_url.startsWith('http')) {
     city.hero_image_url = FALLBACK_IMAGES[city.slug] || null;
   }
 
@@ -118,7 +119,8 @@ export async function getCitiesListing() {
   return cities.map(city => {
     const schoolCount = Array.isArray(city.schools) ? city.schools.length : 0;
     const avgSalary = city.salary_data?.[0]?.avg_salary;
-    const heroImage = city.hero_image_url || FALLBACK_IMAGES[city.slug] || null;
+    const hasValidImage = city.hero_image_url && city.hero_image_url !== 'null' && city.hero_image_url.startsWith('http');
+    const heroImage = hasValidImage ? city.hero_image_url : (FALLBACK_IMAGES[city.slug] || null);
 
     return {
       ...city,
