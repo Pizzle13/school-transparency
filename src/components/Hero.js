@@ -1,6 +1,11 @@
 import Link from 'next/link';
+import { getPlatformStats } from '../lib/data/city-queries';
+import articlesIndex from '../../public/data/articles-index.json';
 
-export default function Hero() {
+export default async function Hero() {
+  const { cityCount, schoolCount } = await getPlatformStats();
+  const articleCount = articlesIndex.length;
+  const categoryCount = new Set(articlesIndex.map(a => a.category)).size;
   return (
     <>
       {/* Hero Section */}
@@ -88,13 +93,13 @@ export default function Hero() {
                 </div>
               </div>
               <p className="text-lg text-stone-700 mb-6 leading-relaxed">
-                In-depth articles covering contracts, salaries, cultural adaptation, and professional development. Filterable by 13 specialized categories.
+                In-depth articles covering contracts, salaries, cultural adaptation, and professional development. Filterable by {categoryCount} categories.
               </p>
               <div className="flex flex-wrap gap-2 mb-8">
                 <span className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium">Life Abroad</span>
                 <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">Contracts & Salaries</span>
                 <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">Professional Development</span>
-                <span className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm font-medium">+10 more</span>
+                <span className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm font-medium">+{categoryCount - 3} more</span>
               </div>
               <Link href="/blog" className="text-indigo-600 font-bold hover:text-indigo-500 transition-colors">
                 Start Reading →
@@ -120,12 +125,12 @@ export default function Hero() {
               </p>
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <div className="text-center p-3 bg-white rounded-xl border-2 border-orange-200">
-                  <p className="text-2xl font-black text-stone-900">17</p>
-                  <p className="text-sm text-stone-600">Major Cities</p>
+                  <p className="text-2xl font-black text-stone-900">{cityCount}</p>
+                  <p className="text-sm text-stone-600">{cityCount === 1 ? 'City' : 'Cities'} Covered</p>
                 </div>
                 <div className="text-center p-3 bg-white rounded-xl border-2 border-orange-200">
-                  <p className="text-2xl font-black text-stone-900">1000+</p>
-                  <p className="text-sm text-stone-600">Schools Analyzed</p>
+                  <p className="text-2xl font-black text-stone-900">{schoolCount}</p>
+                  <p className="text-sm text-stone-600">{schoolCount === 1 ? 'School' : 'Schools'} Listed</p>
                 </div>
               </div>
               <Link href="/cities" className="text-orange-600 font-bold hover:text-orange-500 transition-colors">
@@ -142,33 +147,33 @@ export default function Hero() {
           <div className="text-center mb-16">
             <div className="inline-block mb-4">
               <span className="px-4 py-2 bg-orange-100 text-orange-600 text-xs uppercase tracking-widest font-medium">
-                Platform Impact
+                What We Cover
               </span>
             </div>
             <h2 className="text-6xl md:text-7xl font-black mb-6 text-stone-900">
-              Trusted by Educators
+              Built by an Educator
             </h2>
             <p className="text-xl text-stone-600 max-w-3xl mx-auto">
-              Join thousands of international teachers who rely on our platform for career-critical decisions.
+              We&apos;re building the resource we wished existed when we started teaching abroad. Here&apos;s where we stand today.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center p-8 bg-white rounded-2xl border-2 border-stone-200 hover:scale-105 transition-transform duration-300">
-              <p className="text-5xl font-black text-orange-600 mb-2">10+</p>
-              <p className="text-stone-600 font-semibold">Expert Articles</p>
+              <p className="text-5xl font-black text-orange-600 mb-2">{articleCount}</p>
+              <p className="text-stone-600 font-semibold">Articles Published</p>
             </div>
             <div className="text-center p-8 bg-white rounded-2xl border-2 border-stone-200 hover:scale-105 transition-transform duration-300">
-              <p className="text-5xl font-black text-orange-600 mb-2">17</p>
+              <p className="text-5xl font-black text-orange-600 mb-2">{cityCount}</p>
               <p className="text-stone-600 font-semibold">Cities Covered</p>
             </div>
             <div className="text-center p-8 bg-white rounded-2xl border-2 border-stone-200 hover:scale-105 transition-transform duration-300">
-              <p className="text-5xl font-black text-orange-600 mb-2">13</p>
-              <p className="text-stone-600 font-semibold">Topic Categories</p>
+              <p className="text-5xl font-black text-orange-600 mb-2">{schoolCount}</p>
+              <p className="text-stone-600 font-semibold">Schools Listed</p>
             </div>
             <div className="text-center p-8 bg-white rounded-2xl border-2 border-stone-200 hover:scale-105 transition-transform duration-300">
-              <p className="text-5xl font-black text-orange-600 mb-2">100%</p>
-              <p className="text-stone-600 font-semibold">Data-Driven</p>
+              <p className="text-5xl font-black text-orange-600 mb-2">{categoryCount}</p>
+              <p className="text-stone-600 font-semibold">Topic Categories</p>
             </div>
           </div>
         </div>

@@ -95,6 +95,19 @@ export async function getSecondaryCityData(cityId) {
   }
 }
 
+// Get platform-wide stats (city count, total school count)
+export async function getPlatformStats() {
+  const [citiesResult, schoolsResult] = await Promise.all([
+    supabase.from('cities').select('id', { count: 'exact', head: true }),
+    supabase.from('schools').select('id', { count: 'exact', head: true }),
+  ]);
+
+  return {
+    cityCount: citiesResult.count || 0,
+    schoolCount: schoolsResult.count || 0,
+  };
+}
+
 // Optimized cities listing query
 export async function getCitiesListing() {
   const { data: cities, error } = await supabase
