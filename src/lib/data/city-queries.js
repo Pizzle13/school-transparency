@@ -11,6 +11,7 @@ const FALLBACK_IMAGES = {
   'istanbul': 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1600&q=80',
   'barcelona': 'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=1600&q=80',
   'phnom-penh': 'https://images.unsplash.com/photo-1639805855077-c7978ecd2214?w=1600&q=80',
+  'kuala-lumpur': 'https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1600&q=80',
 };
 
 // Critical data needed for initial page render (above the fold)
