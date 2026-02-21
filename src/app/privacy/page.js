@@ -154,7 +154,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-2xl font-bold text-stone-900 mb-4">11. Contact Us</h2>
             <p>
-              For any privacy-related questions, data access requests, or deletion requests, email us at: <strong>privacy@schooltransparency.com</strong>
+              For any privacy-related questions, data access requests, or deletion requests, email us at: <strong>hello@schooltransparency.com</strong>
             </p>
           </section>
 
