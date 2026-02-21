@@ -1,5 +1,7 @@
 import Hero from '../components/Hero'
 
+export const revalidate = 600; // Re-fetch stats every 10 minutes
+
 export const metadata = {
   title: 'School Transparency | Data-Driven Insights for International Teachers',
   description: 'Empowering international teachers with comprehensive data insights for smarter career decisions. Explore city guides, expert articles, and educational resources.',

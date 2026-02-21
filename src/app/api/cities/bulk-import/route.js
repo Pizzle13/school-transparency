@@ -86,8 +86,9 @@ export async function POST(request) {
       }
     }
 
-    // Revalidate the cities listing page so new cities appear immediately
+    // Revalidate the cities listing page and homepage stats so new cities appear immediately
     revalidatePath('/cities');
+    revalidatePath('/');
 
     return Response.json({
       ...results,
