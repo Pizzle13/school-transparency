@@ -7,6 +7,7 @@ import Navbar from '../components/common/Navbar'
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
 export const metadata = {
+  metadataBase: new URL('https://schooltransparency.com'),
   title: 'School Transparency',
   description: 'Data-driven insights for international teachers',
 }
