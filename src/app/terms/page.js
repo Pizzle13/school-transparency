@@ -153,7 +153,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-stone-900 mb-4">14. Contact</h2>
             <p>
-              For questions about these Terms, content disputes, or legal inquiries, contact us at: <strong>legal@schooltransparency.com</strong>
+              For questions about these Terms, content disputes, or legal inquiries, contact us at: <strong>hello@schooltransparency.com</strong>
             </p>
           </section>
 

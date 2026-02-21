@@ -113,7 +113,7 @@ export default function CommunityGuidelinesPage() {
           <section>
             <h2 className="text-2xl font-bold text-stone-900 mb-4">Contact</h2>
             <p>
-              To report a guideline violation or ask questions about moderation, email us at: <strong>community@schooltransparency.com</strong>
+              To report a guideline violation or ask questions about moderation, email us at: <strong>hello@schooltransparency.com</strong>
             </p>
           </section>
 
