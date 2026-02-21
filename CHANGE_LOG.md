@@ -4,6 +4,8 @@ Significant changes to the School Transparency website. **Tigger: update this fi
 
 | Date | Change | Details |
 |------|--------|---------|
+| 2026-02-21 | SEO: expand sitemap + add metadataBase | Sitemap now includes all 6,100 school profiles (`/schools/s/[slug]`), ~160 country pages, ~200 country+city pages, 4 curriculum pages, and the compare page. Total URLs: ~6,500. Added `metadataBase` to root layout for correct absolute OG/canonical URLs. |
+| 2026-02-21 | Site-wide navbar + homepage redesign | Created sticky `Navbar.js` (Schools, Cities, Blog links + mobile hamburger). Reworked homepage Hero: Schools as primary CTA, two-card + wide-card feature layout, accurate counters (schoolCount filtered by slug, reviewedSchoolCount filtered by city_id). Fixed footer: "Built by a teacher" + correct Logos Edu URL (`logos-edu.org`). |
 | 2026-02-21 | Add Google Analytics 4 (GA4) tracking | Added GA4 script to `layout.js` using `next/script` with `afterInteractive` strategy. Measurement ID (`G-L3WLQF7G4P`) stored in `NEXT_PUBLIC_GA_MEASUREMENT_ID` env var. Tracks pageviews, visitor location, referral sources. Only loads when env var is set. REQUEST-003 completed. |
 | 2026-02-20 | Add university counsellor filter | Added `counsellor` filter across full chain: `getSchools()`, `getCountryList()`, SchoolFilterSidebar, and main `/schools/` page. Filters on `has_university_counsellor` boolean column. Radio options: Any / Has counsellor / No counsellor. |
 | 2026-02-20 | Redesign compare page | Replaced flat HTML table with file-folder tab UI. Colored section tabs (blue Overview, green IB Programmes, amber Teacher Data, orange Links) with tinted bodies. School header cards overlap hero. Auto-hiding rows when no data. CSS grid columns. |
