@@ -17,6 +17,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold mb-3 text-white">Quick Links</h4>
             <ul className="space-y-2 text-stone-400">
+              <li><a href="/schools" className="hover:text-white transition-colors">Schools</a></li>
               <li><a href="/cities" className="hover:text-white transition-colors">Cities</a></li>
               <li><a href="/blog" className="hover:text-white transition-colors">Blog</a></li>
               <li><a href="/" className="hover:text-white transition-colors">Home</a></li>
@@ -37,7 +38,7 @@ export default function Footer() {
         <div className="border-t border-stone-700 pt-8 text-center text-stone-400">
           <p className="font-bold">© {currentYear} School Transparency. All rights reserved.</p>
           <p className="text-sm mt-2">
-            Built by teachers, for teachers. Powered by community contributions.
+            Built by a teacher, for teachers. A <a href="https://logosedu.com" className="hover:text-white transition-colors underline">Logos Edu</a> project.
           </p>
         </div>
       </div>

@@ -98,14 +98,20 @@ export async function getSecondaryCityData(cityId) {
 
 // Get platform-wide stats (city count, total school count)
 export async function getPlatformStats() {
-  const [citiesResult, schoolsResult] = await Promise.all([
+  const [citiesResult, schoolsResult, reviewedSchoolsResult, countriesResult] = await Promise.all([
     supabase.from('cities').select('id', { count: 'exact', head: true }),
-    supabase.from('schools').select('id', { count: 'exact', head: true }),
+    supabase.from('schools').select('id', { count: 'exact', head: true }).not('slug', 'is', null),
+    supabase.from('schools').select('id', { count: 'exact', head: true }).not('city_id', 'is', null),
+    supabase.from('schools').select('country_name').not('country_name', 'is', null),
   ]);
+
+  const countryCount = new Set((countriesResult.data || []).map(s => s.country_name)).size;
 
   return {
     cityCount: citiesResult.count || 0,
     schoolCount: schoolsResult.count || 0,
+    reviewedSchoolCount: reviewedSchoolsResult.count || 0,
+    countryCount,
   };
 }
 

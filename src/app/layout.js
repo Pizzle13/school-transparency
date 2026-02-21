@@ -2,6 +2,7 @@ import './globals.css'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import Footer from '../components/common/Footer'
+import Navbar from '../components/common/Navbar'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
         )}
       </head>
       <body className="flex flex-col min-h-screen">
+        <Navbar />
         <main className="flex-1">
           {children}
         </main>
