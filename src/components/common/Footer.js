@@ -38,7 +38,7 @@ export default function Footer() {
         <div className="border-t border-stone-700 pt-8 text-center text-stone-400">
           <p className="font-bold">© {currentYear} School Transparency. All rights reserved.</p>
           <p className="text-sm mt-2">
-            Built by a teacher, for teachers. A <a href="https://logosedu.com" className="hover:text-white transition-colors underline">Logos Edu</a> project.
+            Built by a teacher, for teachers. A <a href="https://www.logos-edu.org/" className="hover:text-white transition-colors underline">Logos Edu</a> project.
           </p>
         </div>
       </div>
