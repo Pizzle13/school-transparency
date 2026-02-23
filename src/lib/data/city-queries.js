@@ -99,20 +99,37 @@ export async function getSecondaryCityData(cityId) {
 
 // Get platform-wide stats (city count, total school count)
 export async function getPlatformStats() {
-  const [citiesResult, schoolsResult, reviewedSchoolsResult, countriesResult] = await Promise.all([
+  const [citiesResult, schoolsResult, reviewedSchoolsResult] = await Promise.all([
     supabase.from('cities').select('id', { count: 'exact', head: true }),
     supabase.from('schools').select('id', { count: 'exact', head: true }).not('slug', 'is', null),
     supabase.from('schools').select('id', { count: 'exact', head: true }).not('city_id', 'is', null),
-    supabase.from('schools').select('country_name').not('country_name', 'is', null),
   ]);
 
-  const countryCount = new Set((countriesResult.data || []).map(s => s.country_name)).size;
+  // Paginate to count distinct countries (Supabase caps at 1000 rows per request)
+  const countries = new Set();
+  const batchSize = 1000;
+  let from = 0;
+  let hasMore = true;
+
+  while (hasMore) {
+    const { data } = await supabase
+      .from('schools')
+      .select('country_name')
+      .not('slug', 'is', null)
+      .not('country_name', 'is', null)
+      .range(from, from + batchSize - 1);
+
+    if (!data || data.length === 0) break;
+    for (const row of data) countries.add(row.country_name);
+    hasMore = data.length === batchSize;
+    from += batchSize;
+  }
 
   return {
     cityCount: citiesResult.count || 0,
     schoolCount: schoolsResult.count || 0,
     reviewedSchoolCount: reviewedSchoolsResult.count || 0,
-    countryCount,
+    countryCount: countries.size,
   };
 }
 

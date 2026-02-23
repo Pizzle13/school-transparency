@@ -6,13 +6,13 @@ export const revalidate = 600;
 
 export const metadata = {
   title: 'International School Directory | School Transparency',
-  description: 'Browse 6,000+ international schools worldwide. Filter by country, IB programme, school type, and more. Compare schools side by side.',
+  description: 'Browse 8,000+ international schools worldwide. Filter by country, IB programme, school type, and more. Compare schools side by side.',
   alternates: {
     canonical: 'https://schooltransparency.com/schools',
   },
   openGraph: {
     title: 'International School Directory | School Transparency',
-    description: 'Browse 6,000+ international schools worldwide. Filter by country, IB programme, school type, and more.',
+    description: 'Browse 8,000+ international schools worldwide. Filter by country, IB programme, school type, and more.',
     url: 'https://schooltransparency.com/schools',
     type: 'website',
   },
