@@ -13,7 +13,6 @@ const ACCREDITATION_MAP = {
   BSO: { label: 'British Schools Overseas' },
   ECIS: { label: 'Educational Collaborative for Intl Schools' },
   EARCOS: { label: 'East Asia Regional Council of Schools' },
-  ACSI: { label: 'Assoc. of Christian Schools Intl' },
   CAMBRIDGE: { label: 'Cambridge International' },
   EDEXCEL: { label: 'Pearson Edexcel' },
   AP: { label: 'College Board AP' },

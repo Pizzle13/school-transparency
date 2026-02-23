@@ -22,7 +22,6 @@ const ACCREDITATION_LABELS = {
   BSO: 'BSO',
   ECIS: 'ECIS',
   EARCOS: 'EARCOS',
-  ACSI: 'ACSI',
 };
 
 // Map DB accreditation keys to badge image filenames
@@ -37,7 +36,6 @@ const ACCREDITATION_BADGES = {
   BSO: { src: '/accreditations/bso.png', alt: 'British Schools Overseas' },
   ECIS: { src: '/accreditations/ecis.png', alt: 'ECIS Member' },
   EARCOS: { src: '/accreditations/earcos.png', alt: 'EARCOS Member' },
-  ACSI: { src: '/accreditations/acsi.png', alt: 'ACSI Accredited' },
   CAMBRIDGE: { src: '/accreditations/cambridge.png', alt: 'Cambridge International' },
   EDEXCEL: { src: '/accreditations/edexcel.png', alt: 'Pearson Edexcel' },
   AP: { src: '/accreditations/ap.png', alt: 'College Board AP' },
