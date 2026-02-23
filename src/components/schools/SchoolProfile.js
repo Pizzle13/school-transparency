@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ReportDataButton from '../submissions/ReportDataButton';
 
 // Friendly labels for known accreditation codes — unknown ones show raw value
 const ACCREDITATION_MAP = {
@@ -323,6 +324,11 @@ export default function SchoolProfile({ school }) {
           </div>
         </div>
       )}
+
+      {/* ── Report Data Issue ── */}
+      <div className="flex justify-end px-2">
+        <ReportDataButton schoolId={school.id} schoolName={school.name} />
+      </div>
 
       {/* ── Explore More ── */}
       <div className="bg-stone-100 rounded-2xl p-6 md:p-8">

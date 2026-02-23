@@ -65,15 +65,18 @@ export default function SchoolDirectoryCard({ school, onCompare, isComparing }) 
     ? accreditations.filter(a => a !== 'IBO' && ACCREDITATION_LABELS[a])
     : [];
 
-  // Coin badges for bottom row — IB always shown (all schools are IB),
-  // plus any accreditations that have badge images
-  const coinBadges = [ACCREDITATION_BADGES.IBO];
+  // Coin badges for bottom row — built from actual accreditations data
+  const coinBadges = [];
   if (Array.isArray(accreditations)) {
     accreditations.forEach(a => {
-      if (a !== 'IBO' && ACCREDITATION_BADGES[a]) {
+      if (ACCREDITATION_BADGES[a]) {
         coinBadges.push(ACCREDITATION_BADGES[a]);
       }
     });
+  }
+  // If school has IB programmes but IBO isn't in accreditations, still show IB badge
+  if (ibProgrammes.length > 0 && !coinBadges.some(b => b.src === ACCREDITATION_BADGES.IBO.src)) {
+    coinBadges.unshift(ACCREDITATION_BADGES.IBO);
   }
 
   return (

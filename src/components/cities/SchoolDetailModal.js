@@ -1,5 +1,7 @@
 'use client';
 
+import ReportDataButton from '../submissions/ReportDataButton';
+
 export default function SchoolDetailModal({ school, onClose }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
@@ -98,8 +100,9 @@ export default function SchoolDetailModal({ school, onClose }) {
             </p>
           </div>
 
-          {/* Action Button */}
-          <div className="flex justify-center pt-4">
+          {/* Actions */}
+          <div className="flex items-center justify-between pt-4">
+            <ReportDataButton schoolId={school.id} schoolName={school.name} />
             <button
               onClick={onClose}
               className="bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-800 transition-all duration-300"

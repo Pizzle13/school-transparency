@@ -152,6 +152,28 @@ export const SchoolSuggestionSchema = z.object({
 });
 
 // ============================================
+// DATA DISPUTE SUBMISSION SCHEMA
+// ============================================
+export const DataDisputeSubmissionSchema = z.object({
+  school_id: z.string().uuid('Invalid school ID'),
+
+  category: z.enum([
+    'Incorrect salary or compensation data',
+    'Wrong school details (name, type, contact)',
+    'Outdated programme information',
+    'Inaccurate teacher reviews',
+    'Wrong location or address',
+    'Other'
+  ], { errorMap: () => ({ message: 'Select a category' }) }),
+
+  description: z.string()
+    .min(20, 'Please provide at least 20 characters')
+    .max(1000, 'Maximum 1000 characters'),
+
+  evidence_url: z.string().url('Invalid URL').optional().or(z.literal('')),
+});
+
+// ============================================
 // ERROR FORMATTING HELPER
 // ============================================
 export function formatZodErrors(error) {
