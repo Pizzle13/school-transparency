@@ -2,6 +2,19 @@ import { supabase } from '../supabase';
 
 const PER_PAGE = 24;
 
+// IB programmes live in the `programmes` text[] column.
+// Non-IB curricula live in the `accreditations` text[] column.
+const IB_PROGRAMMES = new Set(['DP', 'MYP', 'PYP', 'CP']);
+
+function applyCurriculumFilter(query, value) {
+  if (!value) return query;
+  if (IB_PROGRAMMES.has(value)) {
+    return query.contains('programmes', [value]);
+  }
+  // Non-IB curriculum — stored in accreditations
+  return query.contains('accreditations', [value]);
+}
+
 /**
  * Flexible query for school listings. Powers all directory pages.
  *
@@ -37,10 +50,8 @@ export async function getSchools({
     query = query.ilike('country_name', countryName);
   }
 
-  // Programme filter (PYP, MYP, DP, CP) — programmes is text[]
-  if (programme) {
-    query = query.contains('programmes', [programme]);
-  }
+  // Curriculum filter — IB programmes or non-IB curricula
+  query = applyCurriculumFilter(query, programme);
 
   // School type filter (PRIVATE, PUBLIC, STATE)
   if (schoolType) {
@@ -158,7 +169,7 @@ export async function getCountryList({
       .not('country_name', 'is', null);
 
     if (search) query = query.ilike('name', `%${search}%`);
-    if (programme) query = query.contains('programmes', [programme]);
+    query = applyCurriculumFilter(query, programme);
     if (schoolType) query = query.ilike('school_type', schoolType);
     if (boarding) {
       if (boarding === 'YES') {
@@ -319,9 +330,7 @@ export async function getSchoolsByCity({
     query = query.ilike('name', `%${search}%`);
   }
 
-  if (programme) {
-    query = query.contains('programmes', [programme]);
-  }
+  query = applyCurriculumFilter(query, programme);
 
   query = query.order('name');
 

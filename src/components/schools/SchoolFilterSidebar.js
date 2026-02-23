@@ -3,7 +3,15 @@
 import { useState, useCallback } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 
-const PROGRAMMES = ['DP', 'MYP', 'PYP', 'CP'];
+// IB programmes (stored in `programmes` text[] column)
+const IB_PROGRAMMES = ['DP', 'MYP', 'PYP', 'CP'];
+// Non-IB curricula (stored in `accreditations` text[] column)
+const OTHER_CURRICULA = [
+  { value: 'Cambridge', label: 'Cambridge' },
+  { value: 'Cognia', label: 'Cognia' },
+  { value: 'AP', label: 'AP' },
+  { value: 'EDEXCEL', label: 'Pearson Edexcel' },
+];
 const SCHOOL_TYPES = ['PRIVATE', 'PUBLIC', 'STATE'];
 const BOARDING_OPTIONS = [
   { value: 'NONE', label: 'Day school' },
@@ -73,9 +81,9 @@ export default function SchoolFilterSidebar({ countries = [], lockedFilters = {}
         </FilterSection>
       )}
 
-      {/* IB Programme filter */}
+      {/* Curriculum filter */}
       {!lockedFilters.programme && (
-        <FilterSection title="IB Programme">
+        <FilterSection title="Curriculum">
           <div className="space-y-2">
             <label className="flex items-center gap-2 cursor-pointer group">
               <input
@@ -85,9 +93,12 @@ export default function SchoolFilterSidebar({ countries = [], lockedFilters = {}
                 onChange={() => updateFilter('programme', '')}
                 className="w-4 h-4 border-stone-300 text-orange-600 focus:ring-orange-600"
               />
-              <span className="text-sm text-stone-700 group-hover:text-stone-900">All programmes</span>
+              <span className="text-sm text-stone-700 group-hover:text-stone-900">All curricula</span>
             </label>
-            {PROGRAMMES.map(p => (
+
+            {/* IB programmes */}
+            <p className="text-[11px] font-bold uppercase tracking-widest text-stone-400 pt-1">IB</p>
+            {IB_PROGRAMMES.map(p => (
               <label key={p} className="flex items-center gap-2 cursor-pointer group">
                 <input
                   type="radio"
@@ -97,6 +108,21 @@ export default function SchoolFilterSidebar({ countries = [], lockedFilters = {}
                   className="w-4 h-4 border-stone-300 text-orange-600 focus:ring-orange-600"
                 />
                 <span className="text-sm text-stone-700 group-hover:text-stone-900">{p}</span>
+              </label>
+            ))}
+
+            {/* Other curricula */}
+            <p className="text-[11px] font-bold uppercase tracking-widest text-stone-400 pt-1">Other</p>
+            {OTHER_CURRICULA.map(c => (
+              <label key={c.value} className="flex items-center gap-2 cursor-pointer group">
+                <input
+                  type="radio"
+                  name="programme"
+                  checked={currentFilters.programme === c.value}
+                  onChange={() => updateFilter('programme', c.value)}
+                  className="w-4 h-4 border-stone-300 text-orange-600 focus:ring-orange-600"
+                />
+                <span className="text-sm text-stone-700 group-hover:text-stone-900">{c.label}</span>
               </label>
             ))}
           </div>
