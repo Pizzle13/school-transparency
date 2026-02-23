@@ -8,9 +8,6 @@ const IB_PROGRAMMES = ['DP', 'MYP', 'PYP', 'CP'];
 // Non-IB curricula (stored in `accreditations` text[] column)
 const OTHER_CURRICULA = [
   { value: 'Cambridge', label: 'Cambridge' },
-  { value: 'Cognia', label: 'Cognia' },
-  { value: 'AP', label: 'AP' },
-  { value: 'EDEXCEL', label: 'Pearson Edexcel' },
 ];
 const SCHOOL_TYPES = ['PRIVATE', 'PUBLIC', 'STATE'];
 const BOARDING_OPTIONS = [
