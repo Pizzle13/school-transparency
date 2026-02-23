@@ -2,6 +2,70 @@ import { supabaseAdmin } from '../../../../lib/supabase/admin';
 import { BulkCityImportSchema, formatZodErrors } from '../../../../lib/validation/schemas';
 import { revalidatePath } from 'next/cache';
 
+// Fields to copy from pipeline school onto existing directory school during auto-link
+const AUTO_LINK_FIELDS = [
+  'city_id', 'rating', 'reviews', 'salary_range', 'summary',
+  'pros', 'cons', 'community_rating', 'salary_min', 'salary_max',
+  'isr_rating', 'isr_review_count', 'type',
+];
+
+/**
+ * Normalize a school name for matching: lowercase, strip punctuation and noise words.
+ */
+function normalizeName(name) {
+  return name
+    .toLowerCase()
+    .replace(/[,\-–—().]/g, ' ')
+    .replace(/\b(the|of|in|and|for|a|an)\b/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * Word-overlap similarity between two normalized names (0–1).
+ */
+function wordSimilarity(a, b) {
+  const wordsA = new Set(a.split(' ').filter(w => w.length > 1));
+  const wordsB = new Set(b.split(' ').filter(w => w.length > 1));
+  if (wordsA.size === 0 || wordsB.size === 0) return 0;
+  let overlap = 0;
+  for (const w of wordsA) if (wordsB.has(w)) overlap++;
+  return (2 * overlap) / (wordsA.size + wordsB.size);
+}
+
+/**
+ * Try to match a pipeline school against existing directory schools.
+ * Returns the matched directory school ID if confidence >= 0.7, or null.
+ */
+async function findDirectoryMatch(schoolName, cityName) {
+  const { data: candidates } = await supabaseAdmin
+    .from('schools')
+    .select('id, name, slug')
+    .not('slug', 'is', null)
+    .is('city_id', null)
+    .ilike('address', `%${cityName}%`);
+
+  if (!candidates || candidates.length === 0) return null;
+
+  const normalized = normalizeName(schoolName);
+  let bestMatch = null;
+  let bestScore = 0;
+
+  for (const c of candidates) {
+    const cn = normalizeName(c.name);
+    let score = wordSimilarity(normalized, cn);
+    if (normalized.includes(cn) || cn.includes(normalized)) {
+      score = Math.max(score, 0.7);
+    }
+    if (score > bestScore) {
+      bestScore = score;
+      bestMatch = c;
+    }
+  }
+
+  return bestScore >= 0.7 ? bestMatch : null;
+}
+
 export async function POST(request) {
   try {
     // Authentication
@@ -125,6 +189,51 @@ async function createCityWithRelations(cityImportData) {
       if (!data || (Array.isArray(data) && data.length === 0)) continue;
 
       try {
+        // Auto-link schools: check if pipeline schools match existing IBO directory entries
+        if (tableName === 'schools' && Array.isArray(data)) {
+          let linked = 0;
+          let inserted = 0;
+
+          for (const schoolData of data) {
+            const match = await findDirectoryMatch(schoolData.name, city.name);
+
+            if (match) {
+              // Merge pipeline data into existing directory school
+              const updateData = {};
+              const pipelineWithCity = { ...schoolData, city_id: city.id };
+              for (const field of AUTO_LINK_FIELDS) {
+                if (pipelineWithCity[field] != null) updateData[field] = pipelineWithCity[field];
+              }
+
+              const { error: updateErr } = await supabaseAdmin
+                .from('schools')
+                .update(updateData)
+                .eq('id', match.id);
+
+              if (updateErr) {
+                console.warn(`Auto-link failed for "${schoolData.name}" → "${match.name}":`, updateErr.message);
+              } else {
+                linked++;
+                console.log(`Auto-linked: "${schoolData.name}" → "${match.name}" (${match.slug})`);
+              }
+            } else {
+              // No match — insert as new pipeline school
+              const { error: insertErr } = await supabaseAdmin
+                .from('schools')
+                .insert({ ...schoolData, city_id: city.id });
+
+              if (insertErr) {
+                console.warn(`Failed to insert school "${schoolData.name}":`, insertErr.message);
+              } else {
+                inserted++;
+              }
+            }
+          }
+
+          relationsCreated.push(`schools (${linked} linked, ${inserted} new)`);
+          continue;
+        }
+
         const relationData = Array.isArray(data)
           ? data.map(item => ({ ...item, city_id: city.id }))
           : { ...data, city_id: city.id };
@@ -135,7 +244,6 @@ async function createCityWithRelations(cityImportData) {
 
         if (relationError) {
           console.warn(`Failed to create ${tableName} for city ${city.name}:`, relationError.message);
-          // Don't throw error for relation failures, just log them
         } else {
           relationsCreated.push(tableName);
         }

@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 export default function AdminDashboard() {
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [activeView, setActiveView] = useState('submissions'); // 'submissions' | 'disputes'
+  const [activeView, setActiveView] = useState('submissions'); // 'submissions' | 'disputes' | 'linking'
 
   // Submissions state
   const [submissions, setSubmissions] = useState([]);
@@ -20,6 +20,13 @@ export default function AdminDashboard() {
   const [disputeCounts, setDisputeCounts] = useState({ open: 0, resolved: 0, dismissed: 0 });
   const [disputeFilter, setDisputeFilter] = useState('open');
   const [disputeLoading, setDisputeLoading] = useState(false);
+
+  // School linking state
+  const [linkCities, setLinkCities] = useState([]);
+  const [linkSelectedCity, setLinkSelectedCity] = useState(null);
+  const [linkSuggestions, setLinkSuggestions] = useState(null);
+  const [linkLoading, setLinkLoading] = useState(false);
+  const [linkActionLoading, setLinkActionLoading] = useState({});
 
   const fetchSubmissions = async () => {
     setLoading(true);
@@ -67,6 +74,77 @@ export default function AdminDashboard() {
       console.error('Disputes fetch error:', error);
     } finally {
       setDisputeLoading(false);
+    }
+  };
+
+  const fetchLinkCities = async () => {
+    setLinkLoading(true);
+    try {
+      const response = await fetch('/api/admin/link-schools', {
+        headers: { 'Authorization': `Bearer ${password}` }
+      });
+      if (!response.ok) return;
+      const data = await response.json();
+      setLinkCities(data.cities || []);
+    } catch (error) {
+      console.error('Link cities fetch error:', error);
+    } finally {
+      setLinkLoading(false);
+    }
+  };
+
+  const fetchLinkSuggestions = async (citySlug) => {
+    setLinkLoading(true);
+    try {
+      const response = await fetch(`/api/admin/link-schools?city=${citySlug}`, {
+        headers: { 'Authorization': `Bearer ${password}` }
+      });
+      if (!response.ok) return;
+      const data = await response.json();
+      setLinkSuggestions(data);
+    } catch (error) {
+      console.error('Link suggestions fetch error:', error);
+    } finally {
+      setLinkLoading(false);
+    }
+  };
+
+  const handleLinkAction = async (action, payload) => {
+    const key = payload.pipelineSchoolId || 'bulk';
+    setLinkActionLoading(prev => ({ ...prev, [key]: true }));
+    try {
+      const response = await fetch('/api/admin/link-schools', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${password}`
+        },
+        body: JSON.stringify({ action, ...payload })
+      });
+      const data = await response.json();
+      if (response.ok && data.success) {
+        // Refresh suggestions
+        if (linkSelectedCity) {
+          fetchLinkSuggestions(linkSelectedCity);
+        }
+        return data;
+      } else {
+        alert(data.error || 'Action failed');
+      }
+    } catch (error) {
+      console.error('Link action error:', error);
+      alert('Error performing action');
+    } finally {
+      setLinkActionLoading(prev => ({ ...prev, [key]: false }));
+    }
+  };
+
+  const handleBulkLink = async (citySlug) => {
+    if (!confirm('Auto-merge all high-confidence matches for this city?')) return;
+    const result = await handleLinkAction('bulk', { citySlug, threshold: 0.7 });
+    if (result) {
+      alert(`${result.summary}\n\nMerged: ${result.merged?.map(m => `${m.pipeline} → ${m.directory}`).join('\n') || 'none'}`);
+      fetchLinkCities();
     }
   };
 
@@ -143,6 +221,12 @@ export default function AdminDashboard() {
     }
   }, [disputeFilter, isAuthenticated, activeView]);
 
+  useEffect(() => {
+    if (isAuthenticated && activeView === 'linking') {
+      fetchLinkCities();
+    }
+  }, [isAuthenticated, activeView]);
+
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-stone-100 flex items-center justify-center p-4">
@@ -177,20 +261,34 @@ export default function AdminDashboard() {
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-5xl font-black text-stone-900">
-            {activeView === 'submissions' ? 'Submission Moderation' : 'Data Disputes'}
+            {activeView === 'submissions' ? 'Submission Moderation'
+              : activeView === 'disputes' ? 'Data Disputes'
+              : 'Link Schools'}
           </h1>
           <div className="flex gap-3">
-            <button
-              onClick={() => setActiveView(activeView === 'submissions' ? 'disputes' : 'submissions')}
-              className="px-4 py-2 bg-white text-stone-900 rounded-lg font-bold hover:bg-stone-200 border-2 border-stone-900"
-            >
-              {activeView === 'submissions' ? 'Data Disputes' : 'Submissions'}
-              {activeView === 'submissions' && disputeCounts.open > 0 && (
-                <span className="ml-2 inline-flex items-center justify-center w-6 h-6 bg-red-600 text-white text-xs font-bold rounded-full">
-                  {disputeCounts.open}
-                </span>
-              )}
-            </button>
+            {['submissions', 'disputes', 'linking'].map(view => (
+              <button
+                key={view}
+                onClick={() => setActiveView(view)}
+                className={`px-4 py-2 rounded-lg font-bold border-2 border-stone-900 transition-colors ${
+                  activeView === view
+                    ? 'bg-stone-900 text-white'
+                    : 'bg-white text-stone-900 hover:bg-stone-200'
+                }`}
+              >
+                {view === 'submissions' ? 'Submissions' : view === 'disputes' ? 'Disputes' : 'Link Schools'}
+                {view === 'disputes' && disputeCounts.open > 0 && (
+                  <span className="ml-2 inline-flex items-center justify-center w-6 h-6 bg-red-600 text-white text-xs font-bold rounded-full">
+                    {disputeCounts.open}
+                  </span>
+                )}
+                {view === 'linking' && linkCities.some(c => c.unlinked > 0) && (
+                  <span className="ml-2 inline-flex items-center justify-center w-6 h-6 bg-orange-600 text-white text-xs font-bold rounded-full">
+                    !
+                  </span>
+                )}
+              </button>
+            ))}
             <a
               href="/admin/editor"
               className="px-4 py-2 bg-white text-stone-900 rounded-lg font-bold hover:bg-stone-200 border-2 border-stone-900"
@@ -472,6 +570,180 @@ export default function AdminDashboard() {
                   </div>
                 ))}
               </div>
+            )}
+          </>
+        )}
+
+        {/* ─── LINK SCHOOLS VIEW ─── */}
+        {activeView === 'linking' && (
+          <>
+            {!linkSelectedCity ? (
+              /* City list */
+              linkLoading ? (
+                <div className="text-center py-12 bg-white rounded-2xl border-4 border-stone-900">
+                  <p>Loading cities...</p>
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  <p className="text-stone-600 mb-4">
+                    When a city is imported via the pipeline, its schools may already exist in the IBO directory.
+                    Use this tool to merge pipeline review/salary data onto existing directory schools.
+                  </p>
+                  {linkCities.map(city => (
+                    <div
+                      key={city.id}
+                      className="bg-white p-5 rounded-2xl border-4 border-stone-900 flex items-center justify-between hover:shadow-lg transition-shadow"
+                    >
+                      <div>
+                        <h3 className="text-lg font-bold text-stone-900">{city.name}</h3>
+                        <p className="text-sm text-stone-600">
+                          {city.totalLinked} pipeline schools &middot; {city.inDirectory} already in directory
+                          {city.unlinked > 0 && (
+                            <span className="text-orange-600 font-bold"> &middot; {city.unlinked} unlinked</span>
+                          )}
+                        </p>
+                      </div>
+                      <div className="flex gap-2">
+                        {city.unlinked > 0 && (
+                          <>
+                            <button
+                              onClick={() => handleBulkLink(city.slug)}
+                              className="px-4 py-2 bg-green-600 text-white rounded-lg font-bold hover:bg-green-700 transition-colors border-2 border-stone-900 text-sm"
+                            >
+                              Auto-Link All
+                            </button>
+                            <button
+                              onClick={() => {
+                                setLinkSelectedCity(city.slug);
+                                fetchLinkSuggestions(city.slug);
+                              }}
+                              className="px-4 py-2 bg-orange-600 text-white rounded-lg font-bold hover:bg-orange-700 transition-colors border-2 border-stone-900 text-sm"
+                            >
+                              Review Matches
+                            </button>
+                          </>
+                        )}
+                        {city.unlinked === 0 && city.totalLinked > 0 && (
+                          <span className="px-4 py-2 bg-green-100 text-green-800 rounded-lg font-bold text-sm">
+                            All linked
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )
+            ) : (
+              /* Suggestions for selected city */
+              <>
+                <button
+                  onClick={() => { setLinkSelectedCity(null); setLinkSuggestions(null); fetchLinkCities(); }}
+                  className="mb-4 px-4 py-2 bg-white text-stone-900 rounded-lg font-bold hover:bg-stone-200 border-2 border-stone-900 text-sm"
+                >
+                  &larr; Back to cities
+                </button>
+
+                {linkLoading ? (
+                  <div className="text-center py-12 bg-white rounded-2xl border-4 border-stone-900">
+                    <p>Analyzing matches...</p>
+                  </div>
+                ) : linkSuggestions ? (
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="text-stone-600">
+                        <strong>{linkSuggestions.city?.name}</strong>: {linkSuggestions.unlinkedCount} unlinked pipeline schools,
+                        {' '}{linkSuggestions.alreadyLinked} already linked
+                      </p>
+                      {linkSuggestions.unlinkedCount > 0 && (
+                        <button
+                          onClick={() => handleBulkLink(linkSelectedCity)}
+                          disabled={linkActionLoading.bulk}
+                          className="px-4 py-2 bg-green-600 text-white rounded-lg font-bold hover:bg-green-700 transition-colors border-2 border-stone-900 text-sm disabled:opacity-50"
+                        >
+                          {linkActionLoading.bulk ? 'Merging...' : 'Auto-Link All High Confidence'}
+                        </button>
+                      )}
+                    </div>
+
+                    {linkSuggestions.suggestions?.map(s => (
+                      <div
+                        key={s.pipelineSchool.id}
+                        className="bg-white p-5 rounded-2xl border-4 border-stone-900"
+                      >
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="flex-1">
+                            <h4 className="font-bold text-stone-900">{s.pipelineSchool.name}</h4>
+                            <p className="text-sm text-stone-500">
+                              Pipeline &middot; Rating: {s.pipelineSchool.rating || '–'} &middot;
+                              {' '}{s.pipelineSchool.reviews || 0} reviews &middot;
+                              {' '}{s.pipelineSchool.salary_range || 'No salary data'}
+                            </p>
+
+                            {s.bestMatch ? (
+                              <div className="mt-3 bg-green-50 border-2 border-green-200 rounded-lg p-3">
+                                <p className="text-sm font-bold text-green-800">
+                                  Best match: {s.bestMatch.directorySchool.name}
+                                  <span className="ml-2 text-green-600">
+                                    ({Math.round(s.bestMatch.similarity * 100)}% confidence)
+                                  </span>
+                                </p>
+                                <p className="text-xs text-green-700 mt-1">
+                                  Programmes: {s.bestMatch.directorySchool.programmes?.join(', ') || 'None'}
+                                  {' '}&middot; Slug: {s.bestMatch.directorySchool.slug}
+                                </p>
+
+                                {s.suggestedMatches.length > 1 && (
+                                  <details className="mt-2">
+                                    <summary className="text-xs text-green-600 cursor-pointer">
+                                      {s.suggestedMatches.length - 1} other potential matches
+                                    </summary>
+                                    {s.suggestedMatches.slice(1).map(m => (
+                                      <p key={m.directorySchool.id} className="text-xs text-green-700 mt-1">
+                                        {m.directorySchool.name} ({Math.round(m.similarity * 100)}%)
+                                      </p>
+                                    ))}
+                                  </details>
+                                )}
+                              </div>
+                            ) : (
+                              <div className="mt-3 bg-yellow-50 border-2 border-yellow-200 rounded-lg p-3">
+                                <p className="text-sm font-bold text-yellow-800">No directory match found</p>
+                                <p className="text-xs text-yellow-700">
+                                  This school can be added to the directory with a new slug.
+                                </p>
+                              </div>
+                            )}
+                          </div>
+
+                          <div className="flex flex-col gap-2 flex-shrink-0">
+                            {s.bestMatch && (
+                              <button
+                                onClick={() => handleLinkAction('merge', {
+                                  pipelineSchoolId: s.pipelineSchool.id,
+                                  directorySchoolId: s.bestMatch.directorySchool.id,
+                                })}
+                                disabled={linkActionLoading[s.pipelineSchool.id]}
+                                className="px-3 py-2 bg-green-600 text-white rounded-lg font-bold hover:bg-green-700 transition-colors border-2 border-stone-900 text-xs disabled:opacity-50"
+                              >
+                                {linkActionLoading[s.pipelineSchool.id] ? '...' : 'Merge'}
+                              </button>
+                            )}
+                            <button
+                              onClick={() => handleLinkAction('skip', {
+                                pipelineSchoolId: s.pipelineSchool.id,
+                              })}
+                              disabled={linkActionLoading[s.pipelineSchool.id]}
+                              className="px-3 py-2 bg-stone-200 text-stone-700 rounded-lg font-bold hover:bg-stone-300 transition-colors border-2 border-stone-300 text-xs disabled:opacity-50"
+                            >
+                              {linkActionLoading[s.pipelineSchool.id] ? '...' : 'Add as New'}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+              </>
             )}
           </>
         )}
