@@ -12,6 +12,7 @@ const FALLBACK_IMAGES = {
   'barcelona': 'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=1600&q=80',
   'phnom-penh': 'https://images.unsplash.com/photo-1639805855077-c7978ecd2214?w=1600&q=80',
   'kuala-lumpur': 'https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1600&q=80',
+  'abu-dhabi': 'https://images.unsplash.com/photo-1603565095944-2a6f33bb517c?w=1600&q=80',
 };
 
 // Critical data needed for initial page render (above the fold)
