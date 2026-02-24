@@ -104,11 +104,15 @@ export default async function Hero() {
               <p className="text-lg text-stone-700 mb-6 leading-relaxed">
                 In-depth articles covering contracts, salaries, cultural adaptation, and professional development. Filterable by {categoryCount} categories.
               </p>
-              <div className="flex flex-wrap gap-2 mb-8">
-                <span className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium">Life Abroad</span>
-                <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">Contracts & Salaries</span>
-                <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">Professional Development</span>
-                <span className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm font-medium">+{categoryCount - 3} more</span>
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                <div className="text-center p-3 bg-white rounded-xl border-2 border-indigo-200">
+                  <p className="text-2xl font-black text-stone-900">{articleCount}</p>
+                  <p className="text-sm text-stone-600">{articleCount === 1 ? 'Article' : 'Articles'} Published</p>
+                </div>
+                <div className="text-center p-3 bg-white rounded-xl border-2 border-indigo-200">
+                  <p className="text-2xl font-black text-stone-900">{categoryCount}</p>
+                  <p className="text-sm text-stone-600">{categoryCount === 1 ? 'Category' : 'Categories'}</p>
+                </div>
               </div>
               <Link href="/blog" className="text-indigo-600 font-bold hover:text-indigo-500 transition-colors">
                 Start Reading →
