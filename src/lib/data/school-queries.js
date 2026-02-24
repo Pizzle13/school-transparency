@@ -19,8 +19,8 @@ function applyCurriculumFilter(query, value) {
  * Flexible query for school listings. Powers all directory pages.
  *
  * Schema: schools table has direct country_name, country_code, programmes, slug columns.
- * 6,100 IBO schools have directory data. 147 city-pipeline schools have reviews/salary.
- * 18 merged schools have both.
+ * 8,697 schools. Data completeness varies — some have full enrichment (programmes,
+ * accreditations, mission), others are still being enriched. 233 have review/salary data.
  */
 export async function getSchools({
   search = '',
