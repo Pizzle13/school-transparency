@@ -5,9 +5,16 @@ import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 
 // IB programmes (stored in `programmes` text[] column)
 const IB_PROGRAMMES = ['DP', 'MYP', 'PYP', 'CP'];
-// Non-IB curricula (stored in `accreditations` text[] column)
-const OTHER_CURRICULA = [
-  { value: 'Cambridge', label: 'Cambridge' },
+// National curricula (stored in `curriculum` text[] column)
+const NATIONAL_CURRICULA = [
+  { value: 'British', label: 'British' },
+  { value: 'American', label: 'American' },
+  { value: 'Canadian', label: 'Canadian' },
+  { value: 'Australian', label: 'Australian' },
+  { value: 'French', label: 'French' },
+  { value: 'German', label: 'German' },
+  { value: 'Indian', label: 'Indian' },
+  { value: 'Swiss', label: 'Swiss' },
 ];
 const SCHOOL_TYPES = ['PRIVATE', 'PUBLIC', 'STATE'];
 const BOARDING_OPTIONS = [
@@ -108,9 +115,9 @@ export default function SchoolFilterSidebar({ countries = [], lockedFilters = {}
               </label>
             ))}
 
-            {/* Other curricula */}
-            <p className="text-[11px] font-bold uppercase tracking-widest text-stone-400 pt-1">Other</p>
-            {OTHER_CURRICULA.map(c => (
+            {/* National curricula */}
+            <p className="text-[11px] font-bold uppercase tracking-widest text-stone-400 pt-1">National</p>
+            {NATIONAL_CURRICULA.map(c => (
               <label key={c.value} className="flex items-center gap-2 cursor-pointer group">
                 <input
                   type="radio"

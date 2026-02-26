@@ -3,15 +3,30 @@ import { supabase } from '../supabase';
 const PER_PAGE = 24;
 
 // IB programmes live in the `programmes` text[] column.
-// Non-IB curricula live in the `accreditations` text[] column.
+// National/other curricula live in the `curriculum` text[] column.
+// Legacy non-IB values may live in `accreditations` (Cambridge, etc.).
 const IB_PROGRAMMES = new Set(['DP', 'MYP', 'PYP', 'CP']);
+const CURRICULUM_VALUES = new Set([
+  'British', 'American', 'French', 'German',
+  'Canadian', 'Australian', 'Indian', 'Swiss',
+  'AP', 'IPC', 'IMYC', 'Montessori', 'IB',
+]);
 
 function applyCurriculumFilter(query, value) {
   if (!value) return query;
+  // Special sentinel: all IB World Schools (any programme)
+  if (value === 'IB_ALL') {
+    return query.not('programmes', 'is', null);
+  }
+  // Specific IB programme filter (DP, MYP, PYP, CP)
   if (IB_PROGRAMMES.has(value)) {
     return query.contains('programmes', [value]);
   }
-  // Non-IB curriculum — stored in accreditations
+  // National/other curricula stored in `curriculum` text[] column
+  if (CURRICULUM_VALUES.has(value)) {
+    return query.contains('curriculum', [value]);
+  }
+  // Legacy fallback: accreditations column (Cambridge, etc.)
   return query.contains('accreditations', [value]);
 }
 

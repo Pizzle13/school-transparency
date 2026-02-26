@@ -5,14 +5,25 @@ import Link from 'next/link';
 
 export const revalidate = 600;
 
-// Map URL slugs to programme filter values and display labels.
-// Uses `programmes` text[] contains filter for IB programmes.
+// Map URL slugs to curriculum filter values and display labels.
+// IB programmes use `programmes` text[] contains filter.
+// National curricula use `curriculum` text[] contains filter.
 const CURRICULUM_MAP = {
-  'ib': { programme: '', label: 'IB World Schools', description: 'All IB World Schools offering PYP, MYP, DP, or CP programmes' },
+  // IB programmes
+  'ib': { programme: 'IB_ALL', label: 'IB World Schools', description: 'All IB World Schools offering PYP, MYP, DP, or CP programmes' },
   'ib-dp': { programme: 'DP', label: 'IB Diploma Programme (DP)', description: 'Schools offering the IB Diploma Programme for ages 16-19' },
   'ib-myp': { programme: 'MYP', label: 'IB Middle Years Programme (MYP)', description: 'Schools offering the IB Middle Years Programme for ages 11-16' },
   'ib-pyp': { programme: 'PYP', label: 'IB Primary Years Programme (PYP)', description: 'Schools offering the IB Primary Years Programme for ages 3-12' },
   'ib-cp': { programme: 'CP', label: 'IB Career-related Programme (CP)', description: 'Schools offering the IB Career-related Programme for ages 16-19' },
+  // National curricula
+  'british': { programme: 'British', label: 'British Curriculum Schools', description: 'International schools following the British national curriculum, including IGCSE and A-Levels' },
+  'american': { programme: 'American', label: 'American Curriculum Schools', description: 'International schools following the American curriculum, including US high school diploma programs' },
+  'canadian': { programme: 'Canadian', label: 'Canadian Curriculum Schools', description: 'International schools offering the Canadian provincial curriculum' },
+  'australian': { programme: 'Australian', label: 'Australian Curriculum Schools', description: 'International schools following the Australian national curriculum' },
+  'french': { programme: 'French', label: 'French Curriculum Schools', description: 'International schools offering the French national curriculum and baccalauréat' },
+  'german': { programme: 'German', label: 'German Curriculum Schools', description: 'International schools offering the German curriculum and Abitur qualification' },
+  'indian': { programme: 'Indian', label: 'Indian Curriculum Schools', description: 'International schools following CBSE, ICSE, or other Indian national curriculum boards' },
+  'swiss': { programme: 'Swiss', label: 'Swiss Curriculum Schools', description: 'International schools offering the Swiss Maturité or Swiss curriculum' },
 };
 
 export async function generateMetadata({ params }) {

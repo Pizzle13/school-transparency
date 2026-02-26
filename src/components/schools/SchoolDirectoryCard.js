@@ -47,6 +47,7 @@ export default function SchoolDirectoryCard({ school, onCompare, isComparing }) 
     slug,
     country_name,
     programmes,
+    curriculum,
     school_type,
     rating,
     reviews,
@@ -57,6 +58,12 @@ export default function SchoolDirectoryCard({ school, onCompare, isComparing }) 
   // Build curriculum badges — group programmes under "IB" for now
   // Future: Cambridge, AP, Edexcel will be separate curriculum entries
   const ibProgrammes = Array.isArray(programmes) ? programmes : [];
+
+  // National curriculum badges — skip vague values, cap at 2
+  const SKIP_CURRICULUM = new Set(['IB', 'International']);
+  const curriculumBadges = Array.isArray(curriculum)
+    ? curriculum.filter(c => !SKIP_CURRICULUM.has(c)).slice(0, 2)
+    : [];
 
   // Accreditations excluding IBO (since IB is shown as curriculum)
   const otherAccreditations = Array.isArray(accreditations)
@@ -91,6 +98,13 @@ export default function SchoolDirectoryCard({ school, onCompare, isComparing }) 
               </span>
             </div>
           )}
+
+          {/* National curriculum badges */}
+          {curriculumBadges.map(c => (
+            <div key={c} className="inline-flex items-center bg-teal-50 border border-teal-200 rounded-md px-2 py-0.5">
+              <span className="text-[11px] font-medium text-teal-700 leading-none">{c}</span>
+            </div>
+          ))}
 
           {/* Accreditations text badge — only if school has extra accreditations */}
           {otherAccreditations.length > 0 && (
