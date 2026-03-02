@@ -36,12 +36,16 @@ export async function generateMetadata({ params }) {
 
   const { totalCount } = await getSchools({ programme: curriculum.programme, perPage: 1 });
 
+  // Noindex pages with very few results
+  const shouldNoindex = totalCount < 5;
+
   return {
     title: `${curriculum.label} — ${totalCount.toLocaleString()} Schools Worldwide | School Transparency`,
     description: `${curriculum.description}. Browse ${totalCount.toLocaleString()} schools worldwide.`,
     alternates: {
       canonical: `https://schooltransparency.com/schools/curriculum/${type}`,
     },
+    robots: shouldNoindex ? { index: false } : undefined,
     openGraph: {
       title: `${curriculum.label} | School Transparency`,
       description: `Browse ${totalCount.toLocaleString()} ${curriculum.label} schools worldwide.`,

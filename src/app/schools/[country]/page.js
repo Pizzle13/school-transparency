@@ -13,12 +13,16 @@ export async function generateMetadata({ params }) {
   const stats = await getCountryStats(country);
   const count = stats?.totalSchools || 0;
 
+  // Noindex pages with very few results (waste of crawl budget)
+  const shouldNoindex = count < 5;
+
   return {
     title: `International Schools in ${displayName} — ${count} Schools | School Transparency`,
     description: `Browse ${count} international schools in ${displayName}. Filter by IB programme, school type, boarding, and more.`,
     alternates: {
       canonical: `https://schooltransparency.com/schools/${country}`,
     },
+    robots: shouldNoindex ? { index: false } : undefined,
     openGraph: {
       title: `International Schools in ${displayName} | School Transparency`,
       description: `Browse ${count} international schools in ${displayName}.`,

@@ -76,7 +76,7 @@ export default function SchoolDirectoryClient({
       </form>
 
       {/* Sidebar + Grid layout */}
-      <div className="flex gap-8">
+      <div className="flex flex-col lg:flex-row gap-8">
         <SchoolFilterSidebar
           countries={countries}
           lockedFilters={lockedFilters}

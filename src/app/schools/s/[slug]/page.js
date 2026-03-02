@@ -1,4 +1,4 @@
-import { getSchoolBySlug } from '../../../../lib/data/school-queries';
+import { getSchoolBySlug, getCitySlugById } from '../../../../lib/data/school-queries';
 import SchoolProfile from '../../../../components/schools/SchoolProfile';
 import HeroBackground from '../../../../components/schools/HeroBackground';
 import Link from 'next/link';
@@ -39,6 +39,7 @@ export async function generateMetadata({ params }) {
 export default async function SchoolDetailPage({ params }) {
   const { slug } = await params;
   const school = await getSchoolBySlug(slug);
+  const citySlug = school?.city_id ? await getCitySlugById(school.city_id) : null;
 
   if (!school) {
     return (
@@ -147,7 +148,7 @@ export default async function SchoolDetailPage({ params }) {
 
       {/* School profile content */}
       <section className="max-w-4xl mx-auto px-6 py-8">
-        <SchoolProfile school={school} />
+        <SchoolProfile school={school} citySlug={citySlug} />
       </section>
 
       {/* Schema.org JSON-LD */}

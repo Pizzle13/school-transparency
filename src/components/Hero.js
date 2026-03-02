@@ -220,7 +220,7 @@ export default async function Hero() {
               <p className="text-stone-600 font-semibold">Cities Covered</p>
             </div>
             <div className="text-center p-8 bg-white rounded-2xl border-2 border-stone-200 hover:scale-105 transition-transform duration-300">
-              <p className="text-5xl font-black text-orange-600 mb-2">{schoolCount}</p>
+              <p className="text-5xl font-black text-orange-600 mb-2">{schoolCount.toLocaleString()}</p>
               <p className="text-stone-600 font-semibold">Schools Listed</p>
             </div>
             <div className="text-center p-8 bg-white rounded-2xl border-2 border-stone-200 hover:scale-105 transition-transform duration-300">

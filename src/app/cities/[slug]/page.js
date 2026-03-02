@@ -104,6 +104,36 @@ export default async function CityPage({ params }) {
       <PetImportSection petImport={secondaryData.pet_import?.[0]} />
       <RecentNewsSection news={secondaryData.city_news} />
       <LocalIntelSection intelData={secondaryData.local_intel_data} cityId={city.id} cityName={city.name} />
+
+      {/* Schema.org JSON-LD for city data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'City',
+            name: city.name,
+            ...(city.country && { areaServedBy: { '@type': 'Country', name: city.country } }),
+            description: `International teaching guide for ${city.name}, ${city.country}. Salary data, schools, housing, healthcare, and living costs for teachers.`,
+            ...(city.hero_image_url && { image: city.hero_image_url }),
+            url: `https://schooltransparency.com/cities/${city.slug}`,
+            ...(city.schools?.length && {
+              subOrganization: city.schools.map(school => ({
+                '@type': 'EducationalOrganization',
+                name: school.name,
+                url: `https://schooltransparency.com/schools/s/${school.slug}`,
+              })),
+            }),
+            ...(city.salary_data?.[0] && {
+              salary: {
+                '@type': 'PriceSpecification',
+                priceCurrency: city.salary_data[0].currency || 'USD',
+                price: city.salary_data[0].avg_salary,
+              },
+            }),
+          }),
+        }}
+      />
     </div>
   );
 }

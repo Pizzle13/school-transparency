@@ -13,12 +13,16 @@ export async function generateMetadata({ params }) {
 
   const { totalCount } = await getSchoolsByCity({ country, city, perPage: 1 });
 
+  // Noindex pages with very few results
+  const shouldNoindex = totalCount < 5;
+
   return {
     title: `International Schools in ${cityName}, ${countryName} — ${totalCount} Schools | School Transparency`,
     description: `Browse ${totalCount} international schools in ${cityName}, ${countryName}. Compare schools, filter by programme, and find the right fit.`,
     alternates: {
       canonical: `https://schooltransparency.com/schools/${country}/${city}`,
     },
+    robots: shouldNoindex ? { index: false } : undefined,
     openGraph: {
       title: `International Schools in ${cityName}, ${countryName} | School Transparency`,
       description: `Browse international schools in ${cityName}, ${countryName}.`,

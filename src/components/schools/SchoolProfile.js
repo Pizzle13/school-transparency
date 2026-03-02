@@ -37,7 +37,7 @@ function slugifyCountry(name) {
   return name.toLowerCase().replace(/\s+/g, '-');
 }
 
-export default function SchoolProfile({ school }) {
+export default function SchoolProfile({ school, citySlug }) {
   const hasReviewData = school.city_id != null;
   const countrySlug = slugifyCountry(school.country_name);
 
@@ -338,9 +338,9 @@ export default function SchoolProfile({ school }) {
               Schools in {school.country_name}
             </Link>
           )}
-          {school.city_id && (
-            <Link href="/cities" className="text-sm font-bold bg-white text-stone-700 px-4 py-2 rounded-lg ring-1 ring-stone-200 hover:ring-stone-900 transition-colors">
-              City guides
+          {citySlug && (
+            <Link href={`/cities/${citySlug}`} className="text-sm font-bold bg-white text-stone-700 px-4 py-2 rounded-lg ring-1 ring-stone-200 hover:ring-stone-900 transition-colors">
+              City guide
             </Link>
           )}
           <Link href="/schools/" className="text-sm font-bold bg-white text-stone-700 px-4 py-2 rounded-lg ring-1 ring-stone-200 hover:ring-stone-900 transition-colors">
@@ -355,10 +355,10 @@ export default function SchoolProfile({ school }) {
 /* ─── Detail row with icon ─── */
 function DetailRow({ icon: Icon, label, value }) {
   return (
-    <div className="flex items-center gap-4 px-6 py-3.5">
-      <Icon className="w-4 h-4 text-stone-400 flex-shrink-0" />
-      <span className="text-xs font-semibold text-stone-400 uppercase tracking-wide w-28 flex-shrink-0">{label}</span>
-      <span className="text-sm font-bold text-stone-900">{value}</span>
+    <div className="flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3.5">
+      <Icon className="w-4 h-4 text-stone-400 flex-shrink-0 hidden sm:block" />
+      <span className="text-xs font-semibold text-stone-400 uppercase tracking-wide w-24 sm:w-28 flex-shrink-0">{label}</span>
+      <span className="text-sm font-bold text-stone-900 break-words min-w-0">{value}</span>
     </div>
   );
 }

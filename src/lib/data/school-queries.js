@@ -158,6 +158,26 @@ export async function getSchoolsForCompare(slugs = []) {
 }
 
 /**
+ * Get city slug by city ID (for linking school pages to city pages)
+ */
+export async function getCitySlugById(cityId) {
+  if (!cityId) return null;
+
+  const { data, error } = await supabase
+    .from('cities')
+    .select('slug')
+    .eq('id', cityId)
+    .maybeSingle();
+
+  if (error) {
+    console.error('Error fetching city slug:', error);
+    return null;
+  }
+
+  return data?.slug || null;
+}
+
+/**
  * Get distinct countries with school counts for filter sidebar.
  * Accepts optional filters so counts reflect the active filter state
  * (e.g. when programme=DP is active, Vietnam shows 21 not 29).

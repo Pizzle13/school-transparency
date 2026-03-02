@@ -126,7 +126,7 @@ export default function CompareContent() {
 
       {/* Comparison rows */}
       <section className="max-w-7xl mx-auto px-6 py-8">
-        <div className="bg-white rounded-2xl shadow-sm ring-1 ring-stone-200/60 overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-sm ring-1 ring-stone-200/60 overflow-x-auto">
           <CompareSection title="Overview" tab="bg-blue-500" tint="bg-blue-50/40">
             <CompareRow label="Country" schools={schools} field="country_name" />
             <CompareRow label="School Type" schools={schools} field="school_type" format={v => v.charAt(0) + v.slice(1).toLowerCase()} />
@@ -266,8 +266,8 @@ function CompareRow({ label, schools, field, render, format, highlight }) {
   if (!hasAnyData) return null;
 
   return (
-    <div className={`flex items-center ${highlight ? 'bg-amber-50/50' : ''}`}>
-      <div className="w-40 md:w-48 flex-shrink-0 px-6 py-3.5">
+    <div className={`flex items-center min-w-[600px] ${highlight ? 'bg-amber-50/50' : ''}`}>
+      <div className="w-32 sm:w-40 md:w-48 flex-shrink-0 px-4 sm:px-6 py-3.5">
         <span className="text-xs font-semibold text-stone-400 uppercase tracking-wide">{label}</span>
       </div>
       <div className="flex-1 grid" style={{ gridTemplateColumns: `repeat(${schools.length}, 1fr)` }}>

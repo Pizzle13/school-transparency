@@ -8,7 +8,7 @@ export default function WhySection() {
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
         <div className="p-8 rounded-lg bg-gradient-to-br from-purple-500 to-purple-700 text-white hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-2xl">
           <h3 className="text-2xl font-bold mb-4">Real School Reviews</h3>
-          <p>Verified reviews from 2000+ international schools</p>
+          <p>Verified data from 9,000+ international schools</p>
         </div>
 
         <div className="p-8 rounded-lg bg-gradient-to-br from-pink-500 to-red-500 text-white hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-2xl">
@@ -24,7 +24,7 @@ export default function WhySection() {
 
       <div className="flex justify-center gap-6 mt-16">
         <a 
-          href="#" 
+          href="/schools"
           className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-lg"
         >
           Browse Schools
