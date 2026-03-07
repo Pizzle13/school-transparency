@@ -19,9 +19,11 @@ export async function generateMetadata({ params }) {
   return {
     title: `International Schools in ${displayName} — ${count} Schools | School Transparency`,
     description: `Browse ${count} international schools in ${displayName}. Filter by IB programme, school type, boarding, and more.`,
-    alternates: {
-      canonical: `https://schooltransparency.com/schools/${country}`,
-    },
+    ...(shouldNoindex ? {} : {
+      alternates: {
+        canonical: `https://schooltransparency.com/schools/${country}`,
+      },
+    }),
     robots: shouldNoindex ? { index: false } : undefined,
     openGraph: {
       title: `International Schools in ${displayName} | School Transparency`,

@@ -42,9 +42,11 @@ export async function generateMetadata({ params }) {
   return {
     title: `${curriculum.label} — ${totalCount.toLocaleString()} Schools Worldwide | School Transparency`,
     description: `${curriculum.description}. Browse ${totalCount.toLocaleString()} schools worldwide.`,
-    alternates: {
-      canonical: `https://schooltransparency.com/schools/curriculum/${type}`,
-    },
+    ...(shouldNoindex ? {} : {
+      alternates: {
+        canonical: `https://schooltransparency.com/schools/curriculum/${type}`,
+      },
+    }),
     robots: shouldNoindex ? { index: false } : undefined,
     openGraph: {
       title: `${curriculum.label} | School Transparency`,

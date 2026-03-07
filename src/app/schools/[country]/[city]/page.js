@@ -19,9 +19,11 @@ export async function generateMetadata({ params }) {
   return {
     title: `International Schools in ${cityName}, ${countryName} — ${totalCount} Schools | School Transparency`,
     description: `Browse ${totalCount} international schools in ${cityName}, ${countryName}. Compare schools, filter by programme, and find the right fit.`,
-    alternates: {
-      canonical: `https://schooltransparency.com/schools/${country}/${city}`,
-    },
+    ...(shouldNoindex ? {} : {
+      alternates: {
+        canonical: `https://schooltransparency.com/schools/${country}/${city}`,
+      },
+    }),
     robots: shouldNoindex ? { index: false } : undefined,
     openGraph: {
       title: `International Schools in ${cityName}, ${countryName} | School Transparency`,
