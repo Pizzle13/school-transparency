@@ -212,20 +212,18 @@ export default function ArticleContent({ article, relatedArticles = [] }) {
                   <a
                     key={city.slug}
                     href={city.url}
-                    className="group block bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-blue-100 hover:border-indigo-300 p-6"
+                    className="relative h-[220px] rounded-2xl overflow-hidden group cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl block"
                   >
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
-                        {city.name.charAt(0)}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-lg font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors truncate">
-                          {city.name}
-                        </h3>
-                        <p className="text-sm text-gray-600 group-hover:text-indigo-500 transition-colors">
-                          View full city guide →
-                        </p>
-                      </div>
+                    {/* Gradient Background (fallback if no image) */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+
+                    {/* Content */}
+                    <div className="absolute inset-0 p-4 flex flex-col justify-end">
+                      <h3 className="text-xl font-bold text-white mb-1">{city.name}</h3>
+                      <p className="text-slate-300 text-sm">View city guide →</p>
                     </div>
                   </a>
                 );
