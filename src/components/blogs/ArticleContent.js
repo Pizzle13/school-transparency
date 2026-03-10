@@ -199,6 +199,41 @@ export default function ArticleContent({ article, relatedArticles = [] }) {
           </div>
         )}
 
+        {/* Related Cities Section */}
+        {article.relatedCities && article.relatedCities.length > 0 && (
+          <div className="mt-16 pt-8 border-t border-gray-200">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              Explore Related Cities
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {article.relatedCities.map((city) => {
+                if (!city) return null;
+                return (
+                  <a
+                    key={city.slug}
+                    href={city.url}
+                    className="group block bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-blue-100 hover:border-indigo-300 p-6"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                        {city.name.charAt(0)}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-lg font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors truncate">
+                          {city.name}
+                        </h3>
+                        <p className="text-sm text-gray-600 group-hover:text-indigo-500 transition-colors">
+                          View full city guide →
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
         {/* Sources Section */}
         {article.sources && article.sources.length > 0 && (
           <div className="mt-20 pt-12 border-t-2 border-gradient">
