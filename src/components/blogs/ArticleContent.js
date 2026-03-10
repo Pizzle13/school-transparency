@@ -214,8 +214,15 @@ export default function ArticleContent({ article, relatedArticles = [] }) {
                     href={city.url}
                     className="relative h-[220px] rounded-2xl overflow-hidden group cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl block"
                   >
-                    {/* Gradient Background (fallback if no image) */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+                    {/* Background Image or Gradient */}
+                    {city.image ? (
+                      <div
+                        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        style={{ backgroundImage: `url(${city.image})` }}
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+                    )}
 
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
