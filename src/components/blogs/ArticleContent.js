@@ -1,7 +1,5 @@
 'use client';
 
-import articlesData from '../../../public/data/articles.json';
-
 // Explicit category styling to ensure Tailwind includes all classes
 const getCategoryStyles = (category) => {
   const styles = {
@@ -22,7 +20,7 @@ const getCategoryStyles = (category) => {
   return styles[category] || styles['Uncategorized'];
 };
 
-export default function ArticleContent({ article }) {
+export default function ArticleContent({ article, relatedArticles = [] }) {
   const styles = getCategoryStyles(article.category);
 
   // Remove the old references/sources section from the HTML content
@@ -158,19 +156,18 @@ export default function ArticleContent({ article }) {
         </div>
 
         {/* Related Articles Section */}
-        {article.relatedArticles && article.relatedArticles.length > 0 && (
+        {relatedArticles && relatedArticles.length > 0 && (
           <div className="mt-16 pt-8 border-t border-gray-200">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Related Articles
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {article.relatedArticles.map((slug) => {
-                const relatedArticle = articlesData.articles.find(a => a.slug === slug);
+              {relatedArticles.map((relatedArticle) => {
                 if (!relatedArticle) return null;
                 return (
                   <a
-                    key={slug}
-                    href={`/blog/${slug}`}
+                    key={relatedArticle.slug}
+                    href={`/blog/${relatedArticle.slug}`}
                     className="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
                   >
                     <div className="aspect-video relative overflow-hidden">
