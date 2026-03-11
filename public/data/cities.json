@@ -113,14 +113,7 @@
       "id": "cairo",
       "name": "Cairo",
       "country": "Egypt",
-      "slug": "cairo",
-      "image": "https://images.unsplash.com/photo-1572928915307-cf1ee4c007db?w=800",
-      "stats": {
-        "avgSalary": "$40,000 - $41,000",
-        "costOfLiving": "Low",
-        "schoolCount": 8,
-        "sentiment": "Positive"
-      }
+      "slug": "cairo"
     }
   ]
 }
