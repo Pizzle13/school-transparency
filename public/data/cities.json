@@ -29,6 +29,19 @@
       "comingSoon": true
     },
     {
+      "id": "chiang-mai",
+      "name": "Chiang Mai",
+      "country": "Thailand",
+      "slug": "chiang-mai",
+      "image": "https://images.unsplash.com/photo-1513296314573-7065061dd88d?w=800",
+      "stats": {
+        "avgSalary": "N/A",
+        "costOfLiving": "N/A",
+        "schoolCount": 0,
+        "sentiment": "N/A"
+      }
+    },
+    {
       "id": "singapore",
       "name": "Singapore",
       "country": "Singapore",
@@ -41,6 +54,45 @@
         "sentiment": "Positive"
       },
       "comingSoon": true
+    },
+    {
+      "id": "phnom-penh",
+      "name": "Phnom Penh",
+      "country": "Cambodia",
+      "slug": "phnom-penh",
+      "image": "https://images.unsplash.com/photo-1639805855077-c7978ecd2214?w=800",
+      "stats": {
+        "avgSalary": "N/A",
+        "costOfLiving": "N/A",
+        "schoolCount": 0,
+        "sentiment": "N/A"
+      }
+    },
+    {
+      "id": "kuala-lumpur",
+      "name": "Kuala Lumpur",
+      "country": "Malaysia",
+      "slug": "kuala-lumpur",
+      "image": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800",
+      "stats": {
+        "avgSalary": "N/A",
+        "costOfLiving": "N/A",
+        "schoolCount": 0,
+        "sentiment": "N/A"
+      }
+    },
+    {
+      "id": "abu-dhabi",
+      "name": "Abu Dhabi",
+      "country": "United Arab Emirates",
+      "slug": "abu-dhabi",
+      "image": "https://images.unsplash.com/photo-1603565095944-2a6f33bb517c?w=800",
+      "stats": {
+        "avgSalary": "N/A",
+        "costOfLiving": "N/A",
+        "schoolCount": 0,
+        "sentiment": "N/A"
+      }
     },
     {
       "id": "ho-chi-minh-city",
@@ -114,7 +166,13 @@
       "name": "Cairo",
       "country": "Egypt",
       "slug": "cairo",
-      "image": "https://images.unsplash.com/photo-1572928915307-cf1ee4c007db?w=800"
+      "image": "https://images.unsplash.com/photo-1539768942893-daf53e448371?w=800",
+      "stats": {
+        "avgSalary": "N/A",
+        "costOfLiving": "N/A",
+        "schoolCount": 0,
+        "sentiment": "N/A"
+      }
     }
   ]
 }
