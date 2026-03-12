@@ -179,7 +179,7 @@
       "name": "Taipei",
       "country": "Taiwan",
       "slug": "taipei",
-      "image": "https://images.unsplash.com/photos/phjpsNFw6pM?w=800&q=80",
+      "image": "https://unsplash.com/photos/phjpsNFw6pM/download?w=800",
       "stats": {
         "avgSalary": "$32,000 - $48,000",
         "costOfLiving": "Medium",
@@ -192,7 +192,7 @@
       "name": "Bangalore",
       "country": "India",
       "slug": "bangalore",
-      "image": "https://images.unsplash.com/photos/ky1d-IWCBis?w=800&q=80",
+      "image": "https://unsplash.com/photos/ky1d-IWCBis/download?w=800",
       "stats": {
         "avgSalary": "$28,000 - $42,000",
         "costOfLiving": "Low",
