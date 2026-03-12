@@ -15,8 +15,8 @@ const FALLBACK_IMAGES = {
   'abu-dhabi': 'https://images.unsplash.com/photo-1603565095944-2a6f33bb517c?w=1600&q=80',
   'mumbai': 'https://images.unsplash.com/photo-1753806390462-580d7a625f76?w=1600&q=80',
   'cairo': 'https://images.unsplash.com/photo-1539768942893-daf53e448371?w=1600&q=80',
-  'taipei': 'https://images.unsplash.com/photo-1519452575417-564c1401ecc0?w=1600&q=80',
-  'bangalore': 'https://images.unsplash.com/photo-1571619911573-3b9d6e9c0f3d?w=1600&q=80',
+  'taipei': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80',
+  'bangalore': 'https://images.unsplash.com/photo-1568602471122-7832951cc28f?w=1600&q=80',
 };
 
 // Critical data needed for initial page render (above the fold)
