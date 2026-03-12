@@ -173,6 +173,32 @@
         "schoolCount": 0,
         "sentiment": "N/A"
       }
+    },
+    {
+      "id": "taipei",
+      "name": "Taipei",
+      "country": "Taiwan",
+      "slug": "taipei",
+      "image": "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?w=800",
+      "stats": {
+        "avgSalary": "$32,000 - $48,000",
+        "costOfLiving": "Medium",
+        "schoolCount": 12,
+        "sentiment": "Positive"
+      }
+    },
+    {
+      "id": "bangalore",
+      "name": "Bangalore",
+      "country": "India",
+      "slug": "bangalore",
+      "image": "https://images.unsplash.com/photo-1571619911573-3b9d6e9c0f3d?w=800",
+      "stats": {
+        "avgSalary": "$28,000 - $42,000",
+        "costOfLiving": "Low",
+        "schoolCount": 5,
+        "sentiment": "Positive"
+      }
     }
   ]
 }
