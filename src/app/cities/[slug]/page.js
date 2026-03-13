@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { getCriticalCityData } from '../../../lib/data/city-queries';
+import { getCriticalCityData, getRelatedArticlesForCity } from '../../../lib/data/city-queries';
 import CityHero from '../../../components/cities/CityHero';
 import SalaryAnalysis from '../../../components/cities/SalaryAnalysis';
 import SchoolSection from '../../../components/cities/SchoolSection';
@@ -13,6 +13,7 @@ import HealthcareSection from '../../../components/cities/HealthcareSection';
 import PetImportSection from '../../../components/cities/PetImportSection';
 import RecentNewsSection from '../../../components/cities/RecentNewsSection';
 import LocalIntelSection from '../../../components/cities/LocalIntelSection';
+import RelatedArticlesSection from '../../../components/cities/RelatedArticlesSection';
 
 export const revalidate = 600;
 
@@ -104,6 +105,12 @@ export default async function CityPage({ params }) {
       <PetImportSection petImport={secondaryData.pet_import?.[0]} />
       <RecentNewsSection news={secondaryData.city_news} />
       <LocalIntelSection intelData={secondaryData.local_intel_data} cityId={city.id} cityName={city.name} />
+
+      {/* Related Articles Section */}
+      <RelatedArticlesSection
+        articles={getRelatedArticlesForCity(city.slug)}
+        cityName={city.name}
+      />
 
       {/* Schema.org JSON-LD for city data */}
       <script

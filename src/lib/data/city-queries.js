@@ -177,3 +177,27 @@ export async function getCitiesListing() {
     };
   });
 }
+
+// Get related blog articles for a city
+// Reads articles-index.json and filters by city slug, returns top 3 most recent
+export function getRelatedArticlesForCity(citySlug) {
+  try {
+    const fs = require('fs');
+    const path = require('path');
+
+    // Read articles index from filesystem
+    const indexPath = path.join(process.cwd(), 'public/data/articles-index.json');
+    const articlesIndex = JSON.parse(fs.readFileSync(indexPath, 'utf-8'));
+
+    // Filter articles by city slug
+    const relatedArticles = articlesIndex
+      .filter(article => article.cities && article.cities.includes(citySlug))
+      .sort((a, b) => new Date(b.publishedDate) - new Date(a.publishedDate))
+      .slice(0, 3);
+
+    return relatedArticles;
+  } catch (error) {
+    console.warn(`Error loading related articles for city ${citySlug}:`, error.message);
+    return [];
+  }
+}

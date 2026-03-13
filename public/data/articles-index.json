@@ -8,7 +8,8 @@
     "publishedDate": "2026-03-10",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@micheile?utm_source=school_transparency&utm_medium=referral\">Micheile</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@micheile?utm_source=school_transparency&utm_medium=referral\">Micheile</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "kuala-lumpur-cost-of-living-teachers-2026",
@@ -19,7 +20,10 @@
     "publishedDate": "2026-03-10",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1561380882-16fcf2e4a84e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxLdWFsYSUyMEx1bXB1ciUyMENvc3QlMjBMaXZpbmd8ZW58MHx8fHwxNzczMTI3OTA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@peonyb?utm_source=school_transparency&utm_medium=referral\">Peony Beatrice</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@peonyb?utm_source=school_transparency&utm_medium=referral\">Peony Beatrice</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": [
+      "kuala-lumpur"
+    ]
   },
   {
     "slug": "singapore-work-visa-requirements-for-teachers-2026",
@@ -30,7 +34,10 @@
     "publishedDate": "2026-03-07",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1667895725233-b766d6626e64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBTaW5nYXBvcmUlMjBXb3JrJTIwVmlzYSUyMFJlcXVpcmVtZW50c3xlbnwwfHx8fDE3NzMxMjM2ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@mia_dj?utm_source=school_transparency&utm_medium=referral\">Mia de Jesus</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@mia_dj?utm_source=school_transparency&utm_medium=referral\">Mia de Jesus</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": [
+      "singapore"
+    ]
   },
   {
     "slug": "hanoi-vs-ho-chi-minh-city-housing-costs-for-international-teachers",
@@ -41,7 +48,11 @@
     "publishedDate": "2026-03-07",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1687584636319-ffdd994fd65d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxIYW5vaSUyMENoaSUyME1pbmglMjBDaXR5JTNBfGVufDB8fHx8MTc3Mjg4MDYyMnww&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@benkoorengevel?utm_source=school_transparency&utm_medium=referral\">Ben Koorengevel</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@benkoorengevel?utm_source=school_transparency&utm_medium=referral\">Ben Koorengevel</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": [
+      "hanoi",
+      "ho-chi-minh-city"
+    ]
   },
   {
     "slug": "does-cambridge-delta-certification-increase-salary-at-british-international-schools",
@@ -52,7 +63,8 @@
     "publishedDate": "2026-03-07",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1739804753925-b7ca3328379f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBDYW1icmlkZ2UlMjBERUxUQSUyMENlcnRpZmljYXRpb24lMjBJbmNyZWFzZXxlbnwwfHx8fDE3NzI4NzUzMTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@balmy_sunset?utm_source=school_transparency&utm_medium=referral\">Grant Sams</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@balmy_sunset?utm_source=school_transparency&utm_medium=referral\">Grant Sams</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "best-international-money-transfer-services-for-teachers-wise-vs-western-union-vs-others",
@@ -63,7 +75,8 @@
     "publishedDate": "2026-03-06",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1584792264192-dd873d389386?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBJbnRlcm5hdGlvbmFsJTIwTW9uZXklMjBUcmFuc2ZlciUyMFNlcnZpY2VzfGVufDB8fHx8MTc3Mjc4NjAxM3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@arnosenoner?utm_source=school_transparency&utm_medium=referral\">Arno Senoner</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@arnosenoner?utm_source=school_transparency&utm_medium=referral\">Arno Senoner</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "your-school-says-it-covers-emergency-repatriation-read-your-policy",
@@ -74,7 +87,8 @@
     "publishedDate": "2026-03-02",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1532883130016-f3d311140ba8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxTY2hvb2wlMjBTYXlzJTIwQ292ZXJzJTIwRW1lcmdlbmN5fGVufDB8fHx8MTc3MjQyOTg3Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@ninjason?utm_source=school_transparency&utm_medium=referral\">Jason Leung</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@ninjason?utm_source=school_transparency&utm_medium=referral\">Jason Leung</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "it-s-march-and-you-re-still-without-a-job-the-hard-truths-about-hiring-season",
@@ -85,7 +99,8 @@
     "publishedDate": "2026-03-02",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1582654166228-3910456cfc10?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBJdCUyN3MlMjBNYXJjaCUyMFlvdSUyN3JlJTIwU3RpbGx8ZW58MHx8fHwxNzcyNDI3ODY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@glencarrie?utm_source=school_transparency&utm_medium=referral\">Glen Carrie</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@glencarrie?utm_source=school_transparency&utm_medium=referral\">Glen Carrie</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "what-happens-to-your-contract-if-your-school-closes-during-a-crisis",
@@ -96,7 +111,8 @@
     "publishedDate": "2026-03-01",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@homajob?utm_source=school_transparency&utm_medium=referral\">Scott Graham</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@homajob?utm_source=school_transparency&utm_medium=referral\">Scott Graham</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "what-happens-to-your-contract-if-your-school-closes-during-a-geopolitical-crisis",
@@ -107,7 +123,8 @@
     "publishedDate": "2026-03-01",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@homajob?utm_source=school_transparency&utm_medium=referral\">Scott Graham</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@homajob?utm_source=school_transparency&utm_medium=referral\">Scott Graham</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "should-i-pursue-ib-certification-or-masters-degree-first-as-expat-teacher-abroad",
@@ -118,7 +135,8 @@
     "publishedDate": "2026-03-01",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1659080907100-23f0dac0fe27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxwdXJzdWUlMjBjZXJ0aWZpY2F0aW9uJTIwbWFzdGVycyUyMGRlZ3JlZXxlbnwwfHx8fDE3NzIzNDk3MzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@fotospk?utm_source=school_transparency&utm_medium=referral\">Fotos</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@fotospk?utm_source=school_transparency&utm_medium=referral\">Fotos</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "what-happens-if-my-international-school-doesn-t-renew-my-contract-during-probationary-period",
@@ -129,7 +147,8 @@
     "publishedDate": "2026-02-26",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@homajob?utm_source=school_transparency&utm_medium=referral\">Scott Graham</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@homajob?utm_source=school_transparency&utm_medium=referral\">Scott Graham</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "what-happens-if-my-international-school-doesn-t-renew-my-visa-on-time",
@@ -140,7 +159,8 @@
     "publishedDate": "2026-02-25",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1200",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@lucabravo?utm_source=school_transparency&utm_medium=referral\">Luca Bravo</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@lucabravo?utm_source=school_transparency&utm_medium=referral\">Luca Bravo</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "economic-stability-for-international-teachers-working-in-colombia-vs-chile-2025",
@@ -151,7 +171,8 @@
     "publishedDate": "2026-02-25",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1709054172839-17880c040f22?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlY29ub21pYyUyMHN0YWJpbGl0eSUyMGludGVybmF0aW9uYWwlMjB0ZWFjaGVyc3xlbnwwfHx8fDE3NzIwMzY4MzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@i_am_not_a_robot?utm_source=school_transparency&utm_medium=referral\">Matthew Kirk</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@i_am_not_a_robot?utm_source=school_transparency&utm_medium=referral\">Matthew Kirk</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "classroom-etiquette-that-catches-western-teachers-off-guard-in-east-asia",
@@ -162,7 +183,8 @@
     "publishedDate": "2026-02-21",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@helenalopez?utm_source=school_transparency&utm_medium=referral\">Helena Lopes</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@helenalopez?utm_source=school_transparency&utm_medium=referral\">Helena Lopes</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "finland-went-all-in-on-classroom-screens-now-it-s-going-back-to-books",
@@ -173,7 +195,8 @@
     "publishedDate": "2026-02-21",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1695514811061-7895bd5411e0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxGaW5sYW5kJTIwV2VudCUyMEFsbCUyMENsYXNzcm9vbXxlbnwwfHx8fDE3NzE2NTQ4MjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@eiskonen?utm_source=school_transparency&utm_medium=referral\">Hans Eiskonen</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@eiskonen?utm_source=school_transparency&utm_medium=referral\">Hans Eiskonen</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "how-will-new-ib-curriculum-updates-affect-teacher-workload-in-international-schools",
@@ -184,7 +207,8 @@
     "publishedDate": "2026-02-20",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1708852519717-55b7fffd2893?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxuZXclMjBjdXJyaWN1bHVtJTIwdXBkYXRlcyUyMGFmZmVjdHxlbnwwfHx8fDE3NzE1OTE5MTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@magictravel?utm_source=school_transparency&utm_medium=referral\">- Landsmann -</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@magictravel?utm_source=school_transparency&utm_medium=referral\">- Landsmann -</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "how-much-should-experienced-ib-teachers-expect-to-save-annually-in-qatar-vs-kuwait",
@@ -195,7 +219,8 @@
     "publishedDate": "2026-02-18",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1740818576337-774016913c01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxtdWNoJTIwZXhwZXJpZW5jZWQlMjB0ZWFjaGVycyUyMGV4cGVjdHxlbnwwfHx8fDE3NzEzOTM4ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@markuswinkler?utm_source=school_transparency&utm_medium=referral\">Markus Winkler</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@markuswinkler?utm_source=school_transparency&utm_medium=referral\">Markus Winkler</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "weekend-travel-opportunities-within-four-hours-of-yerevan-armenia-for-teachers",
@@ -206,7 +231,8 @@
     "publishedDate": "2026-02-17",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1673515335086-c762bbd7a7cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHx3ZWVrZW5kJTIwdHJhdmVsJTIwb3Bwb3J0dW5pdGllcyUyMHdpdGhpbnxlbnwwfHx8fDE3NzEzMjI0NjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@lingapp?utm_source=school_transparency&utm_medium=referral\">Ling App</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@lingapp?utm_source=school_transparency&utm_medium=referral\">Ling App</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "cost-of-recreational-activities-and-gym-memberships-for-teachers-in-dhaka-bangladesh",
@@ -217,7 +243,8 @@
     "publishedDate": "2026-02-17",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1579854602908-ce7e7c29f4fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxjb3N0JTIwcmVjcmVhdGlvbmFsJTIwYWN0aXZpdGllcyUyMGd5bXxlbnwwfHx8fDE3NzEzMTk2MTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@febrianzakaria?utm_source=school_transparency&utm_medium=referral\">Febrian Zakaria</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@febrianzakaria?utm_source=school_transparency&utm_medium=referral\">Febrian Zakaria</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "social-life-for-international-teachers-in-tbilisi-georgia-pros-and-cons",
@@ -228,7 +255,8 @@
     "publishedDate": "2026-02-16",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@jareddrice?utm_source=school_transparency&utm_medium=referral\">Jared Rice</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@jareddrice?utm_source=school_transparency&utm_medium=referral\">Jared Rice</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "how-does-jamaica-s-economic-growth-impact-international-school-teacher-benefits",
@@ -239,7 +267,8 @@
     "publishedDate": "2026-02-15",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1659416071137-1b0e73ce261f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxKYW1haWNhJTI3cyUyMEVjb25vbWljJTIwR3Jvd3RoJTIwSW1wYWN0fGVufDB8fHx8MTc3MTE2MjcxN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@kemoibrown?utm_source=school_transparency&utm_medium=referral\">Kemoi Brown</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@kemoibrown?utm_source=school_transparency&utm_medium=referral\">Kemoi Brown</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "is-kenya-s-gdp-growth-creating-more-international-school-jobs-in-nairobi",
@@ -250,7 +279,8 @@
     "publishedDate": "2026-02-14",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1611144727915-ef30a08aaeb3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxLZW55YSUyN3MlMjBHRFAlMjBHcm93dGglMjBDcmVhdGluZ3xlbnwwfHx8fDE3NzEwNjM4MjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@joecalih?utm_source=school_transparency&utm_medium=referral\">Joecalih</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@joecalih?utm_source=school_transparency&utm_medium=referral\">Joecalih</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "should-international-teachers-worry-about-recession-when-moving-to-brazil",
@@ -261,7 +291,8 @@
     "publishedDate": "2026-02-14",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1709054172839-17880c040f22?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxJbnRlcm5hdGlvbmFsJTIwVGVhY2hlcnMlMjBXb3JyeSUyMFJlY2Vzc2lvbnxlbnwwfHx8fDE3NzEwNjMxOTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@i_am_not_a_robot?utm_source=school_transparency&utm_medium=referral\">Matthew Kirk</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@i_am_not_a_robot?utm_source=school_transparency&utm_medium=referral\">Matthew Kirk</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "average-utility-bills-for-teachers-renting-studio-apartments-in-shanghai-china",
@@ -272,7 +303,8 @@
     "publishedDate": "2026-02-14",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1547938094-b000547cbeb9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxBdmVyYWdlJTIwdXRpbGl0eSUyMGJpbGxzJTIwdGVhY2hlcnN8ZW58MHx8fHwxNzcxMDYwMjc4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@teracomp?utm_source=school_transparency&utm_medium=referral\">Dave Phillips</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@teracomp?utm_source=school_transparency&utm_medium=referral\">Dave Phillips</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "common-red-flags-to-avoid-when-interviewing-with-international-schools-remotely",
@@ -283,7 +315,8 @@
     "publishedDate": "2026-02-14",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1648665663565-e5042ae38005?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxjb21tb24lMjByZWQlMjBmbGFncyUyMGF2b2lkfGVufDB8fHx8MTc3MTA1NTY5OXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@str3ss?utm_source=school_transparency&utm_medium=referral\">Marc Stress</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@str3ss?utm_source=school_transparency&utm_medium=referral\">Marc Stress</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "how-to-write-an-international-teaching-cv-that-actually-gets-callbacks",
@@ -294,7 +327,8 @@
     "publishedDate": "2026-02-14",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1601742638130-f76cbe00ad01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHx3cml0ZSUyMGludGVybmF0aW9uYWwlMjB0ZWFjaGluZyUyMGFjdHVhbGx5fGVufDB8fHx8MTc3MTA0NTYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@metelevan?utm_source=school_transparency&utm_medium=referral\">Andrey Metelev</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@metelevan?utm_source=school_transparency&utm_medium=referral\">Andrey Metelev</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "how-to-get-hired-at-an-international-school",
@@ -305,7 +339,8 @@
     "publishedDate": "2026-02-13",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1200",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@vantaymedia?utm_source=school_transparency&utm_medium=referral\">Van Tay Media</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@vantaymedia?utm_source=school_transparency&utm_medium=referral\">Van Tay Media</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "overcoming-classroom-management-language-barriers-for-native-english-teachers-in-china",
@@ -316,7 +351,8 @@
     "publishedDate": "2026-02-11",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1690192435015-319c1d5065b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxPdmVyY29taW5nJTIwY2xhc3Nyb29tJTIwbWFuYWdlbWVudCUyMGxhbmd1YWdlfGVufDB8fHx8MTc3MDc4ODE5Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@walls_io?utm_source=school_transparency&utm_medium=referral\">Walls.io</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@walls_io?utm_source=school_transparency&utm_medium=referral\">Walls.io</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "what-happens-if-i-get-sick-during-probation-period-at-international-schools-in-asia",
@@ -327,7 +363,8 @@
     "publishedDate": "2026-02-11",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@homajob?utm_source=school_transparency&utm_medium=referral\">Scott Graham</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@homajob?utm_source=school_transparency&utm_medium=referral\">Scott Graham</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "timeline-for-applying-to-search-associates-vs-iss-recruiting-fairs-for-august-2026-positions",
@@ -338,7 +375,8 @@
     "publishedDate": "2026-02-10",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1599319980787-d850b3c8f9b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBUaW1lbGluZSUyMGFwcGx5aW5nJTIwU2VhcmNoJTIwQXNzb2NpYXRlc3xlbnwwfHx8fDE3NzA3MjIyNTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@vinceveras?utm_source=school_transparency&utm_medium=referral\">Vince Veras</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@vinceveras?utm_source=school_transparency&utm_medium=referral\">Vince Veras</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "the-global-phone-ban-wave-and-what-it-means-for-international-school-teachers",
@@ -349,7 +387,8 @@
     "publishedDate": "2026-02-10",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1698429770468-6535b4e2f44d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxnbG9iYWwlMjBwaG9uZSUyMGJhbiUyMHdhdmV8ZW58MHx8fHwxNzcwNzA0MzYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@neocody?utm_source=school_transparency&utm_medium=referral\">Cody McLain</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@neocody?utm_source=school_transparency&utm_medium=referral\">Cody McLain</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": []
   },
   {
     "slug": "how-much-should-international-teachers-budget-for-groceries-and-dining-in-bangkok-thailand-2025",
@@ -360,7 +399,10 @@
     "publishedDate": "2026-02-10",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1709054172839-17880c040f22?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxtdWNoJTIwaW50ZXJuYXRpb25hbCUyMHRlYWNoZXJzJTIwYnVkZ2V0fGVufDB8fHx8MTc3MDcwMjMwMnww&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": "Photo by <a href=\"https://unsplash.com/@i_am_not_a_robot?utm_source=school_transparency&utm_medium=referral\">Matthew Kirk</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>"
+    "imageCredit": "Photo by <a href=\"https://unsplash.com/@i_am_not_a_robot?utm_source=school_transparency&utm_medium=referral\">Matthew Kirk</a> on <a href=\"https://unsplash.com?utm_source=school_transparency&utm_medium=referral\">Unsplash</a>",
+    "cities": [
+      "bangkok"
+    ]
   },
   {
     "slug": "which-middle-east-countries-offer-the-best-retirement-benefits-for-long-term-expat-teachers",
@@ -371,7 +413,8 @@
     "publishedDate": "2026-02-08",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1719159381916-062fa9f435a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBlZHVjYXRpb24lMjBNaWRkbGUlMjBFYXN0JTIwY291bnRyaWVzJTIwb2ZmZXJ8ZW58MHx8fHwxNzcwNTUyNjc1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "emergency-repatriation-coverage-differences-between-top-tier-and-budget-international-schools-in-thailand",
@@ -382,7 +425,8 @@
     "publishedDate": "2026-02-07",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "understanding-international-school-ownership-what-the-job-posting-won-t-tell-you",
@@ -393,7 +437,8 @@
     "publishedDate": "2026-02-06",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1709054172839-17880c040f22?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBVbmRlcnN0YW5kaW5nJTIwSW50ZXJuYXRpb25hbCUyMFNjaG9vbCUyME93bmVyc2hpcCUzQXxlbnwwfHx8fDE3NzAzNTE4NDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "how-to-assess-political-stability-risks-before-accepting-teaching-contract-in-myanmar",
@@ -404,7 +449,8 @@
     "publishedDate": "2026-02-06",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1701355201371-fe26bc41f095?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBhc3Nlc3MlMjBwb2xpdGljYWwlMjBzdGFiaWxpdHklMjByaXNrc3xlbnwwfHx8fDE3NzAyODk3MDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "new-work-permit-regulations-for-foreign-teachers-in-uae-and-qatar-2024",
@@ -415,7 +461,10 @@
     "publishedDate": "2026-02-06",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1545377079-08d414f11a5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBOZXclMjB3b3JrJTIwcGVybWl0JTIwcmVndWxhdGlvbnN8ZW58MHx8fHwxNzcwMjg4MjUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": [
+      "dubai"
+    ]
   },
   {
     "slug": "should-new-international-teachers-join-local-teaching-associations-or-global-expat-groups",
@@ -426,7 +475,8 @@
     "publishedDate": "2026-02-06",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1709054172839-17880c040f22?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBuZXclMjBpbnRlcm5hdGlvbmFsJTIwdGVhY2hlcnMlMjBqb2lufGVufDB8fHx8MTc3MDI4ODIyMHww&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "due-diligence-guide-for-first-time-international-teachers",
@@ -437,7 +487,8 @@
     "publishedDate": "2026-02-06",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1544776193-352d25ca82cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBEdWUlMjBkaWxpZ2VuY2UlMjBndWlkZSUyMGZpcnN0fGVufDB8fHx8MTc3MDM1MTY5Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "how-does-inflation-in-dubai-affect-international-teacher-salary-purchasing-power-2024",
@@ -448,7 +499,10 @@
     "publishedDate": "2026-02-05",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1768463852105-2a373807af52?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBpbmZsYXRpb24lMjBEdWJhaSUyMGFmZmVjdCUyMGludGVybmF0aW9uYWx8ZW58MHx8fHwxNzcwMjg5OTM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": [
+      "dubai"
+    ]
   },
   {
     "slug": "how-do-veteran-teachers-rate-teaching-conditions-at-ib-schools-in-hong-kong",
@@ -459,7 +513,8 @@
     "publishedDate": "2026-01-31",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1740818576337-774016913c01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjB2ZXRlcmFuJTIwdGVhY2hlcnMlMjByYXRlJTIwdGVhY2hpbmd8ZW58MHx8fHwxNzY5ODczOTMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "should-i-choose-high-paying-schools-in-uae-or-work-life-balance-schools-in-vietnam",
@@ -470,7 +525,12 @@
     "publishedDate": "2026-01-31",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": [
+      "dubai",
+      "hanoi",
+      "ho-chi-minh-city"
+    ]
   },
   {
     "slug": "should-american-teachers-avoid-certain-neighborhoods-when-house-hunting-in-jakarta-indonesia",
@@ -481,7 +541,8 @@
     "publishedDate": "2026-01-31",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1508768088800-43c68b8ea271?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBBbWVyaWNhbiUyMHRlYWNoZXJzJTIwYXZvaWQlMjBjZXJ0YWlufGVufDB8fHx8MTc2OTg3MzQ3NXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "how-to-verify-legitimate-international-school-accreditation-before-signing-contract-in-vietnam",
@@ -492,7 +553,11 @@
     "publishedDate": "2026-01-31",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1727553957752-bca64c93249e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjB2ZXJpZnklMjBsZWdpdGltYXRlJTIwaW50ZXJuYXRpb25hbCUyMHNjaG9vbHxlbnwwfHx8fDE3Njk4NzM0NTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": [
+      "hanoi",
+      "ho-chi-minh-city"
+    ]
   },
   {
     "slug": "what-red-flags-should-american-teachers-avoid-in-uae-private-school-contracts",
@@ -503,7 +568,10 @@
     "publishedDate": "2026-01-30",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1508768088800-43c68b8ea271?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjByZWQlMjBmbGFncyUyMEFtZXJpY2FuJTIwdGVhY2hlcnN8ZW58MHx8fHwxNzY5NzQ5NjU3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": [
+      "dubai"
+    ]
   },
   {
     "slug": "should-i-accept-a-position-with-high-principal-turnover-at-dubai-international-schools",
@@ -514,7 +582,10 @@
     "publishedDate": "2026-01-29",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1709290749293-c6152a187b14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBlZHVjYXRpb24lMjBhY2NlcHQlMjBwb3NpdGlvbiUyMGhpZ2glMjBwcmluY2lwYWx8ZW58MHx8fHwxNzY5NzAzOTE3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": [
+      "dubai"
+    ]
   },
   {
     "slug": "what-questions-should-i-ask-about-workplace-culture-at-ib-schools-in-asia",
@@ -525,7 +596,8 @@
     "publishedDate": "2026-01-29",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1758691736097-7f735ac5f118?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBxdWVzdGlvbnMlMjBhc2slMjB3b3JrcGxhY2UlMjBjdWx0dXJlfGVufDB8fHx8MTc2OTcwMjY0Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "how-to-navigate-workplace-friendships-with-local-staff-versus-international-teachers-in-china",
@@ -536,7 +608,8 @@
     "publishedDate": "2026-01-29",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1583940719184-ab24ea83ca85?w=1200",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "should-i-join-local-sports-clubs-or-expat-groups-for-socializing-in-singapore-as-new-teacher",
@@ -547,7 +620,10 @@
     "publishedDate": "2026-01-29",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1677221264238-670d0b2e4e6c?w=1200",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": [
+      "singapore"
+    ]
   },
   {
     "slug": "what-are-best-ways-to-meet-other-expat-families-with-children-in-bangkok-international-schools",
@@ -558,7 +634,10 @@
     "publishedDate": "2026-01-29",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1565065984462-ba608fda9ae1?w=1200",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": [
+      "bangkok"
+    ]
   },
   {
     "slug": "which-middle-east-countries-offer-best-teacher-compensation-packages-including-flight-allowances",
@@ -569,7 +648,8 @@
     "publishedDate": "2026-01-29",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1768069794857-9306ac167c6e?w=1200",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "how-do-retirement-savings-options-compare-for-american-teachers-in-china-vs-singapore",
@@ -580,7 +660,10 @@
     "publishedDate": "2026-01-25",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1742160859588-eab4d22f0d61?w=1200",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": [
+      "singapore"
+    ]
   },
   {
     "slug": "should-i-accept-lower-salary-with-housing-allowance-or-higher-base-pay-in-bangkok",
@@ -591,7 +674,10 @@
     "publishedDate": "2026-01-25",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1590309520593-75ea944eea2d?w=1200",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": [
+      "bangkok"
+    ]
   },
   {
     "slug": "how-much-can-single-teachers-save-annually-teaching-in-uae-vs-qatar-2024",
@@ -602,7 +688,10 @@
     "publishedDate": "2026-01-25",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1659080927204-de39f5fdfb02?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBtdWNoJTIwY2FuJTIwc2luZ2xlfGVufDB8fHx8MTc2OTM0Nzc5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": [
+      "dubai"
+    ]
   },
   {
     "slug": "how-does-teaching-experience-in-china-count-toward-canadian-immigration-points-system",
@@ -613,7 +702,8 @@
     "publishedDate": "2026-01-25",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1657976155124-1b6e28416f46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjB0ZWFjaGluZyUyMGV4cGVyaWVuY2UlMjBDaGluYXxlbnwwfHx8fDE3NjkzNDcyNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "what-are-pension-contribution-requirements-for-uk-teachers-working-in-international-schools",
@@ -624,7 +714,8 @@
     "publishedDate": "2026-01-24",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1559118053-195a11927d56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBXaGF0JTIwYXJlfGVufDB8fHx8MTc2OTIzMjI1MHww&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "can-american-teachers-qualify-for-australian-skilled-migration-visa-after-teaching-there",
@@ -635,7 +726,8 @@
     "publishedDate": "2026-01-24",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1622988913335-7ebb6137d5e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBDYW4lMjBBbWVyaWNhbiUyMHRlYWNoZXJzJTIwcXVhbGlmeSUyMGZvciUyMEF1c3RyYWxpYW4lMjBza2lsbGVkJTIwbWlncmF0aW9uJTIwdmlzYSUyMGFmdGVyJTIwdGVhY2hpbmclMjB0aGVyZSUzRnxlbnwwfHx8fDE3NjkyMzE5MTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "how-long-does-permanent-residency-take-for-international-teachers-in-singapore",
@@ -646,7 +738,10 @@
     "publishedDate": "2026-01-24",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1595336012842-512cf433b4ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBIb3clMjBsb25nJTIwZG9lcyUyMHBlcm1hbmVudCUyMHJlc2lkZW5jeSUyMHRha2UlMjBmb3IlMjBpbnRlcm5hdGlvbmFsJTIwdGVhY2hlcnMlMjBpbiUyMFNpbmdhcG9yZSUzRnxlbnwwfHx8fDE3NjkyMzEzNzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": [
+      "singapore"
+    ]
   },
   {
     "slug": "should-experienced-ib-teachers-use-recruiters-or-apply-directly-to-schools-in-dubai",
@@ -657,7 +752,10 @@
     "publishedDate": "2026-01-20",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1732203028847-4767bcbfff33?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBTaG91bGQlMjBleHBlcmllbmNlZCUyMElCJTIwdGVhY2hlcnMlMjB1c2UlMjByZWNydWl0ZXJzJTIwb3IlMjBhcHBseSUyMGRpcmVjdGx5JTIwdG8lMjBzY2hvb2xzJTIwaW4lMjBEdWJhaSUzRnxlbnwwfHx8fDE3Njg4OTM4NzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": [
+      "dubai"
+    ]
   },
   {
     "slug": "what-are-salary-differences-teaching-in-tokyo-vs-rural-japan",
@@ -668,7 +766,8 @@
     "publishedDate": "2026-01-20",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1692852063527-f76133b17ca9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBXaGF0JTIwYXJlJTIwc2FsYXJ5JTIwZGlmZmVyZW5jZXMlMjB0ZWFjaGluZyUyMGluJTIwVG9reW8lMjB2cyUyMHJ1cmFsJTIwSmFwYW4lM0Z8ZW58MHx8fHwxNzY4ODkxNTQ3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "how-does-inflation-affect-teacher-salaries-in-international-schools-abroad",
@@ -679,7 +778,8 @@
     "publishedDate": "2026-01-17",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "should-expat-teachers-buy-local-or-international-health-insurance-coverage",
@@ -690,7 +790,8 @@
     "publishedDate": "2026-01-16",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1601742638130-f76cbe00ad01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBTaG91bGQlMjBleHBhdCUyMHRlYWNoZXJzJTIwYnV5JTIwbG9jYWwlMjBvciUyMGludGVybmF0aW9uYWwlMjBoZWFsdGglMjBpbnN1cmFuY2UlMjBjb3ZlcmFnZSUzRnxlbnwwfHx8fDE3Njg1NDE1NjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "how-to-transfer-teacher-salary-from-abroad-without-high-fees",
@@ -701,7 +802,8 @@
     "publishedDate": "2026-01-16",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1740818576337-774016913c01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBIb3clMjB0byUyMHRyYW5zZmVyJTIwdGVhY2hlciUyMHNhbGFyeSUyMGZyb20lMjBhYnJvYWQlMjB3aXRob3V0JTIwaGlnaCUyMGZlZXMlM0Z8ZW58MHx8fHwxNzY4NTM2ODMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "how-to-find-pet-friendly-housing-as-an-international-teacher-abroad",
@@ -712,7 +814,8 @@
     "publishedDate": "2026-01-15",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1613203657226-901758651556?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBIb3clMjB0byUyMGZpbmQlMjBwZXQtZnJpZW5kbHklMjBob3VzaW5nJTIwYXMlMjBhbiUyMGludGVybmF0aW9uYWwlMjB0ZWFjaGVyJTIwYWJyb2FkJTNGfGVufDB8fHx8MTc2ODQ1OTAyOXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "how-to-find-furnished-apartments-for-international-teachers-abroad",
@@ -723,7 +826,8 @@
     "publishedDate": "2026-01-15",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1676223304004-219019e74aa0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBIb3clMjB0byUyMGZpbmQlMjBmdXJuaXNoZWQlMjBhcGFydG1lbnRzJTIwZm9yJTIwaW50ZXJuYXRpb25hbCUyMHRlYWNoZXJzJTIwYWJyb2FkJTNGfGVufDB8fHx8MTc2ODQ1ODgxNHww&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "how-to-curate-educational-resources-on-pinterest-effectively",
@@ -734,7 +838,8 @@
     "publishedDate": "2026-01-15",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1515755694157-7dc1e21f5fc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBIb3clMjB0byUyMGN1cmF0ZSUyMGVkdWNhdGlvbmFsJTIwcmVzb3VyY2VzJTIwb24lMjBQaW50ZXJlc3QlMjBlZmZlY3RpdmVseSUzRnxlbnwwfHx8fDE3Njg0NTQ5MzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "how-to-create-affirming-classroom-environments-for-students-with-disabilities",
@@ -745,7 +850,8 @@
     "publishedDate": "2026-01-15",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1577896871498-dec05865b48e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBIb3clMjB0byUyMGNyZWF0ZSUyMGFmZmlybWluZyUyMGNsYXNzcm9vbSUyMGVudmlyb25tZW50cyUyMGZvciUyMHN0dWRlbnRzJTIwd2l0aCUyMGRpc2FiaWxpdGllcyUzRnxlbnwwfHx8fDE3Njg0NTQ2OTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   },
   {
     "slug": "how-to-increase-reading-stamina-in-elementary-students",
@@ -756,6 +862,7 @@
     "publishedDate": "2026-01-15",
     "author": "School Transparency",
     "featuredImage": "https://images.unsplash.com/photo-1540151812223-c30b3fab58e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM5OTl8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBIb3clMjB0byUyMGluY3JlYXNlJTIwcmVhZGluZyUyMHN0YW1pbmElMjBpbiUyMGVsZW1lbnRhcnklMjBzdHVkZW50cyUzRnxlbnwwfHx8fDE3NjgzNzM4MzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "imageCredit": ""
+    "imageCredit": "",
+    "cities": []
   }
 ]
