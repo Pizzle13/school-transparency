@@ -351,9 +351,16 @@ export default function ArticleContent({ article, relatedArticles = [] }) {
           color: #6b7280;
         }
 
-        .article-content ul, .article-content ol {
+        .article-content ul {
           margin: 1.5rem 0;
           padding-left: 2rem;
+          list-style: disc;
+        }
+
+        .article-content ol {
+          margin: 1.5rem 0;
+          padding-left: 2rem;
+          list-style: decimal;
         }
 
         .article-content li {
