@@ -76,11 +76,16 @@ export default function CityHero({ city }) {
               <span className={`text-5xl font-bold ${
                 economic.gdp_growth > 0 ? 'text-green-400' : 'text-red-400'
               }`}>
-                {economic.gdp_growth > 0 ? '+' : ''}{economic.gdp_growth}%
+                {economic.gdp_growth > 0 ? '▲' : '▼'} {Math.abs(economic.gdp_growth)}%
               </span>
-              <span className="text-white/60 text-sm uppercase tracking-wider">
-                GDP Growth
-              </span>
+              <div className="flex flex-col">
+                <span className="text-white/60 text-sm uppercase tracking-wider">
+                  GDP Growth
+                </span>
+                <span className="text-white/40 text-xs">
+                  {economic.gdp_growth > 0 ? 'Growth' : 'Decline'}
+                </span>
+              </div>
             </div>
           )}
 
@@ -93,14 +98,19 @@ export default function CityHero({ city }) {
           {economic?.inflation && (
             <div className="flex items-baseline gap-3">
               <span className={`text-5xl font-bold ${
-                economic.inflation < 5 ? 'text-green-400' : 
+                economic.inflation < 5 ? 'text-green-400' :
                 economic.inflation < 10 ? 'text-yellow-400' : 'text-red-400'
               }`}>
                 {economic.inflation}%
               </span>
-              <span className="text-white/60 text-sm uppercase tracking-wider">
-                Inflation
-              </span>
+              <div className="flex flex-col">
+                <span className="text-white/60 text-sm uppercase tracking-wider">
+                  Inflation
+                </span>
+                <span className="text-white/40 text-xs">
+                  {economic.inflation < 5 ? 'Low' : economic.inflation < 10 ? 'Moderate' : 'High'}
+                </span>
+              </div>
             </div>
           )}
 

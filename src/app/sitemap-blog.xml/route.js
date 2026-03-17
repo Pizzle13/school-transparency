@@ -66,7 +66,7 @@ ${blogUrls}
   return new Response(xml, {
     headers: {
       'Content-Type': 'application/xml',
-      'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800',
+      'Cache-Control': 'public, s-maxage=2592000, stale-while-revalidate=604800',
     },
   });
 }

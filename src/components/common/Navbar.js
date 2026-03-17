@@ -46,6 +46,7 @@ export default function Navbar() {
           className="sm:hidden p-2 -mr-2 text-stone-600 hover:text-stone-900 transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? (
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
