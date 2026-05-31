@@ -17,6 +17,7 @@ const FALLBACK_IMAGES = {
   'cairo': 'https://images.unsplash.com/photo-1539768942893-daf53e448371?w=1600&q=80',
   'taipei': 'https://unsplash.com/photos/phjpsNFw6pM/download?w=1600',
   'bangalore': 'https://unsplash.com/photos/ky1d-IWCBis/download?w=1600',
+  'beijing': 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=1600&q=80',
 };
 
 // Critical data needed for initial page render (above the fold)

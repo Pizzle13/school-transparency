@@ -199,6 +199,13 @@
         "schoolCount": 5,
         "sentiment": "Positive"
       }
+    },
+    {
+      "id": "beijing",
+      "name": "Beijing",
+      "country": "China",
+      "slug": "beijing",
+      "image": "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800"
     }
   ]
 }
